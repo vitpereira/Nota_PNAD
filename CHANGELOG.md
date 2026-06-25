@@ -309,3 +309,108 @@ PNADC 2024 disponível em todos os quatro trimestres. Usado no projeto.
 - [ ] Implementar B4 BFA observado (V5002A da PNADC anual)
 - [ ] PNADC 2025 quando disponível
 
+
+---
+
+## 2026-06-25 — Rodada 5: reversão da janela para Q2-Q3 + experimento Spec C
+
+### Motivação
+
+Após o autor verificar que a v4 Spec A (janela t ampliada para Q2-Q4)
+caiu de 85,5% (v3) para 76,3% no EF iniciais 2019, a investigação
+revelou que adicionar Q4 ao window de t e usar max(nivel) captura
+reportes antecipados da série do próximo ano letivo, inflando
+artificialmente nivel_t e gerando aparente repetência.
+
+### v5 (PRINCIPAL): Q2-Q3 + max + V3014 + técnico + entrada
+
+Configuração:
+- Janela em t: {Q2, Q3}
+- Janela em t+1: {Q2, Q3}
+- Agregador: max(nivel) em ambas
+- Correção V3014: 3º EM regular ou 4º EM técnico concluído → promoção
+- Inclui EM técnico (V3003A=07)
+- Indicador adicional: entrada no sistema
+
+### Resultados v5 (2019)
+
+| Macroetapa | Prom | Rep | Evas | EJA | N |
+|---|---|---|---|---|---|
+| EF iniciais | **86.1%** | 11.9% | 0.4% | 0.1% | 9.986 |
+| EF finais | **81.4%** | 13.8% | 1.3% | 0.6% | 8.457 |
+| EM | **75.8%** | 15.0% | 5.9% | 0.2% | 5.446 |
+
+INEP 2019/2020 oficial:
+- EF iniciais: prom 93.5%
+- EF finais: prom 86.0%
+- EM: prom 82.7%
+
+Gap residual v5 vs INEP: EF iniciais 7pp, EF finais 5pp, EM 7pp.
+
+### Experimento Spec C (sensibilidade): min em t, max em t+1
+
+Configuração inovadora proposta pelo autor:
+- Janela em t: {Q2, Q3, Q4} com MIN(nivel)
+- Janela em t+1: {Q1, Q2, Q3, Q4} com MAX(nivel)
+
+Intuição: conservar nivel_t (min) protege contra inflação por Q4;
+expandir nivel_t1 (max em Q1-Q4) captura promoção tardia.
+
+Resultados Spec C 2019:
+- EF iniciais: prom 83.4% (n=27.315 — 3x maior amostra)
+- EF finais: prom 81.6%
+- EM: prom 75.4%
+
+**Análise do experimento:** A intuição teórica é correta, mas o
+efeito empírico é pequeno e até negativo para EF iniciais (83.4% vs
+86.1% em v5). O motivo: ao expandir a janela de t+1 para Q1-Q4,
+inclui-se mais households (especialmente rotação 1, que entram em
+Q1 do ano y e só têm obs Q1 em y+1). Para essas households, max(Q1-Q4)
+= Q1, que sofre o problema original de reporte tardio da nova série.
+Esses domicílios extras diluem a taxa de promoção da subamostra
+"limpa" (Q2-Q3) com observações de Q1-only ruins.
+
+### Conclusão metodológica
+
+Mantém-se v5 (Q2-Q3 + max) como principal. v4 Spec A e Spec C ficam
+documentadas como sensibilidades (§7). A decisão é defensável porque:
+
+1. Q2-Q3 evita simultaneamente o efeito-férias (Q1) e o reporte
+   antecipado (Q4)
+2. max(nivel) na janela curta captura atualização entre Q2 e Q3
+3. Amostra menor (~316k) mas mais limpa
+4. Resultado próximo do INEP após calibração V3014
+
+### Taxas de entrada no sistema (v5 com janela Q2-Q3)
+
+| Faixa | Taxa entrada | N |
+|---|---|---|
+| 4-6 anos | 38.1% | 51.059 |
+| 7-10 anos | 70.9% | 1.916 |
+| 11-14 anos | 56.7% | 1.643 |
+| 15-17 anos | 23.6% | 9.088 |
+| 18-24 anos | 3.4% | 121.482 |
+
+### Inline annotations em CLAUDE.md
+
+O autor anotou nos CLAUDE_xx.md preferências para próximas rodadas:
+- §2: Caixas 1 e 2 → prosa; mencionar Reynaldo Fernandes, NCES, OCDE
+- §3: subseção dedicada ao esquema rotativo com gráfico; equações no apêndice
+- §4: F10 dedicada à entrada; abandono trimestral
+- §5: subseção sobre regressão (etapa, série, defasagem, renda, sexo, cor,
+  gravidez, filhos, EF); especificação com efeitos fixos; F8e rede pública
+  vs privada; figura macrorregião; B4 BFA observado; T6 para apêndice;
+  análise por coorte
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C20_v5_main.py`
+- `DataWork/3_Indicators/code/C21_specC_minmax.py`
+- `DataWork/3_Indicators/output/T1_brasil_inter_v5_main.csv`
+- `DataWork/3_Indicators/output/T1_brasil_inter_v6_specC.csv`
+- `DataWork/3_Indicators/output/C20_transitions_v5.parquet`
+
+### Paper
+
+**51 páginas, 955 KB, 0 undefined refs/cits.**
+

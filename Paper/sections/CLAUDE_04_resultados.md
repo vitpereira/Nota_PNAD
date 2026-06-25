@@ -39,8 +39,8 @@ Cobre:
 ## Perguntas em aberto
 
 - A entrada no sistema é interessante o suficiente para uma figura própria?
-  (F10 sugerida)
-- Mostrar abandono trimestral (Q1→Q2, Q2→Q3, Q3→Q4) para mostrar perfil?
+  (F10 sugerida) Sim
+- Mostrar abandono trimestral (Q1→Q2, Q2→Q3, Q3→Q4) para mostrar perfil? Sim
 - Como tratar transição 2023→2024 vs 2024→2025?
   - Transição 2023→2024: COMPUTADA (último t base)
   - Transição 2024→2025: NÃO POSSÍVEL (sem 2025Q2)

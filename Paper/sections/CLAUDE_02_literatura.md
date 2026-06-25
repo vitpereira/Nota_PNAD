@@ -9,9 +9,10 @@ que posicionava esta nota como continuação do PROFLUXO. Atualmente cobre:
 - PROFLUXO como trabalho prévio relevante (sem associação de coautoria)
 - Modelo de fluxo de estado estacionário (matemática)
 - Fernandes (2011, PME mensal)
+- Trabalhos de Francisco Soares e talvez Reynaldo Fernandes sobre trajetórias irregulares dos estudantes
 - Sofisticação do registro administrativo (INEP via CPF)
-- Caixa 1: cronologia do PROFLUXO e do INEP
-- Caixa 2: O atraso de divulgação do INEP
+- Caixa 1: cronologia do PROFLUXO e do INEPÇ Nçao fazer em caixa, deixar dentro do texto
+- Caixa 2: O atraso de divulgação do INEP. Incluir tambem dentro do texto
 
 ## O que deve entrar (a definir)
 
@@ -34,8 +35,8 @@ que posicionava esta nota como continuação do PROFLUXO. Atualmente cobre:
 
 - Quanto espaço dedicar ao PROFLUXO? Atualmente um parágrafo grande de
   história + um parágrafo de matemática. Pode ser comprimido para 1 parágrafo
-- Mencionar trabalhos internacionais? (e.g., NCES nos EUA, OCDE)
-- Conectar com literatura de tax-policy ou social-safety-net (CCT, BFA)?
+- Mencionar trabalhos internacionais? (e.g., NCES nos EUA, OCDE) Sim
+- Conectar com literatura de tax-policy ou social-safety-net (CCT, BFA)? Não
 
 ## Bibliografia
 
