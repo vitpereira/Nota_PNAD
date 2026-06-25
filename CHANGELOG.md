@@ -476,3 +476,24 @@ R² = 0.086 (com FE ano + UF). N = 320,228.
 
 **54 páginas, 971 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-25 — Rodada 7: regressão multivariada retirada do paper
+
+Após inserir a subseção §5.x Regressão na rodada 6, o autor decidiu
+retirá-la. Razões prováveis (não declaradas):
+- A nota é uma "nota" e não um paper analítico completo
+- Análise causal exige mais cuidado (gravidez, perda emprego, FE pessoa)
+- A descritiva univariada já transmite os achados centrais
+
+Mantidos:
+- T_regressao_evasao.tex (output da regressão) em DataWork/3_Indicators/output/
+- C24_regression.R (script) preservado em DataWork/3_Indicators/code/
+- CLAUDE_05_heterogeneidade.md anota a decisão
+
+Removida do main.tex:
+- Subseção \subsection{Regressão multivariada para evasão}
+- Cerca de 80 linhas de prosa + \input da tabela
+
+Paper: **51 páginas, 955 KB, 0 undefined refs/cits** (volta ao estado pre-§5.x).

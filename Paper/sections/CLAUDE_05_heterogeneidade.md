@@ -14,6 +14,11 @@ Cobre:
 - Figuras F8a-d (sexo, raça, renda, defasagem)
 - Tabela T6 condicional a defasagem ≥ 2 anos
 
+DECISÃO 25/06/2026: a regressão multivariada foi RETIRADA do paper
+após a inserção. A T_regressao_evasao.tex permanece em
+DataWork/3_Indicators/output/ para uso futuro ou em material
+suplementar, mas não é referenciada no main.tex.
+
 ## O que deve entrar / atualizar
 
 - [ ] **Atualizar números** com v4 (Spec A)
