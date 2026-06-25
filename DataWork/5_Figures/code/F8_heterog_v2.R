@@ -21,24 +21,17 @@ OUT_DIR <- "../output"
 DATA_DIR <- "../../3_Indicators/output"
 
 cat("Loading transitions...\n")
-t <- read_parquet(file.path(DATA_DIR, "C14_transitions_v2.parquet"))
+t <- read_parquet(file.path(DATA_DIR, "C20_transitions_v5.parquet"))
 cat("Rows:", nrow(t), "\n")
 
-# Load extra demographics from raw panel (need sexo, raca, renda_dom_pc)
-cat("Loading demographics from linked panel...\n")
-extras <- read_dta("../../2_PanelBuild/tmp/pnadc_linked.dta",
-                    col_select = c("person_id", "Ano", "Trimestre",
-                                   "sexo", "raca", "renda_dom_pc")) %>%
-    filter(Trimestre %in% c(2, 3)) %>%
-    arrange(person_id, Ano, Trimestre) %>%
-    distinct(person_id, Ano, .keep_all = TRUE) %>%
-    rename(ano_t = Ano)
+# Load extra demographics from raw panel (need sexo, raca, renda_t)
+cat("Using sexo_t, raca_t and renda_t from v5 parquet directly\n")
+# v5 parquet has sexo_t, raca_t, renda_t already — rename for compatibility
+t <- t %>%
+    rename(sexo = sexo_t, raca = raca_t)
+cat("After renames:", nrow(t), "rows\n")
 
-t <- t %>% left_join(extras, by = c("person_id", "ano_t"))
-cat("After merge:", nrow(t), "rows, sexo non-NA:", sum(!is.na(t$sexo)), "\n")
-
-# Drop NA flags (attrition)
-t <- t %>% filter(!is.na(freq_t1))
+# v5 already excludes attrition (has_t1 == TRUE)
 
 # Compute idade-padrao, defasagem
 t <- t %>%
@@ -48,6 +41,7 @@ t <- t %>%
             nivel_t == 10 ~ 15,
             nivel_t == 11 ~ 16,
             nivel_t == 12 ~ 17,
+            nivel_t == 13 ~ 18,
             TRUE ~ NA_real_
         ),
         defasagem = idade_t - idade_padrao,
@@ -58,17 +52,8 @@ t <- t %>%
         )
     )
 
-# Compute flags (also already in parquet, ensure)
-t <- t %>%
-    mutate(
-        any_eja_t1 = as.logical(any_eja_t1),
-        flag_migracao_eja = as.integer(any_eja_t1),
-        flag_evasao = as.integer((freq_t1 == 0) & !any_eja_t1),
-        flag_promocao = as.integer((freq_t1 == 1) & !any_eja_t1 &
-                                    !is.na(nivel_t1) & (nivel_t1 > nivel_t)),
-        flag_repetencia = as.integer((freq_t1 == 1) & !any_eja_t1 &
-                                      !is.na(nivel_t1) & (nivel_t1 == nivel_t))
-    )
+# v5 parquet already has flag_promocao, flag_repetencia, flag_evasao,
+# flag_migracao_eja computed and corrected via V3014. Use as-is.
 
 # Sample: 2018-2023, ex-COVID
 sub <- t %>% filter(ano_t %in% c(2018, 2019, 2022, 2023))
@@ -140,12 +125,12 @@ ggsave(file.path(OUT_DIR, "F8b_heterog_raca.pdf"),
        p_raca, width = 8.5, height = 4, device = cairo_pdf)
 
 # ---- F8c: quintil de renda ----
-# Compute quintile from renda_dom_pc nationally per year
+# Compute quintile from renda_t nationally per year
 sub <- sub %>% group_by(ano_t) %>%
     mutate(quintil = case_when(
-        is.na(renda_dom_pc) ~ NA_real_,
-        TRUE ~ as.numeric(cut(renda_dom_pc,
-                              breaks = quantile(renda_dom_pc,
+        is.na(renda_t) ~ NA_real_,
+        TRUE ~ as.numeric(cut(renda_t,
+                              breaks = quantile(renda_t,
                                                 probs = seq(0, 1, 0.2),
                                                 na.rm = TRUE),
                               include.lowest = TRUE,

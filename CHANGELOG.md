@@ -683,3 +683,50 @@ como evidência forte da calibração metodológica.
 
 **55 páginas, 1113 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-25 — Rodada 13: REGERAÇÃO de figuras com v5
+
+Várias figuras ainda usavam dados pré-v5 (timestamps 02:59 ou 08:53),
+gerando inconsistência com o texto. Especificamente, a **Figura 12
+do paper (F5_pnadc_vs_inep.pdf)** ainda mostrava a PNADC pré-V3014
+em vez da v5 calibrada.
+
+### Figuras regeneradas com v5
+
+✅ **F5_pnadc_vs_inep**: PNADC v5 (Q2-Q3 + V3014) vs INEP. Agora mostra
+   convergência entre as duas séries no EM (era divergente pré-V3014).
+✅ **F1_serie_temporal_pnadc**: 4 indicadores ao longo de 2012-2024,
+   com taxas v5. Promoção EM ~60-75%, evasão EM ~5-8% (não 25%).
+✅ **F8a sexo**, **F8b raça**, **F8c renda**, **F8d defasagem**,
+   **F8_combined**: regeneradas com `C20_transitions_v5.parquet`
+   (em vez de C14_transitions_v2.parquet). Reflete metodologia v5.
+
+### Figuras já atualizadas em rodadas anteriores
+
+- F0 esquema rotativo (rodada 9)
+- F7 freq trimestre (rodada 9)
+- F8e rede (rodada 10)
+- F9 completion comparison (rodada 11)
+- F10 entrada (rodada 10)
+- F11 macrorregião (rodada 10)
+
+### Figuras com dados estáveis (não dependem de v5)
+
+- F2 gradientes (não citada no paper)
+- F3 captura retorno (estimativa estável, conceitual)
+- F4 cohort fluxo (count-based, conceitual)
+- F6 efeito-férias within-person (rodada 7-8)
+
+### Mudanças nos scripts
+
+- `F1_serie_temporal.R`: reescrito standalone usando T1_v5_main.csv
+- `F5_pnadc_vs_inep.R`: reescrito standalone usando T1_v5_main.csv
+- `F8_heterog_v2.R`: substituído input C14→C20, usar flag_* diretamente da
+  parquet v5 (já corrigidos), idade-padrão estendida para nível 13 (4º técnico)
+
+### Paper
+
+**56 páginas, 1131 KB, 0 undefined refs/cits.**
+
