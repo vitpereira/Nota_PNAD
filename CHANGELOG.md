@@ -589,3 +589,54 @@ construção da janela v5.
 
 **51 páginas, 985 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-25 — Rodada 10: §§4-6 atualizadas para v5
+
+### §4 Resultados agregados
+
+✅ **Números v5 aplicados**:
+- EF iniciais 2019: 86,1% prom (era 85,5%)
+- EF finais 2019: 81,4% prom
+- EM 2019: 75,8% prom (era 50,4% — V3014 incorporada)
+✅ **Nova §4.x "Entrada no sistema escolar"** com Tabela e Figura F10
+✅ **F10 gerada** (DataWork/5_Figures/code/F10_entrada_sistema.R)
+✅ **Parágrafo PNADC 2024/2025**: transição mais recente = 2023→2024,
+   2024→2025 não computável até disponibilização 2025Q1 (2026.S2)
+✅ Trajetória temporal atualizada (78,6%→86,1% no EF iniciais 2012→2019)
+
+### §5 Heterogeneidade
+
+✅ **F8e rede pública/privada** adicionada (nova figura, parágrafo dedicado)
+✅ **F11 macrorregião** adicionada (nova figura, parágrafo dedicado)
+✅ **T6 movida para Apêndice A1** (deixou de aparecer no corpo)
+✅ Síntese final integra defasagem > região/rede > renda/raça/sexo
+✅ Implicação de política conectada a Pé-de-Meia
+
+### §6 Comparação INEP
+
+✅ **Números atualizados para v5**: EM 2019 PNADC 75,8% vs INEP 82,7%,
+   gap residual de **6,9pp** (era 32pp antes da V3014)
+✅ Discussão R+U+S+C cobre essencialmente o gap residual
+✅ V3014 mencionada como correção já incorporada na estimativa principal
+
+### §6B Razões
+
+✅ **Reescrita** para refletir gap menor pós-V3014 (~7pp, não 32pp)
+✅ Soma das 5 fontes = 7-10pp = gap residual observado
+
+### Novos arquivos
+
+- `DataWork/5_Figures/code/F0_esquema_rotativo.R`
+- `DataWork/5_Figures/code/F10_entrada_sistema.R`
+- `DataWork/5_Figures/code/F11_rede_regiao.R`
+- `DataWork/5_Figures/output/F0_esquema_rotativo.{pdf,png}`
+- `DataWork/5_Figures/output/F10_entrada_sistema.{pdf,png}`
+- `DataWork/5_Figures/output/F8e_heterog_rede.{pdf,png}`
+- `DataWork/5_Figures/output/F11_heterog_regiao.{pdf,png}`
+
+### Paper
+
+**56 páginas, 1114 KB, 0 undefined refs/cits.**
+

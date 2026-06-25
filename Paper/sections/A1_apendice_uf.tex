@@ -1,19 +1,27 @@
 % =========================================================================
-% Apendice A - Tabelas por UF
+% Apendice A - Tabelas detalhadas
 % =========================================================================
 
-\section{Tabelas por Unidade da Federação}
+\section{Tabelas detalhadas}
 \label{app:uf}
 
-Este apêndice apresenta os cinco indicadores de fluxo escolar
-desagregados para as 27 unidades da federação, por macroetapa, com
-base na média do período 2018--2023, excluindo os anos COVID
-(2020--2021). As estimativas são produzidas a partir do mesmo painel
-longitudinal descrito na Seção~\ref{sec:dados_metodo} e seguem a
-mesma regra de seleção de trimestre de referência. Como o tamanho
-amostral varia substancialmente entre UFs, as estimativas vêm
-acompanhadas de intervalos de confiança \emph{bootstrap} de 95\%,
-com \emph{cluster} em UPA, e células com $N < 30$ são suprimidas e
-sinalizadas. As tabelas detalhadas serão preenchidas após a
+Este apêndice apresenta tabelas detalhadas dos cinco indicadores de
+fluxo escolar desagregados em dimensões adicionais àquelas
+reportadas no corpo do texto. A
+Tabela~\ref{tab:distorcao} reporta as taxas condicionais à
+defasagem idade-série, comparando alunos em dia com alunos com
+defasagem de pelo menos dois anos, para cada macroetapa. Os
+números são médias 2018--2023, excluindo os anos COVID
+(2020--2021). A tabela complementa a discussão da
+Seção~\ref{sec:heterogeneidade} sobre o papel central da
+defasagem idade-série como preditor de evasão.
+
+\input{../DataWork/3_Indicators/output/T6_distorcao_conditional.tex}
+
+Tabelas adicionais com os cinco indicadores desagregados por
+unidade da federação, com intervalos de confiança \emph{bootstrap}
+de 95\% (\emph{cluster} em UPA) serão preenchidas após a
 finalização do processamento dos arquivos CSV correspondentes em
-\texttt{DataWork/3\_Indicators/output/A1\_*}.
+\texttt{DataWork/3\_Indicators/output/A1\_*}. Como o tamanho
+amostral varia substancialmente entre UFs, células com $N < 30$
+serão suprimidas e sinalizadas.

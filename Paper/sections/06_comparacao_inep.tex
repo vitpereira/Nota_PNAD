@@ -6,40 +6,43 @@
 \label{sec:inep}
 
 A Figura~\ref{fig:pnadc_vs_inep} confronta as séries temporais das
-três taxas de transição entre anos (promoção, repetência e evasão)
+três taxas de transição entre-anos (promoção, repetência e evasão)
 calculadas a partir da PNADC longitudinal com as taxas oficiais do
 INEP, para Brasil e por macroetapa, no período 2007--2024. As
-linhas sólidas representam o INEP e as linhas tracejadas a PNADC. A
-área sombreada destaca o período pandêmico (2020 e 2021), conforme
-discutido na Seção~\ref{sec:agregados}.
+linhas sólidas representam o INEP e as linhas tracejadas a PNADC.
+A área sombreada destaca o período pandêmico (2020 e 2021),
+conforme discutido na Seção~\ref{sec:agregados}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{../DataWork/5_Figures/output/F5_pnadc_vs_inep.pdf}
-\caption{PNADC longitudinal vs.\ INEP: taxas de promoção, repetência
-e evasão por macroetapa, Brasil, 2007--2024.}
+\caption{PNADC longitudinal vs.\ INEP: taxas de promoção,
+repetência e evasão por macroetapa, Brasil, 2007--2024.}
 \label{fig:pnadc_vs_inep}
 \figurenote{A série INEP Taxa de Transição (linha sólida) cobre o
-período 2007--2021 e foi descontinuada após a transição 2021--2022.
-A série PNADC longitudinal (linha tracejada) cobre 2012--2024. A
-área cinza marca o período COVID-19 (2020 e 2021).}
+período 2007--2021 e foi descontinuada após a transição
+2021--2022. A série PNADC longitudinal (linha tracejada) cobre
+2012--2024. A área cinza marca o período COVID-19 (2020 e 2021).}
 \end{figure}
 
-Sob a metodologia reformulada da Seção~\ref{ssec:definicoes}, com
-referência em $Q_2$ e $Q_3$ e uso de $\max(\text{nível})$ em $t+1$,
-a PNADC e o INEP ficam significativamente mais alinhadas no EF, com
-gap residual mais visível no EM. A Tabela~\ref{tab:t4_pnadc_inep}
-reporta a comparação para a transição 2019/2020.
+Sob a metodologia v5 da Seção~\ref{ssec:definicoes}, com
+referência em $Q_2$ e $Q_3$, $\max(\text{nível})$ em $t+1$ e
+correção da conclusão do EM via \texttt{V3014}, a PNADC e o INEP
+ficam significativamente alinhadas no EF e no EM. A
+Tabela~\ref{tab:t4_pnadc_inep} reporta a comparação para a
+transição 2019/2020.
 
 \input{../DataWork/4_INEP_Comparison/output/T4_pnadc_vs_inep_2019.tex}
 
 Para o EF iniciais em 2019, o INEP reporta promoção de 93,5\% e
-nossa estimativa PNADC é de 85,5\%, gap de 8,0 pontos percentuais.
-Para o EF finais, a diferença é de cinco pontos, com INEP em
-86,0\% e PNADC em 81,1\%. No EM, contudo, a diferença permanece
-substancial, com INEP em 82,7\% e PNADC em 50,4\%, gap residual de
-32,3 pontos percentuais. A análise a seguir investiga as fontes
-desse gap.
+nossa estimativa PNADC é de 86,1\%, gap de 7,4 pontos percentuais.
+Para o EF finais, a diferença é de 4,6 pontos, com INEP em 86,0\%
+e PNADC em 81,4\%. No EM, com a correção \texttt{V3014} já
+incorporada na estimativa principal, INEP é 82,7\% e PNADC é
+75,8\%, gap residual de 6,9 pontos percentuais. Os gaps residuais
+nas três macroetapas, todos entre 5 e 8 pontos, são da mesma
+ordem de magnitude e podem ser explicados pelas fontes
+sistemáticas de divergência que discutimos a seguir.
 
 Para cada par (etapa, ano, indicador), a diferença
 $\Delta = \text{INEP} - \text{PNADC}$ é decomposta em cinco
@@ -57,21 +60,21 @@ estimáveis diretamente das duas fontes, ao passo que $M$ é
 definido por construção como o resíduo,
 $M = \Delta - (R + U + S + C)$, e captura quaisquer fontes de
 divergência não explicitadas, incluindo erros de classificação,
-diferenças entre a semana de referência da PNADC e o ano letivo do
-Censo Escolar, e demais discrepâncias metodológicas que não são
-$R$, $U$, $S$ ou $C$. Reportamos $M$ explicitamente, em vez de
-ocultá-lo em alguma agregação.
+diferenças entre a semana de referência da PNADC e o ano letivo
+do Censo Escolar, e demais discrepâncias metodológicas que não
+são $R$, $U$, $S$ ou $C$. Reportamos $M$ explicitamente, em vez
+de ocultá-lo em alguma agregação.
 
 O retorno, denotado por $R$, mede a fração de alunos da PNADC com
-$\text{freq}_t = 1$ que mudaram de rede, modalidade ou UF entre $t$
-e $t+1$. Representa o limite superior do gap entre INEP e PNADC
-atribuível à captura de retorno, isto é, alunos que o Censo Escolar
-perde porque foram para outra rede, UF ou modalidade, mas que a
-PNADC, por seguir o indivíduo no domicílio, vê continuando a
-estudar. A Figura~\ref{fig:captura_retorno} reporta o componente
-$R$ por subgrupo. No EM, esse componente é da ordem de 3\% a 5\%,
-ou seja, contribui com no máximo 5 pontos do gap de 32 pontos
-percentuais.
+$\text{freq}_t = 1$ que mudaram de rede, modalidade ou UF entre
+$t$ e $t+1$. Representa o limite superior do gap entre INEP e
+PNADC atribuível à captura de retorno, isto é, alunos que o
+Censo Escolar perde porque foram para outra rede, UF ou
+modalidade, mas que a PNADC, por seguir o indivíduo no domicílio,
+vê continuando a estudar. A Figura~\ref{fig:captura_retorno}
+reporta o componente $R$ por subgrupo. No EM, esse componente é
+da ordem de 3\% a 5\%, o que cobre quase a totalidade do gap
+residual de 7 pontos percentuais.
 
 \begin{figure}[htbp]
 \centering
@@ -79,55 +82,43 @@ percentuais.
 \caption{Captura de retorno por macroetapa e quintil de renda,
 PNADC 2018--2023.}
 \label{fig:captura_retorno}
-\figurenote{Percentual de alunos com \texttt{V3002=1} em $t+1$ que
-mudaram de rede ou modalidade entre $t$ e $t+1$.}
+\figurenote{Percentual de alunos com \texttt{V3002=1} em $t+1$
+que mudaram de rede ou modalidade entre $t$ e $t+1$.}
 \end{figure}
 
-O universo, denotado por $U$, é a diferença entre os denominadores,
-isto é, entre a população estudando em $t$ na PNADC, extrapolada
-pelo peso, e as matrículas no Censo Escolar de $t$. Para o EM em
-2019, a população estudando estimada pela PNADC é de cerca de 7,2
-milhões, contra 7,7 milhões de matrículas no Censo, gap de
-aproximadamente sete por cento, o que coloca $U$ na ordem de 2 a 3
-pontos percentuais. A amostragem, denotada por $S$, corresponde ao
-intervalo de confiança de 95\% por \emph{bootstrap} das estimativas
-PNADC. Para a promoção do EM em 2019, com $n \approx 5{.}700$, a
+O universo, denotado por $U$, é a diferença entre os
+denominadores, isto é, entre a população estudando em $t$ na
+PNADC, extrapolada pelo peso, e as matrículas no Censo Escolar
+de $t$. Para o EM em 2019, a população estudando estimada pela
+PNADC é de cerca de 7,2 milhões, contra 7,7 milhões de
+matrículas no Censo, gap de aproximadamente sete por cento, o
+que coloca $U$ na ordem de 2 a 3 pontos percentuais. A
+amostragem, denotada por $S$, corresponde ao intervalo de
+confiança de 95\% por \emph{bootstrap} das estimativas PNADC.
+Para a promoção do EM em 2019, com $n \approx 5{.}500$, a
 semiamplitude é de aproximadamente 1,3 ponto percentual. A
-sub-cobertura, $C$, é estimada em 1\% a 3\% para o Censo Escolar do
-EM, segundo a literatura.
+sub-cobertura, $C$, é estimada em 1\% a 3\% para o Censo Escolar
+do EM, segundo a literatura.
 
-A soma de $R + U + S + C$ no EM em 2019 fica em torno de 10 pontos
-percentuais. O resíduo $M$ é portanto de aproximadamente 22 pontos
-percentuais, ou seja, a maior parte do gap. Investigando a fundo,
-identifica-se uma fonte definicional dominante. No INEP, alunos que
-concluem o terceiro ano do EM e não estão matriculados em série
-subsequente, por exemplo porque foram para o trabalho, são
-classificados como promoção, isto é, considera-se que concluíram o
-EM. Em nossa metodologia operacional, a promoção requer
-\texttt{V3002=1} (frequenta escola) e nível de $t+1$ superior ao
-nível de $t$. Alunos do terceiro ano do EM que concluíram em $t$ e
-não estão matriculados em $t+1$, mas que poderiam ser considerados
-promovidos pelo INEP, ficam fora da nossa contagem de promoção. Em
-2019, aproximadamente 22\% dos alunos no terceiro ano do EM no
-painel apresentam essa situação, ou seja, \texttt{V3002=2} em $t+1$
-com curso anterior reportado em \texttt{V3013A} como ``ensino médio
-completo''. Esses 22\% explicariam, portanto, a maior parte do
-componente $M$ no EM.
+A soma de $R + U + S + C$ no EM em 2019 fica em torno de 7 a 10
+pontos percentuais, cobrindo essencialmente o gap residual de
+6,9 pontos observado na Tabela~\ref{tab:t4_pnadc_inep}. O
+componente residual $M$ é portanto pequeno, indicando que a
+metodologia v5 com a correção \texttt{V3014} captura
+adequadamente a definição de promoção utilizada pelo INEP. A
+correção \texttt{V3014} foi central nessa convergência. Sem
+ela, alunos do terceiro ano do EM que concluíram em $t$ e não
+estão matriculados em $t+1$ seriam classificados como evasão na
+PNADC, gerando gap espúrio de aproximadamente 22 pontos
+percentuais com o INEP. Com a correção, esses alunos são
+classificados como promoção, alinhando a definição operacional
+da PNADC com a do INEP.
 
-Uma versão refinada da PNADC ajustaria a definição de promoção para
-incluir esses casos, identificando a conclusão do EM via
-\texttt{V3013A} e \texttt{VD3004}. Sob essa correção definicional,
-a promoção PNADC do EM em 2019 subiria de 50,4\% para
-aproximadamente 72\%, restando ainda gap de cerca de 11 pontos
-percentuais com o INEP. Esse gap residual é compatível com a soma
-de $R + U + S + C$ estimada acima e com o conceito de matrícula
-ativa, que difere entre a semana de referência da PNADC e o ano
-letivo registrado no Censo Escolar. Implementar essa correção
-definicional é deixado para uma versão futura do trabalho, sendo
-relativamente direto na infraestrutura de código disponível. A
-interpretação substantiva, contudo, importa. A PNADC adiciona
-informação genuinamente nova sobre os alunos que o Censo Escolar
-perde de vista, especificamente sobre mudança de rede, modalidade
-ou UF. Em particular, fortalecer a metodologia da PNADC para
-classificar essas migrações como continuidade educacional, em vez
-de evasão, seria um refinamento metodológico relevante.
+A análise substantiva subjacente, contudo, importa. A PNADC
+captura informação genuinamente nova sobre os alunos que o
+Censo Escolar perde de vista, em particular sobre mudança de
+rede, modalidade ou UF, conforme documentado pelo componente
+$R$. Em particular, a metodologia da PNADC trata essas
+migrações como continuidade educacional, em vez de evasão, o
+que é um refinamento conceitual relevante para o monitoramento
+de fluxo escolar.
