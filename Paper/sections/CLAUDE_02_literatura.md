@@ -1,53 +1,59 @@
 # §2 Trabalhos prévios e divulgação oficial — CLAUDE.md
 
-## Estado atual
+## Estado atual (rodada 8 — atualizado 25/06/2026)
 
-Arquivo: `02_tres_eras.tex` (nome do arquivo herdado da v0; conteúdo já reformulado)
+Arquivo: `02_tres_eras.tex` (nome herdado da v0; conteúdo reformulado)
 
-A seção foi reescrita na rodada 3 para remover o framing de "três eras"
-que posicionava esta nota como continuação do PROFLUXO. Atualmente cobre:
-- PROFLUXO como trabalho prévio relevante (sem associação de coautoria)
-- Modelo de fluxo de estado estacionário (matemática)
-- Fernandes (2011, PME mensal)
-- Trabalhos de Francisco Soares e talvez Reynaldo Fernandes sobre trajetórias irregulares dos estudantes
-- Sofisticação do registro administrativo (INEP via CPF)
-- Caixa 1: cronologia do PROFLUXO e do INEPÇ Nçao fazer em caixa, deixar dentro do texto
-- Caixa 2: O atraso de divulgação do INEP. Incluir tambem dentro do texto
+Cobre:
+- PROFLUXO **comprimido** em um único parágrafo (era dois com equações)
+  - Histórico do grupo Cesgranrio (Fletcher, Ribeiro, Klein)
+  - Intuição do método (em prosa, sem equações)
+  - Esta nota explicitamente NÃO é extensão
+- Soares & Alves (UFMG) sobre trajetórias irregulares
+- Riani & Rios-Neto sobre background familiar
+- Fernandes (2011) sobre PME mensal
+- **NOVO:** Práticas internacionais (NCES americano, OCDE Education at a Glance)
+- INEP (CPF 2007, Indicadores de Trajetória) + descontinuidade
+- **Caixa 1 convertida para prosa** (era caixatexto sobre divulgação)
+- Período COVID com ressalvas
 
-## O que deve entrar (a definir)
+## Mudanças aplicadas (rodada 8)
 
-- [ ] **Soares e Alves (UFMG)** sobre trajetórias irregulares — PENDENTE
-  - Francisco Soares, Maria Teresa Gonçalves Alves
-  - GAME (Grupo de Avaliação e Medidas Educacionais) / GEMINIS
-  - Trabalhos provavelmente em RBE, ESS, Pesquisa e Planejamento
-  - Foco em trajetórias com defasagem, distorção idade-série
-- [ ] Trabalhos mais recentes sobre evasão escolar (Soares, Riani, Castro, etc.)
-- [ ] Literatura sobre EJA como mecanismo de segunda chance
+✅ Caixa 1 sobre divulgação convertida para prosa (parágrafo "A divulgação dos diferentes conjuntos...")
+✅ PROFLUXO comprimido (de ~30 linhas → 1 parágrafo de ~20 linhas)
+✅ Equações do PROFLUXO removidas do corpo (intuição em prosa)
+✅ Trabalhos internacionais (NCES, OCDE) adicionados
+✅ Soares-Alves já estava (mantido)
+✅ Fernandes (2011) já citado
 
-## Decisões pendentes
+## Pendente (rodada futura)
 
-1. **Renomear arquivo**: `02_tres_eras.tex` → `02_literatura.tex` (cosmético)
-2. **Caixa 2** sobre atraso INEP — mantê-la ou substituir por discussão em prosa?
-3. **Equações do PROFLUXO**: manter ou simplificar? Já estão em prosa.
-4. **Comprimento das caixas**: atualmente longas, podem ser reduzidas
-
-## Perguntas em aberto
-
-- Quanto espaço dedicar ao PROFLUXO? Atualmente um parágrafo grande de
-  história + um parágrafo de matemática. Pode ser comprimido para 1 parágrafo
-- Mencionar trabalhos internacionais? (e.g., NCES nos EUA, OCDE) Sim
-- Conectar com literatura de tax-policy ou social-safety-net (CCT, BFA)? Não
+- [ ] Comprimir parágrafo COVID se ficar muito longo
+- [ ] Possivelmente adicionar mais uma referência sobre Fernandes & Natenzon
+      se encontrarmos no .bib
+- [ ] Atualizar nome do arquivo: `02_tres_eras.tex` → `02_literatura.tex`?
 
 ## Bibliografia
 
-Verificar referências em `Bibliography_base.bib`:
-- ✅ Fletcher1985_modelo, Fletcher1985_repetencia
+Referências usadas em §2:
+- ✅ Fletcher1985_modelo
 - ✅ FletcherRibeiro1989_profluxo
 - ✅ Ribeiro1991_pedagogia
 - ✅ KleinRibeiro1991_censo
 - ✅ Klein2006_educacao
 - ✅ Fletcher1998_eficaz
 - ✅ Fernandes2011_atratividade
+- ✅ SoaresAlvesFonseca2021_trajetorias
+- ✅ AlvesSoares2013_contexto
+- ✅ RianiRiosNeto2008_background
 - ✅ INEP2017_fluxo, INEP_transicao
-- ❌ Soares & Alves (UFMG) — PENDENTE
-- ❌ Riani, Castro, outros sobre evasão — PENDENTE
+- ❌ NCES, OCDE — citados em prosa sem reference, idealmente adicionar entradas
+  na bibliografia
+
+## Histórico
+
+- v0 (24/06): "três eras" framing
+- v1 (25/06 manhã): writing_rules.md
+- v2-v3 (25/06 tarde): "três eras" removido, PROFLUXO reposicionado
+- v4: Soares-Alves adicionado
+- v8 (atual): Caixas convertidas para prosa, PROFLUXO comprimido, NCES/OCDE adicionados

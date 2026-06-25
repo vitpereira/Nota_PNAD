@@ -497,3 +497,38 @@ Removida do main.tex:
 - Cerca de 80 linhas de prosa + \input da tabela
 
 Paper: **51 páginas, 955 KB, 0 undefined refs/cits** (volta ao estado pre-§5.x).
+
+---
+
+## 2026-06-25 — Rodada 8: §2 Literatura reescrita
+
+Aplicadas as anotações do CLAUDE_02_literatura.md:
+
+**Mudanças:**
+- ✅ **PROFLUXO comprimido**: de ~30 linhas com equações → 1 parágrafo
+  contínuo de ~20 linhas. Equações removidas do corpo (intuição em prosa).
+- ✅ **Caixa 1 ("A divulgação dos indicadores oficiais") convertida para prosa**.
+  Passa a ser um parágrafo regular do texto.
+- ✅ **Trabalhos internacionais adicionados**: NCES (US) sobre dropout/graduation
+  via CPS + admin, OECD Education at a Glance sobre completion rates por
+  nível. Dialoga com a abordagem brasileira.
+- ✅ **Soares-Alves mantido** (rodada 4).
+- ✅ **Reynaldo Fernandes** já citado via Fernandes2011_atratividade.
+
+**Estrutura final §2:**
+1. Parágrafo PROFLUXO (1 par)
+2. Parágrafo Soares-Alves + Riani + Fernandes (1 par)
+3. **Novo:** Parágrafo internacional (NCES, OCDE) (1 par)
+4. Parágrafo INEP+CPF + descontinuidade (1 par)
+5. Parágrafo divulgação (Rendimento, Trajetória, IDEB, PNADC) — ex-Caixa 1
+6. Parágrafo consequências da descontinuidade
+7. Parágrafo COVID
+8. Parágrafo final transitando para §3
+
+Paper: **51 páginas, 952 KB, 0 undefined refs/cits**.
+
+### Pendências para próxima rodada
+
+- Adicionar entradas BibTeX para NCES e OCDE (atualmente citados em prosa)
+- Renomear `02_tres_eras.tex` → `02_literatura.tex` (cosmético, não-quebra)
+
