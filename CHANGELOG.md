@@ -110,3 +110,38 @@ Criação de `github.com/vitpereira/Nota_PNAD` com a totalidade do projeto
 - `02_tres_eras_v0.tex.bak` (backup do framing original ``três eras'')
 
 ---
+
+---
+
+## 2026-06-25 — Concluído: rodada 2 implementada
+
+Todas as mudanças listadas acima foram implementadas. Resultados:
+
+**Paper:** 43 páginas, 891 KB, 0 undefined references, 0 undefined citations.
+
+**Tabelas atualizadas (v2 Q2-Q3 + max(nivel)):**
+- T1 (EF iniciais 2019): prom 85,5% (v0: 76,6%, v1: 77,2%) → 8pp mais próximo do INEP (93,5%)
+- T1 (EM 2019): prom 50,4% → gap residual de 32pp identificado como definicional
+- T (abandono fullyear, EM 2019): 12,8%
+- T6 (defasados EM): evasão 37,1% vs 19,6% para alunos em dia
+
+**Novas figuras:**
+- F7: % frequentando por trimestre × macroetapa × ano
+- F8a-d: heterogeneidade por sexo, raça, renda e defasagem
+- F8_combined: 4 painéis empilhados
+
+**Reposicionamento editorial:**
+- §2 reescrita como "Trabalhos prévios e divulgação oficial", sem framing de "três eras"
+- PROFLUXO citado como literatura prévia relevante, sem associação de coautoria
+- §1, §8 ajustadas em consonância
+
+**Investigação do gap INEP:**
+- Componentes R+U+S+C ≈ 10pp do gap de 32pp no EM 2019
+- Componente M ≈ 22pp identificado como definicional: alunos do 3º EM concluído sem matrícula em t+1 são promoção no INEP mas não na PNADC atual
+- Correção definicional levaria PNADC para ~72% (vs INEP 82,7%, gap residual de 11pp compatível com R+U+S+C)
+
+**Github:**
+- Repositório: github.com/vitpereira/Nota_PNAD (separado do pacote R fluxoescolar)
+- Pasta de trabalho local: `C:/Users/vitpe/Documents/Nota_PNAD_repo/` (fora do Dropbox para evitar bloqueio do git lock)
+- Pasta de desenvolvimento principal permanece em `C:/Users/vitpe/Dropbox/MEC_Pe_de_Meia/Nota_PNAD/`
+
