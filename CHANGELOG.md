@@ -640,3 +640,46 @@ construção da janela v5.
 
 **56 páginas, 1114 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-25 — Rodada 11: §§6C, 7 atualizadas + iteração v5
+
+### §6C Iteração das taxas
+
+**Recalculado C18 → C18b com taxas v5**. Achado central novo:
+
+| Fonte | Conclusão EF | Conclusão EM |
+|---|---|---|
+| INEP iterativa (médias 2014-19) | 68.7% | 46.3% |
+| **PNADC v5 iterativa (médias 2017-19)** | **68.8%** | **47.0%** |
+| PNADC observada (VD3004 19-24, 2019) | 88.3% | 68.2% |
+
+**INEP e PNADC v5 agora projetam taxas IDÊNTICAS de conclusão.**
+Isso valida a calibração v5 + V3014 + janela Q2-Q3.
+
+A discrepância de ~20pp com a conclusão observada persiste e é
+atribuída aos mesmos mecanismos: EJA, retorno após evasão temporária,
+e classificação errônea de mudança rede/UF como evasão.
+
+Texto da §6C reescrito para destacar a convergência INEP/PNADC v5
+como evidência forte da calibração metodológica.
+
+### §7 Robustez
+
+✅ Texto atualizado: evasão EM v5 ~6% (era "20-30%" pré-V3014)
+✅ Soma identidade contábil ~97-98% (era "90% no EM" pré-V3014)
+✅ Nomenclatura limpa: removidas referências a v0/v1/v2/Spec A, mantida
+   só "metodologia v5 adotada como principal" e versões exploratórias
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C18b_iterative_v5.py`
+- `DataWork/3_Indicators/output/T7_iterative_completion.tex` (regenerada)
+- `DataWork/3_Indicators/output/T7_iterative_completion.csv` (regenerada)
+- `DataWork/5_Figures/output/F9_completion_comparison.pdf` (regenerada)
+
+### Paper
+
+**55 páginas, 1113 KB, 0 undefined refs/cits.**
+

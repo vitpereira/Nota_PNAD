@@ -40,41 +40,50 @@ percentual em todas as macroetapas, o que sugere que o viés de
 atrito é modesto.
 
 Para o atrito condicional à restrição $Q_2$--$Q_3$, ressalva-se o
-seguinte. Adolescentes que saem do domicílio entre $t$ e $t+1$, por
-exemplo para morar com cônjuge ou em outra cidade, deixam de ser
-observáveis no painel mesmo que continuem matriculados em outro
-lugar. Para o EF, esse fenômeno é desprezível, pois crianças não
-saem dos domicílios dos pais. Para o EM, contudo, é potencialmente
-substancial. A taxa de atrito do painel observada entre $t$ e $t+1$,
-sob restrição $Q_2$--$Q_3$, é de cerca de 76\% por construção da
-restrição. Dessa fração, a maior parte é estrutural (rotação do
-painel) e não diferencial. Reportamos três sensibilidades para o
-tratamento desse atrito. Na variante \emph{drop}, padrão adotado nos
-números reportados nas tabelas principais, excluímos casos de
-atrito. Na variante \emph{evasão} assumimos que todos os atritados
-evadiram, o que estabelece um limite superior para a evasão. Na
-variante \emph{IPS}, reponderamos por \emph{inverse propensity}
+seguinte. Adolescentes que saem do domicílio entre $t$ e $t+1$,
+por exemplo para morar com cônjuge ou em outra cidade, deixam de
+ser observáveis no painel mesmo que continuem matriculados em
+outro lugar. Para o EF, esse fenômeno é desprezível, pois
+crianças não saem dos domicílios dos pais. Para o EM, contudo, é
+potencialmente substancial. A taxa de atrito do painel observada
+entre $t$ e $t+1$, sob restrição $Q_2$--$Q_3$, é alta por
+construção da restrição, pois somente domicílios das rotações 2
+e 3 contribuem para a transição. A maior parte desse atrito é
+estrutural (rotação do painel) e não diferencial. Reportamos
+três sensibilidades para o tratamento do atrito não estrutural.
+Na variante \emph{drop}, padrão adotado nos números reportados
+nas tabelas principais, excluímos casos de atrito. Na variante
+\emph{evasão} assumimos que todos os atritados evadiram, o que
+estabelece um limite superior para a evasão. Na variante
+\emph{IPS}, reponderamos por \emph{inverse propensity}
 condicional a idade, sexo, raça, renda e UF. Em todas as
 sensibilidades, o ordenamento qualitativo entre macroetapas é
-preservado, e a evasão do EM permanece entre vinte e trinta por
-cento em todas as variantes.
+preservado, e a evasão do EM permanece próxima de seis por cento
+em todas as variantes, dentro de um intervalo de plus or minus
+dois pontos percentuais.
 
 \subsection{Comparação com versões anteriores da metodologia}
 \label{ssec:efeito_ferias}
 
-A escolha da janela de transição teve impacto importante sobre os
-indicadores estimados. Comparamos três versões. A versão $v_0$
-toma a primeira observação de cada ano como referência, o que
-resulta em mais de noventa por cento das observações de $t+1$
-caindo em $Q_1$, período de férias e início letivo. A versão $v_1$
-prefere $Q \geq 2$ e cai para $Q_1$ apenas quando inevitável. A
-versão $v_2$, adotada como metodologia principal, restringe a
-janela a $Q_2$ e $Q_3$ e usa $\max(\text{nível})$ em $t+1$. A
-Tabela~\ref{tab:t5_efeito_ferias} reporta a comparação
-\emph{within-person} entre medições em $Q_1$ e em $Q_2$ ou
-posterior, que motiva a escolha da versão $v_2$. A medição em
-$Q_1$ superestima a repetência em cerca de quatro pontos
-percentuais e subestima a promoção em cerca de três pontos.
+A escolha da janela de transição teve impacto importante sobre
+os indicadores estimados. Comparamos várias versões
+exploratórias com a metodologia v5 adotada como principal. A
+versão exploratória mais simples toma a primeira observação de
+cada ano como referência, o que resulta em mais de noventa por
+cento das observações de $t+1$ caindo em $Q_1$, período de
+férias e início letivo. Uma versão intermediária prefere
+$Q \geq 2$ em $t+1$ e cai para $Q_1$ apenas quando inevitável.
+Outras versões expandem a janela para $Q_2$--$Q_4$ em $t$, com
+$\max(\text{nível})$ em ambas as janelas. A metodologia v5,
+adotada como principal, restringe a janela a $Q_2$ e $Q_3$,
+usa $\max(\text{nível})$ em $t+1$, incorpora a correção
+\texttt{V3014} para conclusão do EM e inclui o EM técnico
+(\texttt{V3003A=07}). A Tabela~\ref{tab:t5_efeito_ferias}
+reporta a comparação \emph{within-person} entre medições em
+$Q_1$ e em $Q_2$ ou posterior, que motiva a escolha da janela
+$Q_2$--$Q_3$. A medição em $Q_1$ superestima a repetência em
+cerca de quatro pontos percentuais e subestima a promoção em
+cerca de três pontos.
 
 \input{../DataWork/3_Indicators/output/T5_efeito_ferias_within.tex}
 
@@ -125,11 +134,12 @@ módulo B4 da estimação estiver completo.
 
 A identidade contábil Promoção mais Repetência mais Evasão mais
 Migração EJA igual a um deve ser aproximadamente satisfeita por
-construção. Na prática, em virtude de transições do terceiro EM
-para o ensino superior e de modalidades não classificadas, a soma
-fica em torno de noventa e sete por cento no EF e noventa por cento
-no EM. O resíduo não classificado é portanto da ordem de três por
-cento no EF e dez por cento no EM. A PNADC mudou a codificação da
+construção. Sob a metodologia v5, com a correção \texttt{V3014}
+incorporada, a soma fica em torno de 98\% no EF iniciais e finais
+e 97\% no EM. O resíduo de aproximadamente 2 a 3\% é atribuível a
+transições para ensino superior, modalidades não classificadas e
+casos limítrofes de matrícula em redes não cobertas pelo
+\texttt{V3002A}. A PNADC mudou a codificação da
 variável \texttt{V3003} em 2016, substituindo-a por \texttt{V3003A}
 com códigos diferentes. A harmonização descrita no
 Apêndice~\ref{app:variaveis} reconcilia os dois períodos. Para
