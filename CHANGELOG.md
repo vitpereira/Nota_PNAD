@@ -414,3 +414,65 @@ O autor anotou nos CLAUDE_xx.md preferências para próximas rodadas:
 
 **51 páginas, 955 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-25 — Rodada 6: filtro rotação 1 + regressão multivariada
+
+### Filtro rotação 1
+
+Verificação: v5 (janela Q2-Q3 em ambos os anos) **já exclui rotação 1 por construção**, porque essas famílias só veem Q1 no ano t+1. Confirmado empiricamente: todas as transições de C20_transitions_v5.parquet têm trim_t ∈ {2,3} e trim_t1 ∈ {2,3}. Sem mudança nos números de T1.
+
+Abandono: precisaria redefinição (primeira obs vs última obs no ano, em vez de Q1 vs Q4). Implementado em C22b mas script ainda em desenvolvimento (loop pendente). Mantida a tabela atual para esta rodada.
+
+### Regressão multivariada para evasão (C24)
+
+**Modelo:** Linear Probability Model ponderado, erros padrão clusterizados em hh_id.
+
+**Amostra:** 320.228 transições inter-ano (painel v5, 2012-2023).
+
+**Especificação (5):** demografia + defasagem + macroetapa + log(renda PC) + FE ano + FE UF.
+
+**Coeficientes principais (pontos percentuais):**
+
+| Variável | Coef | SE | p |
+|---|---|---|---|
+| Idade | +1.02 | 0.04 | <0.001 |
+| Feminino | -0.58 | 0.07 | <0.001 |
+| Preta/parda | +0.25 | 0.09 | <0.01 |
+| Defasagem ≥2 anos | **+6.22** | 0.20 | <0.001 |
+| Defasagem 1 ano | -0.09 | 0.08 | ns |
+| EF finais (vs EF iniciais) | -3.79 | 0.18 | <0.001 |
+| EM (vs EF iniciais) | -3.18 | 0.35 | <0.001 |
+| log(renda PC) | -0.02 | 0.02 | ns |
+
+R² = 0.086 (com FE ano + UF). N = 320,228.
+
+**Achados principais:**
+
+1. **Defasagem idade-série é o preditor dominante**: +6.2pp para defasados ≥2 anos. Replica e quantifica Fernandes (2011).
+2. **Renda log não significativa após controles**: gradiente univariado de renda é mediado por idade, defasagem e geografia.
+3. **Coeficientes negativos de EF finais e EM**: contraintuitivo absoluto mas explicado por colinearidade entre macroetapa e idade — alunos do EM são mais velhos, idade absorve o efeito.
+4. **Feminino -0.6pp**: vantagem feminina consistente com literatura.
+5. **Raça pequena após FE UF**: gradiente racial univariado é mediado por composição geográfica.
+
+**Implicação de política:** combater defasagem precede ou complementa transferências de renda. Compatível com literatura de Soares-Alves UFMG.
+
+**Limitações reportadas no paper:**
+- Gravidez, filhos, perda de emprego: não disponíveis (V2013, V2015 apenas no suplemento V5 anual)
+- Regressão descritiva, não causal
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C20_v5_main.py` (v5 main: Q2-Q3 + max + V3014 + técnico, sem rot 1 implícito)
+- `DataWork/3_Indicators/code/C22_no_rot1.py` (filtro explícito; lento, não rodou)
+- `DataWork/3_Indicators/code/C22b_abandono_rev.py` (abandono revisado; lento, não rodou)
+- `DataWork/3_Indicators/code/C24_regression.R` (regressão LPM)
+- `DataWork/3_Indicators/code/C24b_strip_num.py` (limpeza tabela)
+- `DataWork/3_Indicators/output/T_regressao_evasao.tex`
+- `Paper/sections/05_heterogeneidade.tex` (nova §5.x Regressão)
+
+### Paper
+
+**54 páginas, 971 KB, 0 undefined refs/cits.**
+

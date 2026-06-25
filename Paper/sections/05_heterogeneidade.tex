@@ -118,6 +118,101 @@ macroetapa, média 2018--2023 (ex-COVID).}
 \label{fig:het_def}
 \end{figure}
 
+\subsection{Regressão multivariada para evasão}
+\label{ssec:regressao}
+
+Os recortes univariados apresentados acima podem refletir
+correlações induzidas por outras dimensões. Por exemplo, o gradiente
+racial pode ser parcialmente atribuível à correlação entre raça e
+renda, e o efeito de defasagem pode ser confundido com o efeito de
+idade. Para isolar a contribuição de cada dimensão, estimamos uma
+regressão linear de probabilidade em que a variável dependente é a
+evasão entre $t$ e $t+1$. A amostra é o painel longitudinal v5
+(sem rotação 1), com 320.228 transições no período 2012--2023, e a
+regressão é ponderada pelo peso amostral $w_i^{P1}$ com erros padrão
+agrupados por domicílio.
+
+A Tabela~\ref{tab:reg_evasao} reporta cinco especificações, com
+blocos de controles introduzidos progressivamente. A coluna~(1)
+inclui apenas controles demográficos básicos, a saber, idade, sexo
+e raça. A coluna~(2) acrescenta defasagem idade-série e a
+macroetapa educacional. A coluna~(3) inclui o logaritmo da renda
+domiciliar per capita. A coluna~(4) adiciona efeitos fixos de ano
+calendário. A coluna~(5), a especificação principal, inclui
+adicionalmente efeitos fixos de unidade da federação.
+
+\input{../DataWork/3_Indicators/output/T_regressao_evasao.tex}
+
+A leitura dos coeficientes da especificação principal é informativa.
+A idade tem um coeficiente de 1,0 ponto percentual por ano,
+indicando que cada ano adicional está associado a um acréscimo de
+um ponto percentual na probabilidade de evasão, mantidos os demais
+controles. A indicadora de mulher tem coeficiente de
+$-0{,}6$ ponto, ou seja, mulheres evadem cerca de meio ponto
+percentual menos do que homens, padrão consistente com a literatura
+brasileira. A indicadora de cor preta ou parda apresenta coeficiente
+de aproximadamente 0,25 ponto na especificação com efeitos fixos
+de UF, indicando que o componente puramente racial, após
+controlado por unidade da federação, é pequeno, o que sugere que a
+maior parte do gradiente racial univariado está mediada por
+composição geográfica e socioeconômica.
+
+A defasagem idade-série emerge como o preditor mais forte de
+evasão no modelo multivariado. A indicadora de defasagem de pelo
+menos dois anos apresenta coeficiente de 6,2 pontos percentuais,
+ou seja, alunos com dois ou mais anos de defasagem têm
+probabilidade de evasão 6,2 pontos maior do que alunos em dia ou
+com defasagem inferior a um ano, dado idade, sexo, raça,
+macroetapa, renda, ano e UF. Esse achado replica e quantifica de
+forma mais rigorosa o padrão já documentado em
+\citet{Fernandes2011_atratividade}. Vale notar que o coeficiente
+de defasagem de exatamente um ano é próximo de zero e não é
+estatisticamente significativo, o que sugere que o risco
+qualitativo de evasão começa apenas a partir de dois anos de atraso.
+
+Os coeficientes de macroetapa, condicionais aos demais controles,
+indicam que alunos do EF finais e do EM, comparados ao EF
+iniciais na mesma idade e com a mesma defasagem, têm probabilidade
+de evasão entre 3 e 4 pontos percentuais menor. Esse resultado pode
+parecer contraintuitivo dado que a evasão absoluta no EM é muito
+maior do que no EF iniciais. A reconciliação está na correlação
+entre idade e macroetapa. Sem controle por idade, alunos do EM são
+mais velhos e a evasão sobe com idade; ao controlar por idade, o
+efeito de idade absorve a variação entre macroetapas, e o
+coeficiente residual de macroetapa fica negativo.
+
+O coeficiente do logaritmo da renda domiciliar per capita é
+próximo de zero e não é estatisticamente significativo após
+controles. Esse achado é importante. Ele sugere que o gradiente
+de renda observado nos cortes univariados é largamente explicado
+por composição etária, defasagem idade-série e geografia, e não
+por renda em si. Em outras palavras, alunos pobres evadem mais
+não porque sejam pobres, mas porque, em média, têm mais defasagem
+idade-série, estão em regiões com piores oportunidades educacionais
+e enfrentam outras condições associadas que a regressão controla.
+
+Esses resultados têm implicações para o desenho de políticas. O
+combate à evasão por meio de transferências de renda focalizadas,
+como o Pé-de-Meia, pode ter efeito limitado se a defasagem
+idade-série não for atacada simultaneamente, pois a defasagem é o
+preditor dominante uma vez controlados os outros fatores. A
+literatura sobre trajetórias irregulares de
+\citet{SoaresAlvesFonseca2021_trajetorias} e
+\citet{AlvesSoares2013_contexto} já apontava para a importância da
+trajetória pregressa do aluno como fator determinante. A
+contribuição deste trabalho é quantificar essa relação no painel
+longitudinal contemporâneo da PNADC.
+
+Cabem duas ressalvas. A primeira é a ausência de variáveis-chave
+como gravidez, presença de filhos no domicílio do estudante e
+perda de emprego do provedor familiar. Essas variáveis são
+coletadas apenas no suplemento anual da quinta visita da PNADC e
+exigem extração adicional, deixada para uma versão futura. A
+segunda é que a regressão é descritiva, não causal. Os
+coeficientes refletem associações condicionais e não devem ser
+interpretados como efeitos causais, pois omite-se uma gama de
+variáveis de antecedente familiar e contexto escolar.
+
 Os recortes apresentados acima resumem os indicadores por todas as
 dimensões cobertas pela PNADC, e é importante notar que todos esses
 recortes são, à data desta nota, inviáveis com os dados publicados
