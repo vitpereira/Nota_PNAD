@@ -532,3 +532,60 @@ Paper: **51 páginas, 952 KB, 0 undefined refs/cits**.
 - Adicionar entradas BibTeX para NCES e OCDE (atualmente citados em prosa)
 - Renomear `02_tres_eras.tex` → `02_literatura.tex` (cosmético, não-quebra)
 
+
+---
+
+## 2026-06-25 — Rodada 9: §3 Dados e método reescrita
+
+Aplicadas as anotações do CLAUDE_03_dados_metodo.md.
+
+### Mudanças
+
+✅ **Figura F0 do esquema rotativo (NOVA)**: gerada por
+`DataWork/5_Figures/code/F0_esquema_rotativo.R`. Mostra grid 4 rotações × 8
+trimestres com cada visita (V1-V5), highlight verde da janela v5 (Q2-Q3),
+sombra cinza dos Q1 (férias), e divisor entre ano y e y+1. Inserida
+na §3.1 com caption explicativo.
+
+✅ **Caixa 3 → Caixa 1, atualizada para v5**: família entra em 2023Q2
+(rotação 2). Pedro mantém 1º EM em Q2-Q3 de 2023 e é promovido a 2º EM
+em 2024Q2. Exemplo agora ilustra a metodologia atual (Q2-Q3 + max nível +
+V3014).
+
+✅ **EM técnico (V3003A=07) incluído**: nível 13 = 4º ano técnico.
+Mencionado no texto, na tabela de harmonização e nas equações do apêndice.
+
+✅ **Equações operacionais movidas para Apêndice A2**: §3.4 ficou em
+prosa contínua sem equações. Apêndice ganhou nova subseção "Fórmulas dos
+indicadores" com 5 fórmulas formalizadas (promoção, repetência, evasão,
+migração EJA, abandono).
+
+✅ **Tabela de harmonização atualizada**: inclui V3014 (concluiu o curso?),
+referência ao técnico (códigos 7 em ambas versões).
+
+✅ **Rotação 1 explicitamente excluída**: figura e texto mostram que
+rotação 1 não tem observação em Q2-Q3 de t+1 e portanto é excluída por
+construção da janela v5.
+
+### Estrutura final §3
+
+1. Parágrafo introdutório PNADC
+2. §3.1 Esquema rotativo COM Figura F0
+3. Janelas naturais + exclusão de rotação 1
+4. Construção do painel (matching)
+5. Pesos e regras amostrais
+6. Caixa 1 família M.
+7. §3.2 Harmonização com tabela
+8. §3.4 Definições operacionais em prosa
+9. Contraste PROFLUXO (tabela mantida)
+10. Variáveis de heterogeneidade
+
+### Novos arquivos
+
+- `DataWork/5_Figures/code/F0_esquema_rotativo.R`
+- `DataWork/5_Figures/output/F0_esquema_rotativo.{pdf,png}`
+
+### Paper
+
+**51 páginas, 985 KB, 0 undefined refs/cits.**
+
