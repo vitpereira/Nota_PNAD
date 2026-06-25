@@ -1,0 +1,51 @@
+# §5 Heterogeneidade socioeconômica — CLAUDE.md
+
+## Estado atual
+
+Arquivo: `05_heterogeneidade.tex`
+
+Cobre:
+- Gradiente por quintil de renda
+- Gradiente por raça
+- Diferenças por sexo
+- Defasagem idade-série (variável mais forte)
+- Rede pública vs privada
+- Figuras F8a-d (sexo, raça, renda, defasagem)
+- Tabela T6 condicional a defasagem ≥ 2 anos
+
+## O que deve entrar / atualizar
+
+- [ ] **Atualizar números** com v4 (Spec A)
+- [ ] **Recompilar Figuras F8a-d** com novos dados v4
+- [ ] **Tabela T6 distorção**: já existe, atualizar com v4
+- [ ] **Adicionar figura desagregando entrada no sistema** por idade × renda?
+
+## Decisões pendentes
+
+1. **Adicionar mais dimensões**: rede pública vs privada já está mencionada
+   mas sem figura dedicada. Criar F8e?
+2. **Macrorregião**: ainda não tem figura. Criar?
+3. **CadÚnico / BFA observado** (V5002A da PNAD anual): apenas mencionado.
+   Implementar B4 e adicionar tabela?
+4. **Tabelas longas no corpo vs apêndice**: T6 está no corpo, com 5
+   colunas. Mantém ou move?
+
+## Perguntas em aberto
+
+- Existem outras dimensões interessantes? (e.g., status migratório,
+  imediatamente posterior a mudança de domicílio)
+- Comparar heterogeneidade ENTRE specs A e B?
+- Análise por coorte (ano de nascimento) faria sentido aqui ou em §4?
+
+## Dependências
+
+- Figuras: F8a, F8b, F8c, F8d, F8_combined
+- Tabela T6: `T6_distorcao_conditional.tex`
+- Dados: `C19_transitions_specA.parquet`
+
+## Histórico
+
+- v0: placeholders
+- v1: writing_rules.md
+- v2-v3: números atualizados
+- v4 (a fazer): atualizar com Spec A

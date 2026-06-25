@@ -199,3 +199,113 @@ captura de retorno. Taxas anuais oferecem LOWER BOUND sobre conclusão.
 
 **50 páginas, 947 KB, 0 undefined refs, 0 undefined citations.**
 
+
+---
+
+## 2026-06-25 — Rodada 4: técnico + entrada + duas specs + Soares-Alves
+
+### Mudanças metodológicas (M9-M13)
+
+**M9. Inclusão de EM técnico (V3003A=07).**
+Etapa 'Educação Profissional Médio' incorporada ao universo principal,
+com séries 1-4. Nivel 13 reservado para 4º técnico. Cerca de 0,5% do
+total amostral mas relevante conceitualmente.
+
+**M10. Entrada no sistema (sexto indicador).**
+Calculada em sub-amostra distinta: indivíduos 4-24 anos NÃO observados
+em EF/EM regular ou técnico em t, e cuja referência em t+1 mostra
+matricula em regular/técnico. Taxas por faixa etária (média 2012-2023):
+- 4-6 anos: 32,8% (entrada típica no 1º EF)
+- 7-10 anos: 88,1% (alta entrada, idade típica do EF iniciais)
+- 11-14 anos: 86,8% (idade do EF finais)
+- 15-17 anos: 39,3% (idade do EM)
+- 18-24 anos: 3,6% (entrada via EJA/retorno)
+
+**M11. Duas especificações de janela (Spec A principal, Spec B sensibilidade).**
+- Spec A: t ∈ {Q2, Q3, Q4}, t+1 ∈ {Q2, Q3}, com max(nivel) em cada janela.
+  - Vantagem: maior amostra (~500k vs 316k v3)
+  - Cautela: Q4 em t pode inflar nivel_t via reporte antecipado
+- Spec B: t ∈ {Q3, Q4}, t+1 ∈ {Q2, Q3, Q4}.
+  - Vantagem: t+1 com 3 quartis, melhor max(nivel)
+  - Cautela: t com 2 quartis apenas
+
+**M12. max(nivel) na janela de t+1 expandida.**
+Recupera casos em que família atualiza série apenas em Q3 ou Q4 de t+1.
+
+**M13. Correção V3014 estendida ao 4º EM técnico.**
+Mantém correção do v3 para 3º EM regular E inclui 4º EM técnico
+(nivel=13). Aumento das correções de 12,876 (v3) para 20,360 (v4 Spec A).
+
+### Comparação Spec A v4 vs v3 (EF iniciais 2019)
+
+| Versão | Prom | Rep | Evas | EJA | Sum |
+|---|---|---|---|---|---|
+| v3 (Q2-Q3 + V3014) | 85,5% | 11,8% | 0,4% | 0,1% | 97,8% |
+| **v4 Spec A** | **76,3%** | **21,0%** | **0,4%** | **0,1%** | **97,8%** |
+| v4 Spec B | 77,4% | 20,2% | 0,4% | 0,1% | 98,0% |
+
+Promoção EF iniciais 2019 caiu de 85,5% (v3) para 76,3% (v4 Spec A).
+O aumento de Q4 na janela de t inflou max(nivel_t) e reduziu o gap
+nivel_t1 - nivel_t. Esse efeito é discutido em §7.
+
+### EM 2019 — comparação detalhada
+
+| Versão | Prom | Rep | Evas |
+|---|---|---|---|
+| v3 (com V3014) | 70,7% | 13,4% | 4,9% |
+| **v4 Spec A** | **67,6%** | **23,1%** | **4,6%** |
+| v4 Spec B | 67,6% | 23,1% | 4,6% (mesmo) |
+| INEP oficial | 82,7% | 8,3% | 6,9% |
+
+Gap residual EM 2019 vs INEP: 15pp (v4 Spec A) vs 12pp (v3).
+
+### Mudanças editoriais
+
+**E6. Soares-Alves (UFMG) à literatura.**
+Citações inseridas em §2 (literatura) e §5 (heterogeneidade) com
+referências a `SoaresAlvesFonseca2021_trajetorias` (RBEP),
+`AlvesSoares2013_contexto` (Educação e Pesquisa) e
+`RianiRiosNeto2008_background` (RBEP). Bibliografia já continha as
+entradas.
+
+**E7. CLAUDE.md por seção.**
+Criados arquivos `Paper/sections/CLAUDE_NN_xxx.md` para cada seção
+(01 introdução, 02 literatura, 03 dados, 04 resultados, 05 heterog,
+06 inep, 07 robustez, 08 conclusão) + um `CLAUDE_INDEX.md` mapeando
+todas as seções. Cada CLAUDE registra estado atual, decisões
+pendentes e perguntas em aberto para discussão futura.
+
+### Esclarecimento sobre PNADC 2024 e 2025
+
+PNADC 2024 disponível em todos os quatro trimestres. Usado no projeto.
+- Transições inter-anuais: até t=2023 (base), t+1=2024 (12 transições)
+- Abandono intra-ano: até 2024 (13 anos)
+- Transição 2024→2025: NÃO computável (sem 2025Q2/Q3)
+- Previsão IBGE para PNADC 2025Q1: set-nov de 2026
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C19_v4_unified.py`
+- `DataWork/3_Indicators/code/C19b_entrada_patch.py`
+- `DataWork/3_Indicators/output/T1_brasil_inter_v4_specA.csv`
+- `DataWork/3_Indicators/output/T1_brasil_inter_v4_specB.csv`
+- `DataWork/3_Indicators/output/T_entrada_no_sistema.csv`
+- `DataWork/3_Indicators/output/T_entrada_no_sistema.tex`
+- `DataWork/3_Indicators/output/T_entrada_por_ano.csv`
+- `DataWork/3_Indicators/output/C19_transitions_specA.parquet`
+- `DataWork/3_Indicators/output/C19_transitions_specB.parquet`
+- `Paper/sections/CLAUDE_*.md` (8 arquivos)
+- `Paper/sections/CLAUDE_INDEX.md`
+
+### Paper
+
+**51 páginas, 956 KB, 0 undefined refs/cits.**
+
+### Pendências para próxima rodada
+
+- [ ] Regerar todas as figuras (F1, F4, F5, F7, F8a-d, F9) com dados v4 Spec A
+- [ ] Atualizar texto de §4, §5, §6 com novos números v4
+- [ ] Decidir Spec A vs B como principal
+- [ ] Implementar B4 BFA observado (V5002A da PNADC anual)
+- [ ] PNADC 2025 quando disponível
+
