@@ -2,8 +2,7 @@
 
 \input{../Preambles/header.tex}
 
-\title{Indicadores de fluxo escolar via painel longitudinal da PNAD Cont\'inua:\\
-       tr\^es d\'ecadas depois do PROFLUXO\thanks{
+\title{Indicadores de fluxo escolar via painel longitudinal da PNAD Cont\'inua\thanks{
        Agradeço a [colaboradores] pelos comentários e ao Ministério da Educação
        pela motivação inicial da agenda. Versão de \today.}}
 
@@ -21,18 +20,22 @@
 
 \begin{abstract}
 \noindent \singlespacing
-Revisitamos a tradi\c{c}\~ao PROFLUXO (Fletcher--Ribeiro--Klein, 1985-2006) usando o
-painel longitudinal de cinco trimestres da PNAD Cont\'inua (2012-2024). Onde o PROFLUXO
-inferia fluxo escolar a partir de um corte cross-sectional sob hip\'oteses de estado
-estacion\'ario, \textbf{observamos diretamente} as transi\c{c}\~oes individuais e
-constru\'imos cinco indicadores --- abandono, evas\~ao, promo\c{c}\~ao, repet\^encia e
-n\~ao-progress\~ao --- desagregados por s\'erie, sexo, ra\c{c}a, quintil de renda
-domiciliar per capita, perfil de elegibilidade ao Bolsa Fam\'ilia e defasagem idade-s\'erie.
-Comparamos com os indicadores oficiais do INEP e decompomos a diferen\c{c}a em cinco
-fontes. Os resultados demonstram quatro vantagens da PNADC: tempestividade trimestral,
-desagrega\c{c}\~ao socioecon\^omica, independ\^encia da fonte e captura de retorno
-entre redes, UFs e modalidades. Propomos a PNADC como base de um boletim peri\'odico
-de fluxo escolar oficial.
+Constru\'imos cinco indicadores de fluxo escolar a partir do painel longitudinal de
+cinco trimestres da PNAD Cont\'inua, no per\'iodo 2012--2024, observando diretamente
+as transi\c{c}\~oes individuais entre anos: abandono intra-ano, evas\~ao, promo\c{c}\~ao,
+repet\^encia e migra\c{c}\~ao para EJA. Restringimos a janela de medi\c{c}\~ao a
+Q$_2$ e Q$_3$, usamos $\max($n\'ivel$)$ em $t+1$ e detectamos a conclus\~ao do EM via
+\texttt{V3014}. Reportamos heterogeneidade por s\'erie, sexo, ra\c{c}a, quintil de
+renda domiciliar per capita e defasagem idade-s\'erie. Comparamos com os indicadores
+oficiais do INEP, decompomos a diferen\c{c}a em cinco fontes e mostramos que, ap\'os
+calibra\c{c}\~ao definicional, o gap residual no EM \'e da ordem de doze pontos
+percentuais. Iterando as taxas anuais do INEP e da PNADC sobre uma coorte sint\'etica,
+projetamos taxas de conclus\~ao do EF (68,7\%/64,4\%) e do EM (46,3\%/33,8\%)
+sistematicamente abaixo da conclus\~ao observada em jovens de 19--24 anos (88,3\% e
+68,2\%), gap atribu\'ido \`a EJA, ao retorno ap\'os evas\~ao tempor\'aria e \`a
+captura de retorno entre redes. Demonstramos quatro vantagens da PNADC como
+fonte complementar ao Censo Escolar: tempestividade trimestral, desagrega\c{c}\~ao
+socioecon\^omica, independ\^encia da fonte e captura de retorno.
 \end{abstract}
 
 \vspace{1em}
@@ -55,6 +58,8 @@ painel longitudinal, PROFLUXO, indicadores educacionais, INEP, monitoramento.
 \input{sections/04_resultados_agregados.tex}
 \input{sections/05_heterogeneidade.tex}
 \input{sections/06_comparacao_inep.tex}
+\input{sections/06b_razoes_discrepancia.tex}
+\input{sections/06c_iteracao_taxas.tex}
 \input{sections/07_robustez.tex}
 \input{sections/08_conclusao.tex}
 

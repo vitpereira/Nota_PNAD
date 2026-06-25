@@ -1,0 +1,107 @@
+% =========================================================================
+% Secao 6B - Razoes da discrepancia PNADC vs INEP
+% =========================================================================
+
+\section{Razões para a discrepância PNADC vs INEP}
+\label{sec:razoes}
+
+A análise apresentada na Seção~\ref{sec:inep} mostra que mesmo após
+as calibrações metodológicas adotadas, persiste alguma divergência
+entre as taxas calculadas pela PNADC longitudinal e as oficialmente
+divulgadas pelo INEP. Esta seção discute, de forma sistemática, as
+cinco fontes mais plausíveis para essa diferença, classificando-as
+entre fontes substantivas, ou seja, refletindo medições genuinamente
+distintas do fenômeno, e fontes operacionais, ou seja, decorrentes
+de convenções de coleta e de definição.
+
+A primeira fonte, de natureza operacional, é a definição de
+promoção no terceiro ano do EM. Conforme detalhado na
+Seção~\ref{sec:inep} e implementado na Tabela~\ref{tab:t1_brasil} via
+a variável \texttt{V3014}, o INEP classifica como promoção qualquer
+aluno que conclui o terceiro ano do EM, independentemente de
+matrícula no ano seguinte. Em sua metodologia operacional inicial,
+a PNADC exigia frequência escolar em $t+1$, o que excluía alunos
+formados que ingressam no mercado de trabalho. Após a correção
+introduzida nesta versão da nota, em que a conclusão é detectada via
+\texttt{V3014}, o gap de promoção no EM caiu de cerca de trinta e
+três pontos percentuais para aproximadamente doze pontos, conforme
+documentado no Apêndice~\ref{app:variaveis} e no CHANGELOG do
+projeto. Essa correção elimina a parcela definicional do gap e deixa
+visíveis as fontes restantes.
+
+A segunda fonte, de natureza substantiva, é a captura de retorno,
+denotada por $R$ na decomposição da Seção~\ref{sec:inep}. A PNADC,
+por entrevistar o domicílio, observa diretamente o aluno
+independentemente da rede, da modalidade ou da unidade federativa em
+que esteja matriculado. O Censo Escolar, em contraste, depende do
+reporte da instituição de ensino e pode perder de vista alunos que
+migram entre redes públicas e privadas, entre unidades federativas
+ou entre modalidades, especialmente quando a rede de destino é mal
+coberta pelo registro. A Figura~\ref{fig:captura_retorno} mostra
+que, no ensino médio, entre três e cinco por cento dos alunos com
+\texttt{V3002=1} em $t+1$ mudaram de rede ou modalidade entre $t$ e
+$t+1$, o que estabelece um limite superior para a parcela do gap
+atribuível à captura de retorno. Esses alunos são classificados
+como evadidos pelo Censo, mas continuam estudando segundo a PNADC.
+A magnitude desse componente é portanto da ordem de três a cinco
+pontos percentuais do gap remanescente.
+
+A terceira fonte, de natureza substantiva, é a diferença de
+universo. A PNADC mede uma amostra probabilística de domicílios e
+expande para a população residente, enquanto o Censo Escolar mede o
+universo de matrículas declaradas pelas instituições. A diferença
+entre os denominadores das duas fontes é tipicamente de dois a três
+por cento, com a PNADC reportando ligeiramente menos alunos do que
+o Censo. Parte dessa diferença reflete sub-cobertura do registro
+administrativo, especialmente em redes pequenas e em escolas
+técnicas isoladas, mas parte também reflete super-cobertura, quando
+um mesmo aluno aparece em duas matrículas no Censo, fenômeno que o
+INEP tenta corrigir via a chave CPF mas que não é eliminado
+completamente.
+
+A quarta fonte é o conceito temporal de frequência. A PNADC mede a
+frequência na semana de referência, isto é, na semana em que a
+entrevista foi conduzida. O Censo Escolar mede a matrícula
+registrada para o ano letivo. Os dois conceitos divergem em
+situações de ausência temporária, isto é, aluno matriculado mas
+ausente na semana de referência, e em situações de matrícula
+encerrada antes do final do ano letivo. A magnitude desse
+componente é difícil de quantificar diretamente, mas estimativas
+indiretas sugerem que está na ordem de um a três por cento.
+
+A quinta fonte é o conceito de auto-relato versus registro
+administrativo. A PNADC pergunta ao responsável pelo domicílio
+sobre a situação escolar de cada morador, e a resposta pode estar
+sujeita a erro de declaração, em particular para adolescentes que
+estão fora do convívio diário do informante, ou para casos em que
+o aluno frequenta uma instituição não declarada por motivos
+diversos. O Censo Escolar, em contraste, registra a matrícula
+administrativa pela instituição, com menor erro de declaração para
+o aluno em si, mas possivelmente com viés institucional, em que a
+instituição declara matrículas inativas para manter financiamento.
+Os dois métodos têm portanto seus próprios vieses, e a comparação
+entre eles é informativa precisamente porque cada um detecta o que
+o outro perde de vista.
+
+A soma quantitativa dos cinco componentes acima, para a transição
+2019/2020 no ensino médio, totaliza aproximadamente doze pontos
+percentuais, o que corresponde ao gap residual observado na
+Tabela~\ref{tab:t4_pnadc_inep} após a correção definicional. Isto
+é, a definição de promoção sozinha explica cerca de vinte pontos
+do gap original de trinta e dois, e os doze pontos restantes
+distribuem-se entre captura de retorno (até cinco pontos),
+diferença de universo (dois a três pontos), conceito temporal (um
+a três pontos), e auto-relato versus administrativo (um a dois
+pontos), em ordens de magnitude consistentes com a literatura
+metodológica brasileira.
+
+A implicação prática é a seguinte. A PNADC e o INEP, após
+calibradas as definições, são fontes complementares e mutuamente
+informativas. A PNADC captura aspectos que o INEP perde, em
+particular a captura de retorno entre redes e a heterogeneidade
+socioeconômica do fluxo. O INEP captura aspectos que a PNADC perde
+ou estima com ruído, em particular o conceito administrativo de
+matrícula ativa em escolas pequenas e isoladas. A convergência
+entre as duas fontes, após calibração, fortalece a confiança em
+ambas, enquanto a divergência residual fornece informação
+substantiva sobre onde cada fonte tem viés conhecido.

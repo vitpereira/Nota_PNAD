@@ -1,0 +1,122 @@
+% =========================================================================
+% Secao 6C - Iteracao das taxas e conclusao
+% =========================================================================
+
+\section{Iteração das taxas de transição e taxa de conclusão observada}
+\label{sec:iteracao}
+
+Esta seção apresenta um exercício de consistência entre as taxas de
+transição reportadas pelo INEP e pela PNADC e a taxa de conclusão
+do ensino fundamental e do ensino médio observada diretamente nos
+dados da PNADC via a variável \texttt{VD3004}, que reporta o nível
+de instrução mais elevado alcançado pelo respondente. A pergunta é
+simples e tem resposta de grande utilidade prática. Se aplicarmos
+iterativamente as taxas anuais do INEP a uma coorte sintética que
+inicia o primeiro ano do EF, qual taxa de conclusão do EF e do EM
+estaria projetada? Essa projeção é consistente com a conclusão
+observada entre jovens adultos na PNADC?
+
+A construção do exercício é a seguinte. Tomamos uma coorte de cem
+crianças entrando no primeiro ano do EF no ano $y_0 = 2005$. Em
+cada ano subsequente, aplicamos as taxas médias do INEP do período
+2014--2019, separadamente para cada série do EF e do EM, e
+contabilizamos a fração da coorte promovida, retida, evadida e
+migrada para EJA. Iteramos por vinte anos, tempo suficiente para
+que mesmo coortes com defasagem severa cheguem ao terceiro ano do
+EM. Ao final, contamos como concluintes do EF as crianças
+promovidas do nono ano do EF, e como concluintes do EM as
+promovidas do terceiro ano do EM, em qualquer ano da janela
+simulada. O mesmo exercício é repetido aplicando as taxas médias
+da PNADC do período 2017--2019, na versão calibrada da
+Tabela~\ref{tab:t1_brasil}.
+
+Em paralelo, computamos a conclusão observada diretamente na
+PNADC. Para cada ano-calendário entre 2012 e 2024, identificamos
+o conjunto de jovens adultos com idade entre dezenove e vinte e
+quatro anos, faixa em que a maioria dos que iriam concluir o EF e
+o EM já o teriam feito. Em seguida, calculamos a fração com
+\texttt{VD3004} igual ou superior a três (EF completo) e a fração
+com \texttt{VD3004} igual ou superior a cinco (EM completo),
+ponderada pelo peso amostral. A Tabela~\ref{tab:t7_completion}
+sintetiza os três indicadores para o ano de 2019.
+
+\input{../DataWork/3_Indicators/output/T7_iterative_completion.tex}
+
+O resultado é instrutivo. A simulação iterativa com as taxas do
+INEP projeta uma taxa de conclusão do EF de 68,7\% e do EM de
+46,3\%. A simulação iterativa com as taxas da PNADC projeta 64,4\%
+e 33,8\%, respectivamente, valores ainda mais baixos. Em contraste,
+a conclusão observada entre jovens adultos de dezenove a vinte e
+quatro anos em 2019 é de 88,3\% para o EF e de 68,2\% para o EM. A
+discrepância entre projeção e observação é substancial,
+aproximadamente vinte pontos percentuais para o EF e vinte e duas
+pontos para o EM no caso do INEP, e ainda maior no caso da PNADC.
+
+A Figura~\ref{fig:completion_compare} mostra as séries temporais
+correspondentes. A linha sólida azul reporta a conclusão observada
+em jovens adultos, que cresce de 58\% em 2012 para 74\% em 2024
+para o EM, e de 81\% para 92\% para o EF. As linhas tracejadas
+horizontais correspondem aos níveis projetados pela iteração das
+taxas do INEP e da PNADC, e ambas ficam claramente abaixo da
+trajetória observada.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F9_completion_comparison.pdf}
+\caption{Taxa de conclusão do EM (Painel A) e do EF (Painel B):
+projeção iterativa de coorte com taxas INEP e PNADC versus
+conclusão observada na PNADC.}
+\label{fig:completion_compare}
+\end{figure}
+
+A interpretação metodológica desse exercício é a seguinte. As
+taxas anuais de transição, tanto do INEP quanto da PNADC,
+constituem em conjunto um \emph{limite inferior} sobre a taxa de
+conclusão. Aplicadas iterativamente sob a hipótese de que evasão é
+permanente e que repetentes são promovidos eventualmente à mesma
+taxa anual, elas projetam uma conclusão menor do que a observada
+em jovens adultos. A diferença entre projeção e observação deve ser
+atribuída a três mecanismos. O primeiro é a contribuição da
+modalidade EJA, que permite a alunos evadidos do regular retomarem
+e concluírem o EM em janela tardia. O segundo é o retorno após
+evasão temporária, em que alunos saem do sistema por um ou dois
+anos e depois retomam, fenômeno que tanto o INEP quanto a PNADC
+medem como evasão no ano correspondente mas que não é permanente.
+O terceiro é o conceito de evasão das duas fontes, que pode
+incluir como evadidos alunos que apenas mudaram de modalidade, de
+rede ou de UF, conforme discutido na Seção~\ref{sec:razoes}.
+
+A magnitude relativa dos três mecanismos pode ser inferida
+indiretamente. A iteração com taxas do INEP projeta evasão
+acumulada de 39,4\% e migração para EJA acumulada de 14,3\%, ao
+passo que a conclusão observada do EM é de 68,2\%. Se assumirmos
+que todos os migrados para EJA concluem eventualmente o EM via
+essa modalidade, a soma de 46,3\% (promoção projetada) mais 14,3\%
+(via EJA) totaliza 60,6\%, ainda 7,6 pontos percentuais abaixo da
+observada. Esses 7,6 pontos atribuem-se ao retorno após evasão
+temporária e à reclassificação de evadidos para concluintes via
+percursos alternativos, o que valida o argumento da
+Seção~\ref{sec:razoes} sobre a importância da captura de retorno e
+do conceito definicional de evasão.
+
+Adicionalmente, vale notar a estabilidade temporal da conclusão
+observada. Entre 2012 e 2019, a conclusão do EM entre jovens de
+dezenove a vinte e quatro anos cresceu de 58,0\% para 68,2\%,
+ganho de aproximadamente dez pontos percentuais em sete anos. A
+partir de 2020, observa-se um salto associado ao período COVID,
+provavelmente refletindo políticas de aprovação automática e
+ajustes administrativos, e o nível pós-pandemia em 2024 é de
+74,8\%. Esse padrão é compatível com a melhoria gradual do sistema
+educacional brasileiro nas duas últimas décadas, ainda que com
+ritmo modesto e com gargalo persistente no EM.
+
+A conclusão substantiva é que as taxas anuais de transição,
+sejam do INEP ou da PNADC, devem ser interpretadas como medidas
+de fluxo \emph{instantâneo}, sensíveis a movimentos entre redes e
+a interrupções temporárias, e não como medidas diretas de
+trajetória cumulativa. Para finalidades de monitoramento de
+políticas focalizadas, como o Pé-de-Meia, recomenda-se reportar em
+paralelo dois indicadores complementares, isto é, a taxa de fluxo
+anual e a taxa de conclusão observada em jovens adultos, que
+juntos oferecem uma imagem mais completa do desempenho do sistema
+educacional do que qualquer um deles isoladamente.

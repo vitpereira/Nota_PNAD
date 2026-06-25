@@ -145,3 +145,57 @@ Todas as mudanças listadas acima foram implementadas. Resultados:
 - Pasta de trabalho local: `C:/Users/vitpe/Documents/Nota_PNAD_repo/` (fora do Dropbox para evitar bloqueio do git lock)
 - Pasta de desenvolvimento principal permanece em `C:/Users/vitpe/Dropbox/MEC_Pe_de_Meia/Nota_PNAD/`
 
+
+---
+
+## 2026-06-25 — Rodada 3: correção EM concluído + iteração de coorte
+
+### Mudanças metodológicas
+
+**M7. Correção de conclusão do EM via V3014.**
+Alunos no 3º ano do EM em $t$ que reportam V3002=2 em $t+1$ mas
+V3014=1 (concluiu o curso) são reclassificados como promoção em vez
+de evasão. Aplicada em C17. **Impacto:** EM 2019 prom 50,4% → 70,7%;
+evas 25,3% → 4,9%. Gap com INEP cai de 32pp para 12pp.
+
+**M8. Simulação de coorte iterativa (C18).**
+Para uma coorte sintética de 100 crianças entrando no 1º EF,
+aplicamos iterativamente por 20 anos as taxas médias do INEP
+(2014-2019) e da PNADC (2017-2019 v3). Projeções vs observação:
+- INEP projetada EF/EM: 68,7%/46,3%
+- PNADC projetada EF/EM: 64,4%/33,8%
+- PNADC observada (VD3004 idade 19-24, 2019): **88,3%/68,2%**
+
+Conclusão: as taxas anuais subestimam a conclusão observada em ~20pp.
+A diferença é atribuída a EJA, retorno após evasão temporária e
+captura de retorno. Taxas anuais oferecem LOWER BOUND sobre conclusão.
+
+### Mudanças editoriais
+
+**E4. Duas novas seções no paper:**
+- §6.B "Razões para a discrepância PNADC vs INEP" (06b_razoes_discrepancia.tex)
+- §6.C "Iteração das taxas de transição e taxa de conclusão observada" (06c_iteracao_taxas.tex)
+
+**E5. Título e abstract revisados.**
+- Removida subtítulo "três décadas depois do PROFLUXO"
+- Abstract reescrito para refletir nova metodologia e achados de iteração
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C17_correcao_em_concluido.py`
+- `DataWork/3_Indicators/code/C18_iterative_completion.py`
+- `DataWork/3_Indicators/output/T1_brasil_inter_v3_corrected.csv`
+- `DataWork/3_Indicators/output/T1_v2_pre_completion.tex` (backup)
+- `DataWork/3_Indicators/output/T7_iterative_completion.tex`
+- `DataWork/3_Indicators/output/T7_pnadc_observed_completion.csv`
+- `DataWork/3_Indicators/output/C17_V3014_lookup.parquet`
+- `DataWork/3_Indicators/output/C17_transitions_v3.parquet`
+- `DataWork/5_Figures/code/F9_completion_comparison.R`
+- `DataWork/5_Figures/output/F9_completion_comparison.pdf`
+- `Paper/sections/06b_razoes_discrepancia.tex`
+- `Paper/sections/06c_iteracao_taxas.tex`
+
+### Paper
+
+**50 páginas, 947 KB, 0 undefined refs, 0 undefined citations.**
+
