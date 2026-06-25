@@ -1,0 +1,201 @@
+% =========================================================================
+% Secao 2 - A medicao do fluxo escolar no Brasil: tres eras
+% =========================================================================
+
+\section{A medição do fluxo escolar no Brasil}
+\label{sec:tres_eras}
+
+Até meados da década de 1980, os indicadores de fluxo escolar brasileiros
+eram calculados quase exclusivamente a partir dos estoques de matrícula
+declarados pelas escolas no Censo Escolar. A taxa de aprovação
+correspondia à fração de alunos que, ao final do ano letivo, era
+promovida pela escola; a taxa de reprovação, aos não promovidos; e a
+taxa de abandono, aos alunos que deixaram de comparecer antes do
+encerramento do ano letivo. A soma das três taxas era forçada a um e a
+interpretação parecia transparente.
+
+O problema, identificado de forma sistemática por
+\cite{FletcherRibeiro1989_profluxo}, é que essas taxas eram apuradas em
+um único corte temporal. As estatísticas comparavam o estoque de
+matrícula em um ano com o número de aprovados, reprovados e
+abandonados naquele mesmo ano, sem acompanhar o destino dos
+reprovados. Um aluno reprovado podia se matricular novamente na mesma
+série, em outra escola da rede pública, ou mesmo em outra modalidade,
+sem ser identificado como repetente nas estatísticas agregadas. Como
+consequência, a taxa de repetência efetiva, medida como a razão entre
+o número de alunos que efetivamente cursavam novamente a mesma série e
+o total de matriculados, era sistematicamente maior do que a taxa de
+reprovação reportada pelo Censo.
+
+\cite{Ribeiro1991_pedagogia} resumiu o achado em uma frase emblemática,
+ao afirmar que o Brasil tinha uma pedagogia da repetência. A
+reprovação era ordens de magnitude maior que o número oficial sugeria,
+e isso explicava a lentidão crônica do fluxo educacional brasileiro,
+em que alunos demoravam onze ou doze anos para concluir o ensino
+fundamental de oito anos.
+
+A resposta metodológica veio do grupo da Fundação Cesgranrio.
+\cite{Fletcher1985_modelo} propôs o modelo PROFLUXO, sigla do Programa
+de Fluxo Escolar. A intuição era a seguinte. Se observamos, em um
+único corte de uma pesquisa domiciliar como a PNAD, a distribuição
+conjunta de idade e série de todos os estudantes do país, podemos
+resolver um sistema de equações de fluxo de estado estacionário e
+recuperar as taxas de promoção, repetência e evasão que produziriam
+aquela distribuição observada \citep{FletcherRibeiro1989_profluxo}.
+
+Formalmente, denote por $N_{a,s}^{t}$ o número de alunos de idade $a$
+na série $s$ no ano $t$, e considere o estado estacionário em que as
+taxas de promoção $p_s$, repetência $r_s$ e evasão $e_s$ por série são
+constantes ao longo do tempo. As equações de transição implicam que
+\[
+N_{a+1,s+1}^{t+1} = p_s \cdot N_{a,s}^{t}, \qquad
+N_{a+1,s}^{t+1}   = r_s \cdot N_{a,s}^{t}.
+\]
+Sob estacionariedade ($N^t = N^{t-1}$), o sistema admite estimação por
+máxima verossimilhança a partir de um único corte. O PROFLUXO foi por
+décadas a base de uma série de estudos sobre fluxo escolar brasileiro,
+incluindo \cite{KleinRibeiro1991_censo}, \cite{Fletcher1998_eficaz} e a
+síntese de \cite{Klein2006_educacao}.
+
+Um esforço aplicado importante na mesma tradição é o de
+\citet{Fernandes2011_atratividade}, que usou dados mensais da Pesquisa
+Mensal de Emprego (PME) do IBGE para mostrar como o número de
+matrículas evolui mês a mês ao longo do ano letivo, separando alunos
+com e sem defasagem idade-série. As figuras de Fernandes mostram que,
+para alunos em dia, a evasão ocorre quase exclusivamente entre séries;
+para alunos defasados, há queda contínua ao longo do ano letivo,
+indicando abandono intra-ano. Esse padrão informa diretamente a
+discussão da Seção~\ref{sec:agregados} desta nota e é replicado na
+Figura~\ref{fig:cohort_fluxo}, agora com dados trimestrais da PNADC e
+cobertura nacional, ao passo que a PME cobria apenas seis regiões
+metropolitanas e foi descontinuada em 2016.
+
+A contribuição metodológica do PROFLUXO foi reconhecida amplamente,
+mas suas hipóteses sempre foram alvo de discussão. A estacionariedade
+implica que as taxas $p_s$, $r_s$, $e_s$ são constantes no tempo,
+hipótese implausível em períodos de mudança institucional, como a
+universalização do acesso ao ensino fundamental nos anos 1990 ou os
+programas focalizados nos anos 2000. A homogeneidade entre coortes e a
+ausência de heterogeneidade observável também limitavam o que o
+modelo podia dizer sobre subgrupos socioeconomicamente relevantes.
+
+\begin{caixatexto}{Caixa 1: Cronologia do PROFLUXO e do INEP}
+Em 1985, \citeauthor{Fletcher1985_modelo}, então no MEC/INEP, propôs o
+modelo PROFLUXO, inferindo o fluxo escolar a partir da matriz
+idade-série da PNAD. Em 1989,
+\citeauthor{FletcherRibeiro1989_profluxo} formalizaram, em Estudos
+Avançados e na Revista Brasileira de Estudos Pedagógicos, o modelo de
+estado estacionário. Em 1991, \citeauthor{Ribeiro1991_pedagogia}
+publicou ``A pedagogia da repetência'' em Estudos Avançados (5:12),
+mostrando que a taxa real de repetência no Brasil era ordens de
+magnitude maior que a reportada pelo Censo; no mesmo ano,
+\citeauthor{KleinRibeiro1991_censo} compararam o modelo PROFLUXO ao
+Censo Educacional, evidenciando o viés sistemático. Em 1998,
+\citeauthor{Fletcher1998_eficaz}, no MEC, aplicou o modelo aos anos
+1990 em ``À procura do ensino eficaz''. Em 2006,
+\citeauthor{Klein2006_educacao} fez a síntese da agenda em ``Como
+está a educação no Brasil? O que fazer?'', publicado no Ensaio
+(Avaliação e Políticas Públicas em Educação, 14:51).
+
+Em 2007, o INEP introduziu o CPF como identificador único do aluno no
+Censo Escolar, abrindo caminho para acompanhamento longitudinal
+direto. Em 2018, o instituto publicou ``Indicadores de Trajetória'',
+suas taxas de transição, cobrindo o período 2007--2016
+\citep{INEP2017_fluxo}. Em 2019, o IBGE liberou os identificadores do
+painel longitudinal da PNADC, permitindo seguir indivíduos ao longo
+dos cinco trimestres. Entre 2020 e 2021, a pandemia de COVID-19
+suspendeu aulas presenciais, levou diversos sistemas à aprovação
+automática e fez com que parte das entrevistas da PNADC fosse
+realizada por telefone, com queda de até quarenta por cento no
+tamanho amostral em alguns trimestres. Em 2025, o INEP atualizou os
+Indicadores de Trajetória até a transição 2021--2022, mas em meados
+de 2026, momento da redação desta nota, não há atualizações para
+transições posteriores.
+\end{caixatexto}
+
+A passagem para a terceira era envolve dois movimentos paralelos, isto
+é, a sofisticação do registro administrativo, com o Censo Escolar
+adotando o CPF, e o painel longitudinal da PNADC. Do lado
+administrativo, o INEP \citep{INEP2017_fluxo} descreveu uma
+metodologia de acompanhamento longitudinal individual explorando o
+CPF como identificador estável entre Censos consecutivos. A partir
+disso, definiu quatro indicadores de fluxo entre dois anos
+consecutivos $t$ e $t+1$, a saber, promoção, isto é, matrícula em
+série superior, repetência, ou matrícula na mesma série, migração para
+EJA, e evasão, sem matrícula em $t+1$. Por construção, as quatro taxas
+somam um.
+
+A publicação dessas taxas, contudo, tem sido errática. A nota técnica
+original \citep{INEP_transicao} cobriu o período 2007--2016,
+mostrando, por exemplo, queda da evasão no ensino médio de 11,1\%
+na transição 2013/2014 para 9,1\% na transição 2016/2017. A série foi
+posteriormente estendida em duas rodadas tardias até a transição
+2021--2022, publicada em julho de 2025 \citep{INEP_transicao}. Em
+junho de 2026, contudo, não há transições divulgadas para 2022--2023
+nem 2023--2024, em contraste forte com as taxas de rendimento, que
+têm publicação anual praticamente ininterrupta.
+
+As transições 2019--2020, 2020--2021 e 2021--2022 cobrem o período
+pandêmico, quando o conceito operacional de matrícula ativa e
+frequência escolar sofreu rupturas profundas. As escolas brasileiras
+tiveram aulas presenciais suspensas em 2020 com retorno gradual e
+heterogêneo em 2021. Muitos sistemas adotaram aprovação automática ou
+critérios excepcionais de progressão, distorcendo a interpretação dos
+indicadores de fluxo. As taxas oficiais do INEP nesses anos refletem
+essas convenções administrativas mais do que o processo regular de
+aprendizagem e progressão. Adicionalmente, o IBGE conduziu parte das
+entrevistas da PNADC por telefone, reduzindo o tamanho amostral
+efetivo em até quarenta por cento em alguns trimestres. Por essas
+razões, nas seções subsequentes destacamos visualmente o período
+2020--2021 nas figuras e excluímos esses anos da média multianual
+reportada.
+
+A descontinuidade na divulgação tem consequências práticas para
+diferentes atores. Em primeiro lugar, gestores e pesquisadores que,
+em 2024--2026, precisam monitorar evasão, repetência e promoção,
+dispõem apenas das séries do Censo Escolar de rendimento, que captam
+abandono mas não distinguem repetência efetiva da promoção. Em
+segundo lugar, a defasagem de mais de uma década entre o último dado
+oficial de trajetória (2016/2017) e o presente impossibilita
+avaliações longitudinais de políticas como o Programa Bolsa Família,
+o Auxílio Brasil e, mais recentemente, o Pé-de-Meia (Lei
+14.818/2024). Em terceiro lugar, a heterogeneidade socioeconômica do
+fluxo escolar permanece invisível nos dados oficiais publicados,
+ainda que essa heterogeneidade seja precisamente o que motiva as
+políticas focalizadas em jovens em situação de pobreza.
+
+\begin{caixatexto}{Caixa 2: O atraso de divulgação do INEP}
+Os Indicadores de Rendimento, que englobam aprovação, reprovação e
+abandono, tiveram sua última divulgação em agosto de 2025, referente
+ao ano letivo de 2024, com defasagem típica de oito a dez meses. Os
+Indicadores de Trajetória, que cobrem promoção, repetência, migração
+para EJA e evasão, tiveram sua última divulgação em julho de 2025,
+referente à transição 2021--2022, e a defasagem do último indicador
+ao presente, em junho de 2026, é portanto de quatro anos. O ritmo de
+divulgação é errático, com pausas longas entre rodadas e sem
+calendário público de atualização. O IDEB, que combina rendimento e
+SAEB, foi divulgado em 2024 com referência a 2023, defasagem típica
+de doze meses. A PNADC trimestral, em comparação, tem divulgação em
+curso com defasagem máxima de quatro a cinco meses em relação ao
+trimestre de referência. A descontinuidade dos Indicadores de
+Trajetória é o principal vácuo de informação que esta nota busca
+preencher.
+\end{caixatexto}
+
+Do lado da pesquisa domiciliar, a publicação dos identificadores
+longitudinais individuais da PNADC pelo IBGE, a partir de 2019,
+permite seguir o mesmo indivíduo em até cinco trimestres
+consecutivos, perfazendo quinze meses no total. Cada domicílio
+entrevistado entra em uma fileira de rotação, o painel, e é visitado
+em cinco trimestres antes de sair da amostra. Combinando o
+identificador domiciliar estável (UF, UPA, número de seleção, número
+do painel) com validações de consistência individual (sexo, idade,
+raça), é possível ligar registros de uma mesma pessoa entre as cinco
+visitas com taxa de acerto superior a noventa por cento em pré-testes.
+Esta nota explora exatamente essa possibilidade, observando
+diretamente, sem modelo de estado estacionário, as transições $t \to
+t+1$ e as transições $Q_1 \to Q_4$ dentro do mesmo ano calendário, e
+a partir dessas transições estimando os cinco indicadores de fluxo,
+isto é, abandono intra-ano, evasão entre-anos, promoção, repetência e
+não-progressão entre anos. A próxima seção descreve em detalhe a
+construção do painel e as definições operacionais.

@@ -1,0 +1,342 @@
+% =========================================================================
+% Secao 3 - Dados e metodo
+% =========================================================================
+
+\section{Dados e método}
+\label{sec:dados_metodo}
+
+A Pesquisa Nacional por Amostra de Domicílios Contínua (PNADC),
+conduzida trimestralmente pelo IBGE desde o primeiro trimestre de 2012,
+baseia-se em uma amostra probabilística de cerca de 211 mil domicílios
+e cobre, em cada trimestre, aproximadamente 460 mil pessoas residentes
+no Brasil. A pesquisa substituiu a PNAD anual e adotou um \emph{design}
+de painel rotativo, em que cada domicílio selecionado é entrevistado em
+cinco trimestres consecutivos. O esquema amostral é tecnicamente
+descrito como 1-2(5), conforme detalhamos a seguir, e essa estrutura
+determina tanto o que é possível observar no painel longitudinal quanto
+o que pode ser distorcido pelo calendário escolar.
+
+\subsection{O esquema rotativo da PNADC}
+\label{ssec:rotativo}
+
+A PNADC adota um esquema rotativo do tipo 1-2(5), no qual cada
+domicílio selecionado permanece na amostra por cinco trimestres
+consecutivos, com uma entrevista por trimestre. Essa modalidade tem
+duas propriedades essenciais para o presente estudo. A primeira é que
+os domicílios entram e saem em fluxo contínuo, organizados em grupos
+de rotação indexados pela variável \texttt{V1014}. Em cada trimestre,
+um quinto dos domicílios entra na amostra, ocupando a primeira visita,
+enquanto outro quinto sai, após completar a quinta visita. A segunda
+propriedade é que as cinco visitas a um mesmo domicílio são separadas
+por intervalos de aproximadamente três meses, o que resulta em um
+horizonte máximo de acompanhamento individual de cerca de quinze
+meses.
+
+A trajetória de um domicílio na amostra depende exclusivamente do
+trimestre de entrada. Um domicílio que entra no primeiro trimestre do
+ano $y$ é entrevistado em $Q_1$, $Q_2$, $Q_3$ e $Q_4$ desse mesmo ano
+e, finalmente, no $Q_1$ do ano $y+1$, totalizando cinco visitas. Um
+domicílio que entra em $Q_2$ do ano $y$ é entrevistado em $Q_2$, $Q_3$
+e $Q_4$ de $y$ e em $Q_1$ e $Q_2$ de $y+1$. De forma análoga, um
+domicílio que entra em $Q_3$ é visto em $Q_3$ e $Q_4$ de $y$ e em
+$Q_1$, $Q_2$ e $Q_3$ de $y+1$, e um domicílio que entra em $Q_4$
+aparece em $Q_4$ de $y$ e em $Q_1$, $Q_2$, $Q_3$ e $Q_4$ de $y+1$.
+
+A consequência imediata desse esquema é que, para qualquer domicílio
+do painel, sempre existe pelo menos uma observação em dois anos
+calendário consecutivos. Em outras palavras, todo domicílio
+necessariamente atravessa a virada de ano, o que torna a PNADC um
+instrumento naturalmente vocacionado para medir transições entre anos
+letivos. Há, contudo, uma assimetria importante. Independentemente do
+trimestre de entrada, a primeira observação no ano $y+1$ ocorre quase
+sempre no $Q_1$ desse ano, pois apenas os domicílios que entraram em
+$Q_4$ do ano $y$ chegam a ter alternativa de medida em $Q_2$, $Q_3$ e
+$Q_4$ de $y+1$. Em termos práticos, isso significa que mais de
+noventa por cento das transições $t \to t+1$ medidas pelo primeiro
+encontro de cada ano caem entre janeiro e março de $t+1$, exatamente
+o período em que o ano letivo brasileiro está em férias ou em sua
+fase inicial. Essa observação está na base da discussão de robustez
+sobre o efeito-férias apresentada na Seção~\ref{ssec:efeito_ferias}.
+
+Esse \emph{design} cria duas janelas naturais para medir o fluxo
+escolar. A janela intra-ano corresponde à primeira e à última
+observação de um mesmo indivíduo dentro de um ano calendário,
+separadas tipicamente por dois a quatro trimestres, e captura saídas
+da escola que ocorreram dentro do ano letivo, o conceito operacional
+de abandono. A janela entre-anos corresponde a uma observação em um
+ano calendário e a observação correspondente no ano seguinte, e
+captura transições entre anos letivos, abrangendo os conceitos de
+evasão, promoção e repetência.
+
+A construção do painel exige duas operações, a saber, a identificação
+estável do domicílio entre visitas e a identificação estável de cada
+pessoa dentro do domicílio. Construímos o identificador de domicílio
+como a concatenação de quatro variáveis, isto é, unidade federativa
+(\texttt{UF}), unidade primária de amostragem (\texttt{UPA}), número
+de seleção do domicílio dentro da UPA (\texttt{V1008}) e número do
+painel (\texttt{V1014}). Domicílios pertencentes ao mesmo painel são
+entrevistados nos mesmos cinco trimestres consecutivos, de modo que a
+chave \texttt{UF + UPA + V1008 + V1014} é estável por construção e
+identifica o domicílio através das visitas.
+
+Dentro de cada domicílio, a posição da pessoa na lista de moradores é
+codificada pela variável \texttt{V2003}. O \emph{matching} preliminar
+de uma mesma pessoa entre visitas usa, portanto, a combinação
+\texttt{hh\_id + V2003}. Como \texttt{V2003} pode variar caso haja
+entrada ou saída de moradores entre visitas, em virtude de
+nascimentos, emigração ou casamento de um filho, implementamos três
+camadas de validação. A primeira é a validação por sexo, em que a
+variável \texttt{V2007} deve ser idêntica em todas as visitas do
+mesmo \texttt{pid\_provis}; indivíduos com inconsistência são
+marcados como elo quebrado. A segunda é a validação por idade, em que
+a variável \texttt{V2009} deve crescer de aproximadamente zero ou um
+ano entre visitas consecutivas, com tolerância de $\pm 1$, e
+distâncias maiores indicam erro de \emph{matching}. A terceira é uma
+camada de reconciliação, em que, nos casos de \texttt{V2003} alterado
+entre visitas mas com sexo e idade compatíveis, tentamos
+\emph{matching} alternativo por sexo e idade dentro do mesmo
+\texttt{hh\_id}; se o \emph{matching} alternativo não for único,
+marcamos como elo quebrado. Indivíduos com elo válido em pelo menos
+duas visitas formam o painel, e as taxas de \emph{matching} obtidas
+estão reportadas na Seção~\ref{ssec:atrito}.
+
+Os pesos amostrais da PNADC trimestral, codificados na variável
+\texttt{V1028}, são calibrados para representatividade trimestral, e
+não longitudinal. Para indicadores de fluxo, usamos o peso da
+primeira observação do indivíduo no painel, esquema que designamos por
+P1. Reportamos um teste de robustez na Seção~\ref{ssec:atrito} usando
+reponderação por \emph{inverse propensity} para corrigir atrito,
+seguindo a metodologia padrão de painel rotativo.\footnote{A
+literatura sobre reponderação em painéis com atrito foi formalizada
+por \citet{wooldridge_2007_attrition} e adaptada para a PNADC em
+\citet{IPEA2022_painel}.} Para evitar células com imprecisão
+excessiva, suprimimos das tabelas qualquer combinação (subgrupo,
+indicador, ano) com $N < 30$. Reportamos $N$ efetivo em todas as
+tabelas e o intervalo de confiança \emph{bootstrap}, com \emph{cluster}
+em UPA, nas tabelas principais. Subgrupos com amostra pequena, como
+indígenas no terceiro ano do EM por UF, são reportados apenas em
+apêndice e sinalizados quando o intervalo de confiança é amplo.
+
+\begin{caixatexto}{Caixa 3: Uma família ao longo dos cinco trimestres}
+Para fixar ideias, considere a família M., entrevistada pela PNADC pela
+primeira vez em 2023Q1. O domicílio é identificado pela combinação
+\texttt{UF=33, UPA=001234567, V1008=05, V1014=02}. Na primeira visita,
+o domicílio tem cinco moradores, a saber, o casal M., com 40 e 38 anos
+respectivamente, e três filhos, isto é, Pedro, de 16 anos, no primeiro
+ano do EM; Maria, de 13 anos, no oitavo ano do EF; e João, de 7 anos,
+no segundo ano do EF. Em 2023Q1, Pedro estuda (\texttt{V3002=1}) em
+escola estadual (\texttt{V3002A=3}) no primeiro ano do EM
+(\texttt{V3006=1}), e as mesmas respostas se repetem em 2023Q2, Q3 e
+Q4. Em 2024Q1, na quinta visita, Pedro tem 17 anos e responde
+\texttt{V3002=2}, ou seja, não frequenta, e sua mãe relata na PNADC que
+ele saiu da escola após o final do ano letivo de 2023.
+
+A linkagem produz duas observações no painel longitudinal. A primeira
+é uma transição intra-ano de Pedro em 2023, comparando $Q_1$ com $Q_4$,
+em que ele estudava em ambas, de modo que o abandono é igual a zero. A
+segunda é uma transição entre-anos de Pedro de 2023 para 2024,
+comparando $Q_1$ com $Q_1$, em que estudava em 2023 e não estudava em
+2024, o que implica evasão igual a um e, consequentemente, não-progressão
+igual a um, com promoção e repetência iguais a zero. Se Pedro estivesse,
+ao invés disso, frequentando uma escola privada em 2024, apareceria com
+\texttt{V3002=1} e \texttt{V3002A=1}, e teríamos evasão igual a zero,
+pois ele continuaria estudando. A mudança de rede pública para privada
+seria invisível para o Censo Escolar caso a escola privada não
+declarasse a matrícula ao INEP, mas é visível para a PNADC via a
+entrevista domiciliar. Essa é a essência da captura de retorno.
+\end{caixatexto}
+
+A PNADC mudou o nome e o significado dos códigos de algumas variáveis
+educacionais em 2016. Especificamente, na variável \texttt{V3003}
+pré-2016, o código 3 representava ``Regular Fundamental'' e o código
+5 representava ``Regular Médio'', enquanto na variável \texttt{V3003A}
+pós-2016, os mesmos conceitos são representados pelos códigos 4 e 6,
+respectivamente. Esta nota harmoniza as duas codificações em
+\texttt{etapa\_consolid}, conforme detalhado no
+Apêndice~\ref{app:variaveis}. A Tabela~\ref{tab:harmonizacao} resume o
+mapeamento das principais variáveis entre as duas versões.
+
+\begin{table}[htbp]
+\centering
+\caption{Harmonização de variáveis educacionais entre versões da PNADC}
+\label{tab:harmonizacao}
+\begin{tabular}{lll}
+\toprule
+Conceito                                 & Versão pré-2016 & Versão 2016+    \\
+\midrule
+Frequenta escola                         & V3002           & V3002           \\
+Rede da escola                           & V3002A          & V3002A          \\
+Curso/etapa que frequenta                & V3003 (2012-2015) & V3003A (2016+)  \\
+Série/ano que frequenta                  & V3006 (todos os anos)            &                 \\
+Etapa (anos iniciais/finais EF)          & V3006A (introduzida em 2016)     &                 \\
+Último ano/série concluído               & V3013           & V3013A          \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Na harmonização, \texttt{etapa} e \texttt{serie} consolidam o curso e
+a série em códigos uniformes para todo o período. Da \texttt{etapa}
+bruta, derivamos a variável de macroetapa, que distingue EF iniciais
+(do primeiro ao quinto ano), EF finais (do sexto ao nono ano), Ensino
+Médio (do primeiro ao terceiro ano), EJA EF e EJA EM. Indivíduos em
+educação superior, cursos técnicos isolados ou pré-escola não fazem
+parte do universo principal da nota, em que o painel principal cobre
+as macroetapas EF e EM regular, e um painel separado é mantido para a
+modalidade EJA.
+
+\subsection{Definições operacionais dos cinco indicadores}
+\label{ssec:definicoes}
+
+Seja $i$ um indivíduo no painel. A medição das transições entre anos
+restringe-se a observações em $Q_2$ e $Q_3$ de cada ano calendário,
+excluindo $Q_1$ (jan-mar, período de férias e início do ano letivo)
+e $Q_4$ (out-dez, fim do ano letivo e início das férias). Justifica-se
+a restrição porque, nesses trimestres, a série declarada pela família
+pode estar desatualizada, gerando estimativas viesadas de promoção e
+repetência. Apenas domicílios que entram no painel da PNADC nos
+trimestres $Q_2$ ou $Q_3$ do ano $t$ contribuem para a transição
+$t \to t+1$, o que corresponde a aproximadamente quarenta por cento
+da amostra. Dentro desse subconjunto, a observação de referência em
+$t$ é tomada como aquela com o maior nível educacional declarado
+entre $Q_2$ e $Q_3$ de $t$; análogo critério se aplica a $t+1$. O
+nível educacional é um índice ordinal monotônico que combina etapa
+e série, em que valores de um a cinco correspondem aos anos do EF
+iniciais, seis a nove aos anos do EF finais, e dez, onze e doze aos
+três anos do EM. O uso de $\max(\text{nível})$ em $t+1$ protege
+contra o caso em que a família reporta a série anterior em $Q_2$ e
+a série nova em $Q_3$, situação que ocorre quando o ano letivo
+ainda não consolidou o registro.
+
+Para a janela intra-ano, descrita a seguir, a amostra é restrita a
+alunos com observações nos quatro trimestres do mesmo ano, o que
+corresponde aos domicílios que entram no painel em $Q_1$ do ano $y$.
+A motivação é semelhante. Sem cobertura dos quatro trimestres não há
+como verificar a presença ou ausência do aluno ao final do ano
+letivo, condição necessária para distinguir abandono de simples
+ausência amostral.
+
+O primeiro indicador é o abandono, definido sobre a janela intra-ano.
+O universo é o conjunto dos indivíduos $i$ com $\text{freq}_t = 1$ em
+$Q_1$ do ano $t$, em EF ou EM regular. O numerador é o subconjunto
+desses indivíduos que apresentam $\text{freq}_t = 0$ em $Q_4$ do
+mesmo ano $t$. Mudança de modalidade, especificamente do EM regular
+para EJA dentro do ano, é tratada como migração para EJA intra-ano,
+não como abandono. Formalmente,
+\[
+\text{Abandono}_s^t = \frac{
+    \sum_i w_i \cdot \mathbb{1}\{\text{freq}_{i,Q_4(t)}=0\}
+}{
+    \sum_i w_i \cdot \mathbb{1}\{\text{freq}_{i,Q_1(t)}=1, s_{i,Q_1(t)} = s\}
+}.
+\]
+
+O segundo indicador é a migração para EJA, definida entre anos. O
+universo são os indivíduos em EF ou EM regular na referência de $t$.
+O numerador é o subconjunto que aparece em alguma observação de
+$t+1$ na modalidade EJA, seja EJA EF (etapa harmonizada 20) ou EJA
+EM (etapa harmonizada 21). A migração para EJA é tratada como
+categoria separada, distinta da evasão, alinhada à convenção do
+INEP.
+
+O terceiro indicador é a evasão entre anos. Mantendo o mesmo
+universo, o numerador é o subconjunto cuja referência em $t+1$
+apresenta $\text{freq} = 0$ e que não migrou para EJA. Indivíduos
+que saem do domicílio entre as visitas e, portanto, não têm
+observação válida em $Q_2$ ou $Q_3$ de $t+1$, são excluídos da
+amostra principal. O tratamento dos casos de atrito é discutido na
+Seção~\ref{sec:robustez}, onde reportamos sensibilidades. Adolescentes
+no EM saem do domicílio dos pais com mais frequência do que crianças
+no EF, e a interpretação de evasão para esses casos requer cuidado,
+pois a saída do domicílio não implica necessariamente saída da
+escola.
+
+O quarto indicador é a promoção entre anos. Tomando o mesmo
+universo, o numerador é o conjunto dos indivíduos que, em $t+1$,
+estão matriculados em algum nível educacional superior àquele em
+que estavam em $t$, isto é, $\text{nível}_{t+1} > \text{nível}_t$.
+A transição do nono ano do EF para o primeiro ano do EM, do quinto
+ano do EF iniciais para o sexto ano do EF finais e do terceiro ano
+do EM para o ensino superior são todas tratadas como promoção, em
+virtude da monotonicidade do índice nível.
+
+O quinto e último indicador é a repetência entre anos. O numerador
+é o subconjunto dos indivíduos cuja referência em $t+1$ está no
+mesmo nível em que estavam em $t$, isto é, $\text{nível}_{t+1} =
+\text{nível}_t$, e na mesma etapa educacional. A não-progressão é
+definida como a soma da repetência, da evasão e da migração para
+EJA, e por construção temos
+\[
+\text{Promoção}_s^t + \text{Repetência}_s^t + \text{Evasão}_s^t
+   + \text{Migra\c{c}\~ao EJA}_s^t \approx 1,
+\]
+em que a aproximação é necessária porque uma fração das transições
+não se enquadra nas quatro categorias, geralmente por se tratar de
+casos em que o aluno do terceiro ano do EM transitou para o ensino
+superior ou abandonou a matrícula para iniciar atividade
+profissional sem ter sido formalmente reprovado.
+
+A diferença metodológica entre o PROFLUXO e a abordagem desta nota é
+substantiva. A Tabela~\ref{tab:contraste_profluxo} sintetiza as
+principais dimensões. Em essência, o PROFLUXO usa um modelo para
+identificar fluxos não observáveis, ao passo que a PNADC longitudinal
+substitui o modelo por observação. O custo da nova abordagem é a
+dependência da hipótese de que o atrito do painel seja
+\emph{ignorable}, condição que testamos diretamente na
+Seção~\ref{sec:robustez}.
+
+\begin{table}[htbp]
+\centering
+\caption{Contraste técnico: PROFLUXO vs. PNADC longitudinal}
+\label{tab:contraste_profluxo}
+\small
+\begin{tabular}{p{4cm} p{5cm} p{5cm}}
+\toprule
+Dimensão            & PROFLUXO (Fletcher-Ribeiro-Klein)            & PNADC longitudinal (esta nota)              \\
+\midrule
+Dado fundamental    & Matriz idade-série de um corte da PNAD       & Pares ($t$, $t+1$) do mesmo indivíduo       \\
+Identificação       & Modelo de fluxo estacionário                 & Observação direta                            \\
+Hipóteses fortes    & Estacionariedade; transições homogêneas      & Atrito ignorable (testável)                  \\
+Heterogeneidade fina& Limitada (requer rodar modelo por subgrupo)  & Direta (média ponderada por subgrupo)        \\
+Choques estruturais & Indistinguíveis no curto prazo               & Detectáveis em janela trimestral             \\
+Mudança de canal    & Difícil de incorporar (modelo é fechado)     & Direta (mudança de rede é observável)        \\
+Tempo de implementação & Lento (caderno de modelagem por ciclo)    & Reprodutível em código                       \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A análise de heterogeneidade da Seção~\ref{sec:heterogeneidade}
+mobiliza um conjunto de variáveis de estratificação que merece
+descrição. A macroetapa, conforme já mencionado, distingue EF
+iniciais (do primeiro ao quinto ano), EF finais (do sexto ao nono),
+EM, EJA EF e EJA EM. A defasagem idade-série é calculada com base na
+convenção de entrada aos seis anos no primeiro ano do EF e
+classifica os alunos em três categorias, isto é, em dia, quando a
+idade é menor ou igual à idade-padrão, um ano defasado e dois ou
+mais anos defasados. O sexo é registrado pela variável
+\texttt{V2007} e a raça/cor pela \texttt{V2010}, que distingue as
+categorias branca, preta, parda, amarela e indígena. Os quintis
+nacionais de renda domiciliar per capita são computados anualmente
+a partir de \texttt{VD5008} (renda domiciliar habitual per capita),
+ponderados pelo peso amostral, e construídos em base nacional, não
+por UF. O perfil de elegibilidade ao Bolsa Família é definido como
+renda domiciliar per capita menor ou igual a meio salário-mínimo no
+ano, limiar que é uma aproximação à elegibilidade ao Programa
+Bolsa Família, ao Auxílio Brasil e ao CadÚnico. Adicionalmente, em
+uma subamostra correspondente à quinta visita da PNADC anual, com
+seu suplemento de Programas Sociais, dispomos da variável
+\texttt{V5002A}, que indica diretamente se o domicílio recebe Bolsa
+Família, e essa subamostra cobre aproximadamente vinte por cento
+das transições do painel. A rede é categorizada como pública,
+englobando federal, estadual e municipal, ou privada, conforme a
+variável \texttt{V3002A}. Por fim, a macrorregião classifica o
+domicílio em Norte, Nordeste, Sudeste, Sul ou Centro-Oeste.
+
+Cabe uma nota sobre a relação dessas variáveis com o CadÚnico. A
+PNADC não tem variável direta de inscrição no Cadastro Único. Quem
+recebe Bolsa Família é, por construção, cadastrado, mas a recíproca
+não é verdadeira, pois famílias inscritas no CadÚnico que não recebem
+o benefício por estarem acima da linha do programa não são
+identificáveis diretamente. Reportamos, portanto, resultados pelo
+perfil de elegibilidade, com renda domiciliar per capita menor ou
+igual a meio salário-mínimo, enfatizando que se trata de uma
+aproximação.

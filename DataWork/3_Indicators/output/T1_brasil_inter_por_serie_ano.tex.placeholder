@@ -1,0 +1,19 @@
+% Placeholder - sera substituido por T1_brasil_inter_por_serie_ano.tex apos analise empirica
+
+\begin{table}[htbp]
+\centering
+\caption{[Placeholder] Indicadores agregados Brasil por etapa e ano}
+\label{tab:t1_brasil}
+\begin{threeparttable}
+\begin{tabular}{lccccc}
+\toprule
+Etapa-ano & Promoção & Repetência & Evasão & Não-progr. & Abandono \\
+\midrule
+EF iniciais  & --- & --- & --- & --- & --- \\
+EF finais    & --- & --- & --- & --- & --- \\
+Ensino Médio & --- & --- & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\tablenote{Tabela ainda não computada. Aguardando download e processamento da PNADC trimestral 2012-2024.}
+\end{threeparttable}
+\end{table}

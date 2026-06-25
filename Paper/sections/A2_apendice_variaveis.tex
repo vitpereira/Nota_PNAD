@@ -1,0 +1,101 @@
+% =========================================================================
+% Apendice B - Construcao das variaveis e codigos
+% =========================================================================
+
+\section{Construção das variáveis e códigos}
+\label{app:variaveis}
+
+Conforme discutido na Seção~\ref{sec:dados_metodo}, algumas variáveis
+educacionais da PNADC mudaram de nome e de codificação ao longo do
+período 2012--2024. A Tabela~\ref{tab:harmonizacao} na seção principal
+lista os nomes das variáveis nas duas versões. A
+Tabela~\ref{tab:codigos_v3003} a seguir detalha os mapeamentos de
+valores entre as duas codificações para as duas variáveis mais
+críticas, \texttt{V3003} pré-2016 e \texttt{V3003A} a partir de 2016.
+
+\begin{table}[htbp]
+\centering
+\caption{Mapeamento de códigos: \texttt{V3003} (2012--2015) $\to$ \texttt{V3003A} (2016+).}
+\label{tab:codigos_v3003}
+\small
+\begin{tabular}{cclc}
+\toprule
+\texttt{V3003} & \texttt{V3003A} & Curso/etapa frequentado & Macroetapa (esta nota) \\
+\midrule
+1 & 1 & Creche                                          & ---             \\
+2 & 2 & Pré-escola                                      & ---             \\
+3 & 4 & Regular Fundamental                             & EF iniciais / finais \\
+4 & 5 & EJA Fundamental                                 & EJA EF          \\
+5 & 6 & Regular Médio                                   & EM              \\
+6 & 7 & EJA Médio                                       & EJA EM          \\
+7 & 8 & Educação Profissional (médio)                   & EM (técnico)    \\
+8 & 10 & Superior - graduação                           & ---             \\
+9 & 11 & Especialização (nível superior)                & ---             \\
+10 & 12 & Mestrado                                      & ---             \\
+11 & 13 & Doutorado                                     & ---             \\
+--- & 3  & Alfabetização de jovens e adultos            & EJA EF          \\
+--- & 9  & Educação Profissional (qualif.\ profissional) & ---             \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A discrepância crítica é o deslocamento de uma unidade para os códigos
+maiores ou iguais a três a partir de 2016, decorrente da inserção de
+novas categorias, especificamente da ``Alfabetização de jovens e
+adultos'', código 3 na nova versão. Sem a harmonização, alunos
+classificados como ``Regular Fundamental'' em 2012--2015 (código 3
+em \texttt{V3003}) seriam erroneamente classificados como
+``Alfabetização'' (código 3 em \texttt{V3003A}) caso as variáveis
+fossem empilhadas sem ajuste, erro que afeta cerca de noventa e cinco
+por cento das observações pré-2016 em idade escolar EF. A variável de
+série, \texttt{V3006}, é estável em todo o período 2012--2024.
+Codifica o ano que o indivíduo cursa, no formato $XYY$, em que $X$ é
+o nível (1 para Fundamental, 2 para Médio, 3 para Superior e 4 para
+outros) e $YY$ é o ano (01 a 09 para EF e 01 a 04 para EM). Por
+exemplo, \texttt{V3006=108} identifica o oitavo ano do EF. A
+variável \texttt{V3006A}, introduzida em 2016, acrescenta a
+desagregação ``EF anos iniciais'' (1 a 5) e ``EF anos finais'' (6 a
+9), redundante com \texttt{V3006} mas conveniente para filtros.
+
+O identificador domiciliar estável é construído como a concatenação
+$\texttt{hh\_id} = \texttt{UF} \,\|\, \texttt{UPA} \,\|\, \texttt{V1008} \,\|\, \texttt{V1014}$,
+e o identificador individual pré-validação é
+$\texttt{pid} = \texttt{hh\_id} \,\|\, \texttt{V2003}$. Após a
+validação de consistência por sexo e idade, elos com inconsistência
+em vinte por cento ou mais das visitas são marcados como elo
+quebrado e descartados do painel. Para corrigir possível viés de
+atrito, estimamos a propensão de retenção como
+\[
+\Pr(R_i = 1 \mid X_i) = \Phi(X_i' \beta),
+\]
+em que $R_i \in \{0,1\}$ indica retenção do indivíduo $i$ no painel
+entre as duas visitas usadas no indicador, e $X_i$ inclui idade,
+idade ao quadrado, sexo, raça, renda per capita, logaritmo da renda
+per capita, rede da escola, UF (efeito fixo) e trimestre da primeira
+observação (efeito fixo). O peso corrigido por \emph{inverse
+propensity}, denominado P3, é
+\[
+w_i^{P3} = w_i^{P1} \cdot \frac{1}{\hat\Pr(R_i=1 \mid X_i)}.
+\]
+
+Toda a análise é reprodutível usando o código disponível em
+\href{https://github.com/vitpereira/Nota_PNAD}{github.com/vitpereira/Nota\_PNAD}
+(a ser publicado na submissão). O \emph{stack} computacional é
+composto por Python para o \emph{parse} dos microdados, Stata 19
+para a construção do painel e o cálculo dos indicadores e R com
+\emph{ggplot2} para as figuras. Sementes aleatórias estão fixadas
+para garantir a reprodutibilidade dos testes Monte Carlo. Para
+facilitar a replicação e a aplicação desta metodologia em outros
+contextos, disponibilizamos um pacote R público em
+\href{https://github.com/vitpereira/fluxoescolar}{github.com/vitpereira/fluxoescolar}.
+O pacote oferece oito funções exportadas, a saber,
+\texttt{baixar\_pnadc()} para download direto do FTP do IBGE,
+\texttt{parsear\_pnadc()} para \emph{parse} dos microdados
+fixed-width, \texttt{harmonizar\_pnadc()} para consolidação dos
+códigos pré e pós 2016, \texttt{construir\_painel()} para linkagem
+individual via Ribas-Soares, \texttt{calcular\_indicadores()} para
+cálculo dos cinco indicadores, \texttt{decompor\_inep()} para a
+decomposição $R+U+S+C+M$, e duas funções de visualização. O pacote
+inclui testes unitários, \emph{vignette} introdutória e fluxo de
+CI via GitHub Actions, e pode ser instalado via\\
+\texttt{remotes::install\_github("vitpereira/fluxoescolar")}.

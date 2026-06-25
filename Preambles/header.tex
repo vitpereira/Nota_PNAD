@@ -1,0 +1,63 @@
+% =========================================================================
+% Preamble compartilhado - Nota PNADC (working paper format)
+% =========================================================================
+% Author: Vitor Pereira
+% Last update: 2026-06-24
+%
+% Carrega pacotes basicos para working paper economico padrao:
+%   - 12pt article, margins 1in, doublespacing body, singlespacing abstract/refs
+%   - titling para tamanho correto de titulo (\large, nao default \Large)
+%   - amsmath, natbib (authoryear,round), booktabs, threeparttable, hyperref
+% =========================================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{setspace}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+\usepackage[authoryear,round]{natbib}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{xurl}  % permite line breaks em URLs longas
+
+% Title formatting (per working-paper-format rule)
+\usepackage{titling}
+\pretitle{\begin{center}\large\bfseries}
+\posttitle{\end{center}}
+\preauthor{\begin{center}\normalsize}
+\postauthor{\end{center}}
+\predate{\begin{center}\normalsize}
+\postdate{\end{center}}
+
+% Caption formatting (small font, italic notes)
+\captionsetup{font=small, labelfont=bf}
+
+% Caixa-texto destacada (usada nas 3 caixas-texto da nota)
+\newtcolorbox{caixatexto}[1]{
+    colback=gray!5,
+    colframe=gray!50,
+    breakable,
+    title=#1,
+    fonttitle=\bfseries\small,
+    coltitle=black,
+    fontupper=\small
+}
+
+% Comandos uteis
+\newcommand{\tablenote}[1]{\begin{tablenotes}\footnotesize\item \textit{Nota:} #1\end{tablenotes}}
+\newcommand{\figurenote}[1]{\par\smallskip\noindent\footnotesize\textit{Nota:} #1}

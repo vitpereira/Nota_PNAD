@@ -1,0 +1,105 @@
+% =========================================================================
+% Secao 8 - Conclusoes e agenda
+% =========================================================================
+
+\section{Conclusões e agenda}
+\label{sec:conclusao}
+
+Esta nota propõe a construção de uma família de indicadores de
+fluxo escolar, a saber, abandono, evasão, promoção, repetência e
+migração para EJA, a partir do painel longitudinal de cinco
+trimestres da PNAD Contínua. A literatura prévia brasileira sobre
+fluxo escolar, em particular o trabalho do grupo PROFLUXO
+\citep{Fletcher1985_modelo, Ribeiro1991_pedagogia,
+KleinRibeiro1991_censo, Klein2006_educacao}, abordou o problema com
+instrumentos diferentes, baseados em um modelo de fluxo de estado
+estacionário aplicado a um corte transversal da PNAD. Esta nota não
+é uma continuação ou extensão desse trabalho. Não há sobreposição
+de autores e o arcabouço técnico é completamente distinto. O ponto
+de contato é apenas o objeto comum, qual seja, usar pesquisa
+domiciliar para medir fluxo escolar, e a importância histórica que
+o PROFLUXO tem nas estatísticas educacionais brasileiras, em
+particular a evidência apresentada por \cite{Ribeiro1991_pedagogia}
+sobre a pedagogia da repetência no Brasil.
+
+A análise mostra que a PNADC oferece quatro vantagens estruturais
+sobre as estatísticas oficiais do INEP. A primeira é a
+tempestividade, pois a PNADC é divulgada trimestralmente, com
+defasagem máxima de quatro a cinco meses. Os Indicadores de
+Trajetória do INEP, em contraste, são divulgados em ritmo errático,
+com a última transição publicada, referente a 2021--2022, datada de
+julho de 2025, e sem calendário público para atualizações
+posteriores. Em meados de 2026, a defasagem do indicador mais
+recente do INEP é de quatro anos, ao passo que a PNADC oferece
+estimativas com defasagem inferior a um trimestre. A segunda
+vantagem é a desagregação socioeconômica, pois a PNADC tem
+variáveis individuais de renda, raça, idade, sexo e, na Visita 5,
+recebimento de Bolsa Família. Os indicadores publicados pelo INEP
+agregam apenas por etapa, rede, UF e localização urbana ou rural,
+e os gradientes por quintil de renda e por perfil de elegibilidade
+ao BFA documentados na Seção~\ref{sec:heterogeneidade} são, à data
+desta nota, inviáveis com os dados publicados oficialmente. A
+terceira vantagem é a independência da fonte, pois pesquisa
+domiciliar e registro administrativo são metodologicamente
+distintos, de modo que a convergência (ou a discrepância
+controlada) entre os dois fortalece a confiança na medida e a
+divergência sinaliza áreas onde o registro administrativo pode
+estar viesado. Por fim, a quarta vantagem é a captura de retorno,
+uma vez que a PNADC acompanha o indivíduo no domicílio, vendo
+migrações entre redes, modalidades e UFs. A decomposição da
+Seção~\ref{sec:inep} quantifica diretamente o componente $R$ do
+\emph{gap} entre INEP e PNADC, ou seja, a fração de alunos
+classificados como evadidos pelo Censo que continuam estudando
+segundo a pesquisa domiciliar.
+
+A abordagem proposta tem três limitações principais que devem
+moderar a interpretação. A primeira diz respeito ao atrito do
+painel. O acompanhamento longitudinal funciona apenas para
+indivíduos que permanecem no mesmo domicílio, e indivíduos que
+migram, por motivos como adolescentes que saem do domicílio dos
+pais, casamentos ou óbitos, saem do painel. A
+Seção~\ref{ssec:atrito} mostra que o atrito é correlacionado com
+idade e renda, precisamente as dimensões mais relevantes para fluxo
+escolar. Embora a reponderação por \emph{inverse propensity},
+detalhada no Apêndice~\ref{app:variaveis}, corrija parte do viés,
+esta é uma limitação inerente à pesquisa domiciliar. A segunda
+limitação refere-se ao tamanho amostral em células finas. Para
+subgrupos pequenos, como indígenas no EM por UF, a precisão das
+estimativas é baixa, e recomendamos sempre reportar IC 95\% e
+evitar agregações com $n < 100$. A terceira limitação diz respeito
+ao conceito de frequência escolar. A variável \texttt{V3002} da
+PNADC captura a situação na semana de referência, e em períodos de
+férias ou paradas (o $Q_1$ do calendário civil é o início do ano
+letivo brasileiro, e $Q_3$ e $Q_4$ abrigam férias escolares
+parciais), a interpretação requer cuidado. Discutimos
+especificamente esse ponto na Seção~\ref{ssec:efeito_ferias}.
+
+A descontinuidade dos Indicadores de Trajetória do INEP cria um
+vácuo informacional que esta nota busca preencher \emph{ad hoc}.
+Em vista da relevância política e analítica das medidas de fluxo,
+especialmente no contexto de políticas focalizadas como o
+Pé-de-Meia \citep{Brasil2024_PeDeMeia}, o Bolsa Família e o
+Auxílio Brasil, propomos uma sistematização institucional, isto é,
+um Boletim Trimestral de Fluxo Escolar produzido com base na
+PNADC, com periodicidade alinhada à divulgação dos microdados pelo
+IBGE. O boletim seria, conceitualmente, o complemento contemporâneo
+do PROFLUXO original, ou seja, usar pesquisa domiciliar para gerar
+medidas longitudinais que o registro administrativo não consegue
+manter. A diferença, agora, é que a observação substituiria o
+modelo, e a frequência seria trimestral em vez de anual ou
+plurianual.
+
+A agenda subsequente inclui quatro frentes. A primeira é aprofundar
+a comparação INEP \emph{versus} PNADC por UF e macrorregião, em
+vez de apenas Brasil agregado. A segunda é investigar o componente
+residual $M$ da decomposição, decompondo-o em fontes específicas
+como erro de classificação, semana de referência e
+semestralidade. A terceira é estimar efeitos do Pé-de-Meia sobre
+os cinco indicadores usando uma estratégia de comparação antes e
+depois com controles em coortes não-elegíveis, exercício que
+pertence a um próximo paper. A quarta é replicar a abordagem para
+outros desfechos educacionais, como frequência por modalidade
+EJA e transição para o ensino superior. Em todos esses casos, a
+contribuição metodológica desta nota, qual seja, usar o painel
+longitudinal da PNADC como termômetro independente do fluxo
+escolar, é a infraestrutura comum.

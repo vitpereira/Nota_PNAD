@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+
+\input{../Preambles/header.tex}
+
+\title{Indicadores de fluxo escolar via painel longitudinal da PNAD Cont\'inua:\\
+       tr\^es d\'ecadas depois do PROFLUXO\thanks{
+       Agradeço a [colaboradores] pelos comentários e ao Ministério da Educação
+       pela motivação inicial da agenda. Versão de \today.}}
+
+\author{Vitor Azevedo Pereira\thanks{Instituto de Economia, Universidade Federal do Rio de Janeiro (UFRJ);
+        senior research fellow, International Initiative for Impact Evaluation (3ie);
+        researcher, Center for the Economics of Human Development (CEHD-UChicago).
+        E-mail: \href{mailto:vitor.pereira@ie.ufrj.br}{vitor.pereira@ie.ufrj.br}.}}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent \singlespacing
+Revisitamos a tradi\c{c}\~ao PROFLUXO (Fletcher--Ribeiro--Klein, 1985-2006) usando o
+painel longitudinal de cinco trimestres da PNAD Cont\'inua (2012-2024). Onde o PROFLUXO
+inferia fluxo escolar a partir de um corte cross-sectional sob hip\'oteses de estado
+estacion\'ario, \textbf{observamos diretamente} as transi\c{c}\~oes individuais e
+constru\'imos cinco indicadores --- abandono, evas\~ao, promo\c{c}\~ao, repet\^encia e
+n\~ao-progress\~ao --- desagregados por s\'erie, sexo, ra\c{c}a, quintil de renda
+domiciliar per capita, perfil de elegibilidade ao Bolsa Fam\'ilia e defasagem idade-s\'erie.
+Comparamos com os indicadores oficiais do INEP e decompomos a diferen\c{c}a em cinco
+fontes. Os resultados demonstram quatro vantagens da PNADC: tempestividade trimestral,
+desagrega\c{c}\~ao socioecon\^omica, independ\^encia da fonte e captura de retorno
+entre redes, UFs e modalidades. Propomos a PNADC como base de um boletim peri\'odico
+de fluxo escolar oficial.
+\end{abstract}
+
+\vspace{1em}
+\noindent \textbf{C\'odigos JEL:} I21, I28, J24.
+
+\vspace{0.5em}
+\noindent \textbf{Palavras-chave:} fluxo escolar, evas\~ao, abandono, repet\^encia, PNAD Cont\'inua,
+painel longitudinal, PROFLUXO, indicadores educacionais, INEP, monitoramento.
+
+\newpage
+\setcounter{page}{1}
+\doublespacing
+
+% ========================================================================
+% Sessoes (input)
+% ========================================================================
+\input{sections/01_introducao.tex}
+\input{sections/02_tres_eras.tex}
+\input{sections/03_dados_metodo.tex}
+\input{sections/04_resultados_agregados.tex}
+\input{sections/05_heterogeneidade.tex}
+\input{sections/06_comparacao_inep.tex}
+\input{sections/07_robustez.tex}
+\input{sections/08_conclusao.tex}
+
+% ========================================================================
+% Apendices
+% ========================================================================
+\appendix
+\input{sections/A1_apendice_uf.tex}
+\input{sections/A2_apendice_variaveis.tex}
+
+% ========================================================================
+% Referencias
+% ========================================================================
+\newpage
+\singlespacing
+\bibliographystyle{plainnat}
+\bibliography{../Bibliography_base}
+
+\end{document}

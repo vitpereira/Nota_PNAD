@@ -1,0 +1,126 @@
+% =========================================================================
+% Secao 1 - Introducao
+% =========================================================================
+
+\section{Introdução}
+\label{sec:introducao}
+
+O Brasil aboliu a obrigatoriedade do registro de matrícula em séries
+específicas em 1971 e, desde então, convive com um problema mensurável
+apenas indiretamente. O fluxo escolar, isto é, a passagem de coortes de
+estudantes por séries, modalidades e redes ao longo do tempo, depende de
+um sistema de registros administrativos que captura imperfeitamente
+trajetórias individuais. Por décadas, o Censo Escolar do Instituto
+Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP)
+divulgou taxas de rendimento escolar, isto é, aprovação, reprovação e
+abandono, baseadas em estoques agregados de matrícula, sem
+acompanhamento longitudinal do mesmo aluno. Estas taxas medem a
+situação do aluno ao final do ano letivo e são apuradas anualmente.
+
+A introdução do identificador único do aluno via CPF em 2007 permitiu
+ao INEP construir um conjunto distinto e complementar de medidas. Trata-se
+das taxas de transição, também chamadas de indicadores de fluxo, que
+medem a passagem do aluno entre dois anos letivos consecutivos em
+quatro categorias, a saber, promoção, repetência, migração para EJA e
+evasão. As duas famílias de indicadores não devem ser confundidas. A
+medida de rendimento captura o que aconteceu dentro de um ano letivo,
+enquanto a medida de fluxo captura a passagem entre anos. A última
+transição divulgada pelo INEP refere-se aos anos 2021 e 2022, publicada
+em 2025, e o ritmo das publicações posteriores é desconhecido. O INEP
+não estabelece, em sua página oficial, calendário público para
+atualização desse indicador.\footnote{A nota técnica original do INEP
+cobre o período 2007--2016 \citep{INEP2017_fluxo}. A série foi atualizada
+até a transição 2021--2022 \citep{INEP_transicao}. Em junho de 2026,
+não há atualizações para transições posteriores.}
+
+A distinção entre rendimento e fluxo importa porque a repetência
+efetiva e a evasão genuína só podem ser identificadas longitudinalmente.
+O aluno reprovado em $t$ pode repetir a mesma série em $t+1$, mas
+também pode mudar de escola, migrar para EJA ou evadir, e os indicadores
+de rendimento sozinhos não distinguem entre essas trajetórias. Quanto às
+taxas de rendimento propriamente ditas, a última divulgação refere-se ao
+ano letivo 2024, publicada em agosto de 2025, com defasagem típica de
+oito a dez meses.
+
+Este artigo propõe construir os indicadores de fluxo escolar utilizando
+uma fonte de dados que oferece vantagens estruturais sobre o Censo
+Escolar, a saber, o painel longitudinal da Pesquisa Nacional por
+Amostra de Domicílios Contínua (PNADC) do Instituto Brasileiro de
+Geografia e Estatística (IBGE). Desde sua introdução em 2012, a PNADC
+adotou um \emph{design} amostral em que cada domicílio é visitado em
+cinco trimestres consecutivos. A liberação recente dos identificadores
+longitudinais individuais por parte do IBGE permite, pela primeira vez,
+observar diretamente o status de matrícula do mesmo aluno ao longo de
+até quinze meses, janela suficiente para distinguir transições
+intra-ano, associadas ao abandono, de transições entre anos, que
+correspondem à evasão, à promoção e à repetência.
+
+Trabalhos prévios na literatura brasileira já enfrentaram, de outras
+formas, a tarefa de medir fluxo escolar a partir de pesquisa
+domiciliar. O esforço mais conhecido nessa direção é o do grupo
+PROFLUXO, sigla do Programa de Fluxo Escolar, proposto por
+\cite{Fletcher1985_modelo} e desenvolvido na Fundação Cesgranrio por
+Sergio Costa Ribeiro, Ruben Klein e colaboradores. O PROFLUXO, em
+seus diversos desdobramentos \citep{Fletcher1985_repetencia,
+Fletcher1985_modelo, FletcherRibeiro1989_profluxo,
+Ribeiro1991_pedagogia, KleinRibeiro1991_censo, Klein2006_educacao},
+estabeleceu que as estimativas de fluxo escolar derivadas diretamente
+do Censo Escolar subestimavam sistematicamente a repetência e propôs
+uma alternativa baseada em modelo de fluxo de estado estacionário
+aplicado à matriz idade-série de um único corte da PNAD. A
+contribuição histórica do grupo é amplamente reconhecida, em
+particular o achado emblemático de \cite{Ribeiro1991_pedagogia} sobre
+a pedagogia da repetência no Brasil. Esta nota não é uma extensão do
+PROFLUXO. Não há sobreposição entre os autores, e os instrumentos
+metodológicos são distintos. Onde o PROFLUXO usava um modelo de
+estado estacionário para inferir fluxos não observáveis a partir de
+um único corte, esta nota observa diretamente as transições entre
+dois pontos no tempo no painel longitudinal da PNADC. A menção ao
+PROFLUXO se justifica pelo lugar do grupo na história das
+estatísticas educacionais brasileiras, mas o arcabouço técnico desta
+nota é completamente diferente do que aquele grupo desenvolveu.
+
+A contribuição deste trabalho é tríplice. Em primeiro lugar, oferece-se
+uma reformulação metodológica dos cinco indicadores de fluxo escolar,
+a saber, abandono intra-ano e evasão, promoção, repetência e
+não-progressão entre anos, construídos a partir do painel longitudinal
+da PNADC entre 2012 e 2024, cobrindo 52 trimestres consecutivos. Em
+segundo lugar, exploramos sistematicamente a heterogeneidade
+socioeconômica das estimativas, isto é, por quintil de renda
+domiciliar per capita, perfil de elegibilidade ao Bolsa Família,
+raça/cor, sexo, defasagem idade-série, rede e macrorregião, demonstrando
+dimensões de desigualdade que os agregados do INEP não revelam por
+construção. Em terceiro lugar, comparamos as estimativas com as do
+INEP em todos os anos em que esses são publicados, decompondo as
+diferenças em cinco fontes, a saber, retorno, universo, amostragem,
+sub-cobertura e medida residual.
+
+A análise demonstra que a PNADC oferece quatro vantagens sobre as
+estatísticas oficiais do INEP, todas mensuráveis. A primeira vantagem
+diz respeito à tempestividade, pois a PNADC é divulgada trimestralmente,
+enquanto a última atualização dos Indicadores de Trajetória do INEP,
+relativa à transição 2021--2022, foi publicada em julho de 2025 e o
+INEP não estabelece calendário público para atualizações posteriores.
+A segunda vantagem é a desagregação socioeconômica, pois a PNADC tem
+variáveis individuais de renda, raça e Bolsa Família que o Censo
+Escolar não possui. A terceira vantagem reside na independência da
+fonte, pois pesquisa domiciliar e registro administrativo são
+metodologicamente distintos e validam-se mutuamente. Por fim, a
+quarta vantagem é a captura de retorno, pois a PNADC acompanha o
+indivíduo no domicílio mesmo quando ele muda de rede, unidade
+federativa ou modalidade, enquanto o Censo perde alunos que migram
+para escolas mal cobertas pelo registro.
+
+O restante da nota organiza-se da seguinte forma. A
+Seção~\ref{sec:tres_eras} situa os trabalhos prévios sobre fluxo
+escolar no Brasil e a divulgação oficial dos indicadores. A Seção~\ref{sec:dados_metodo} descreve os microdados
+da PNADC, o esquema amostral rotativo, a construção do painel
+longitudinal e as definições operacionais dos cinco indicadores. As
+Seções~\ref{sec:agregados} e~\ref{sec:heterogeneidade} apresentam,
+respectivamente, os resultados agregados nacionais e a heterogeneidade
+socioeconômica. A Seção~\ref{sec:inep} confronta as estimativas com as
+do INEP e decompõe as diferenças. A Seção~\ref{sec:robustez} reporta
+testes de robustez, com destaque para o atrito do painel, a regra de
+seleção de trimestre de referência e a reponderação. A
+Seção~\ref{sec:conclusao} sintetiza as quatro vantagens, discute
+limitações e propõe uma agenda.

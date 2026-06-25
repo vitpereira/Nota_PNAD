@@ -1,0 +1,7 @@
+perfil_cadu,macroetapa,flag_promocao,flag_repetencia,flag_evasao,flag_naoprog,n_pessoa,grupo
+Renda PC > 1/2 SM,EF iniciais,.67379689,.32366815,.0023057139,.32603103,50619,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EF iniciais,.61918104,.3750509,.0047763214,.38050529,85608,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,EF finais,.64117616,.3428553,.0067452667,.35160419,42853,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EF finais,.59056437,.37678483,.016195115,.39867759,71790,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,EM,.41582644,.32276803,.18836442,.51656449,31920,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EM,.40970975,.34701619,.19382381,.54936749,41961,Perfil CadU (<=1/2 SM)

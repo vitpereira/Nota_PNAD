@@ -1,0 +1,145 @@
+% =========================================================================
+% Secao 4 - Resultados agregados Brasil
+% =========================================================================
+
+\section{Resultados agregados para o Brasil}
+\label{sec:agregados}
+
+A Tabela~\ref{tab:t1_brasil} reporta os indicadores de fluxo escolar
+para o Brasil, por macroetapa e ano calendário, no período
+2012--2023. As taxas inter-ano são calculadas com a metodologia
+descrita na Seção~\ref{ssec:definicoes}, em que a observação de
+referência em $t$ e em $t+1$ é tomada entre os trimestres $Q_2$ e
+$Q_3$ de cada ano, usando o máximo do nível educacional declarado.
+A taxa de abandono é calculada na subamostra dos alunos com
+observação nos quatro trimestres do mesmo ano e é reportada
+separadamente na Tabela~\ref{tab:abandono_fullyear}.
+
+\input{../DataWork/3_Indicators/output/T1_brasil_inter_por_serie_ano.tex}
+
+Três achados são imediatos na Tabela~\ref{tab:t1_brasil}. Em primeiro
+lugar, a taxa de promoção é alta no EF iniciais e mais baixa no EM,
+padrão consistente com o gargalo histórico do ensino médio
+brasileiro. Em 2019, a promoção é de 85,5\% no EF iniciais, 81,1\%
+no EF finais e 50,4\% no EM, e a soma de promoção, repetência,
+evasão e migração para EJA é de 97,8\% no EF iniciais, 97,0\% no
+EF finais e 90,3\% no EM. Em segundo lugar, a evasão concentra-se
+quase exclusivamente no EM. Em 2019, a evasão entre anos é de 0,4\%
+no EF iniciais, 1,3\% no EF finais e 25,3\% no EM, salto que define
+o EM brasileiro como ponto crítico do sistema. Em terceiro lugar, o
+diferencial de promoção entre EF iniciais e EM, da ordem de trinta e
+cinco pontos percentuais, reproduz, com nova metodologia e janela
+contemporânea, o padrão histórico identificado pela literatura
+brasileira desde \citet{Ribeiro1991_pedagogia}, em que a transição
+do EF para o EM funciona como funil restritivo.
+
+A Tabela~\ref{tab:abandono_fullyear} reporta a taxa de abandono
+intra-ano. Em 2019, o abandono é de apenas 0,5\% no EF iniciais,
+2,2\% no EF finais e 12,8\% no EM. A diferença entre as três
+macroetapas é nítida, refletindo a mesma estrutura que aparece na
+evasão entre anos. O abandono no EM em 2019, da ordem de treze por
+cento, é mais de seis vezes maior do que no EF finais e mais de
+vinte vezes maior do que no EF iniciais.
+
+\input{../DataWork/3_Indicators/output/T_abandono_fullyear.tex}
+
+A Figura~\ref{fig:freq_trimestre} mostra o percentual de alunos
+frequentando a escola ao longo dos quatro trimestres do ano, por
+macroetapa, em anos selecionados. No EF iniciais e finais, o
+percentual de frequência fica próximo de cem por cento ao longo de
+todos os trimestres, com leve queda em $Q_4$, sinalizando o
+encerramento do ano letivo e o início das férias. No EM, a queda em
+$Q_4$ é mais pronunciada, em torno de quatro a oito pontos
+percentuais, evidência da saída de alunos antes do encerramento do
+ano letivo.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F7_freq_por_trimestre.pdf}
+\caption{Percentual de alunos frequentando escola por trimestre, por
+macroetapa, anos selecionados.}
+\label{fig:freq_trimestre}
+\figurenote{Universo: idade quatro a vinte e quatro anos no painel
+PNADC, em EF regular ou EM regular. O percentual de frequência é
+calculado dentro de cada combinação $($Ano, Trimestre, macroetapa$)$
+ponderado pelo peso amostral.}
+\end{figure}
+
+A Figura~\ref{fig:cohort_fluxo} replica, com dados da PNADC
+trimestral, o exercício de \citet{Fernandes2011_atratividade},
+originalmente realizado com dados mensais da PME. Mostramos o índice
+de matrículas, normalizado a cem no início de cada série, ao longo
+de dezesseis trimestres, para pseudocoortes que entram no oitavo ano
+do EF em diferentes anos calendário e progridem até o terceiro ano
+do EM. As linhas verticais tracejadas marcam as transições entre
+séries, em janeiro do ano seguinte. O Painel A considera todos os
+alunos, enquanto o Painel B restringe a alunos sem distorção
+idade-série.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F4_cohort_fluxo.pdf}
+\caption{Índice de matrículas por trimestre, ao longo de pseudocoortes
+oitavo EF $\to$ terceiro EM (PNADC trimestral, 2013--2024).}
+\label{fig:cohort_fluxo}
+\figurenote{Cada coorte é definida pela combinação de série-base e
+ano calendário de entrada no oitavo EF. O Painel A, com normalização
+por série, isto é, cem em $Q_1$ de cada série, evidencia o padrão de
+abandono intra-ano. O Painel B, com normalização por coorte, ou seja,
+cem em $Q_1$ do oitavo EF, revela todas as quedas, intra-ano
+(abandono) e entre séries (evasão, repetência e migração para EJA).
+Reproduz e estende o exercício de \citet{Fernandes2011_atratividade}.}
+\end{figure}
+
+Três padrões emergem da figura. Em primeiro lugar, no Painel A, a
+queda intra-ano dentro de cada série é modesta no oitavo EF e
+amplifica-se progressivamente no ensino médio, confirmando o padrão
+documentado por \citet{Fernandes2011_atratividade}, em que o
+abandono cresce com a idade e com a série. Em segundo lugar, no
+Painel B, fica visível que a maior parte da atrição ocorre nas
+transições entre séries, isto é, nos saltos verticais nas linhas
+tracejadas, e não dentro de cada ano, padrão consistente com o
+gargalo histórico do ensino médio brasileiro
+\citep{Klein2006_educacao, IMDS_PereiraA002}. Por fim, em terceiro
+lugar, ao final dos dezesseis trimestres, o índice da coorte
+(Painel B) está em torno de 40\% a 60\% do nível inicial, dependendo
+da coorte. Ou seja, apenas cerca de metade dos alunos que estavam no
+oitavo EF chegam ao terceiro EM três anos depois, diagnóstico que
+motiva a agenda de políticas focalizadas como o Pé-de-Meia
+\citep{Brasil2024_PeDeMeia}.
+
+Entre 2012 e 2019, observa-se melhoria consistente em todos os
+indicadores do EF. A promoção no EF iniciais sobe de 77,3\% em 2012
+para 85,5\% em 2019, e a repetência cai de 17,0\% para 11,8\%. No
+EM, a promoção cresce mais modestamente, de 47,6\% em 2012 para
+50,4\% em 2019, com a evasão estável em torno de 24\% a 26\%. A
+pandemia de COVID-19 interrompe a melhoria. Em 2020, no EF iniciais,
+a promoção cai abruptamente para 75,8\% e a repetência sobe para
+21,6\%, inversão dramática provavelmente associada às políticas de
+aprovação automática ou de suspensão da aprovação adotadas de modo
+heterogêneo entre estados e municípios durante a suspensão de aulas
+presenciais. Os números de 2020 e 2021 não devem ser interpretados
+como piora real do aprendizado, pois refletem rupturas
+administrativas no conceito de aprovação. A partir de 2022, observa-se
+retomada parcial, mas os níveis de promoção do EF iniciais em 2023
+(72,4\%) ainda não retornaram ao patamar pré-pandemia.
+
+O ano de 2024 marca a entrada do Pé-de-Meia
+\citep{Brasil2024_PeDeMeia} no calendário escolar, com pagamento a
+partir de março. A medida visa, entre outros objetivos, reduzir a
+evasão no EM público. Como o programa só começa em 2024, ainda é
+cedo para identificar seus efeitos com a janela do painel da PNADC,
+pois a transição 2024--2025 ainda não está disponível. A
+monitorização desse impacto será imediatamente possível assim que o
+IBGE disponibilizar a PNADC 2025Q1. Os anos de 2020 e 2021 são
+tratados separadamente nas tabelas e figuras por duas razões. Em
+primeiro lugar, o IBGE conduziu parte das entrevistas por telefone
+durante o pico da pandemia, o que pode introduzir viés de
+não-resposta diferencial. Em segundo lugar, o fechamento de escolas
+reduziu a comparabilidade do conceito de frequentar escola, uma vez
+que alunos podiam estar matriculados mas sem aulas presenciais. Nas
+figuras, o intervalo 2020--2021 aparece sombreado, e nas tabelas
+esses anos vêm marcados com $\dagger$. As séries de média multianual
+reportadas na Seção~\ref{sec:heterogeneidade} excluem 2020 e 2021 do
+cálculo da média 2018--2023, restringindo-se aos anos pré-COVID
+(2018 e 2019) e pós-COVID (2022 e 2023).

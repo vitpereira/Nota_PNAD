@@ -1,0 +1,13 @@
+perfil_cadu,macroetapa,flag_abandono,n_pessoa,grupo
+Renda PC > 1/2 SM,EF iniciais,.0021516862,77826,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EF iniciais,.0046787583,138538,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,EF finais,.0059112641,66438,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EF finais,.013095615,117964,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,EM,.063745052,50642,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EM,.070421174,71630,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,EJA EF,.18910442,737,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EJA EF,.19308247,2784,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,EJA EM,.32188284,1517,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),EJA EM,.27725369,2485,Perfil CadU (<=1/2 SM)
+Renda PC > 1/2 SM,,.032070089,16148,Renda > 1/2 SM
+Renda PC <= 1/2 SM (perfil CadU),,.038697008,26152,Perfil CadU (<=1/2 SM)

@@ -1,0 +1,126 @@
+% =========================================================================
+% Secao 5 - Heterogeneidade socioeconomica
+% =========================================================================
+
+\section{Heterogeneidade socioeconômica}
+\label{sec:heterogeneidade}
+
+Esta seção explora as desagregações que são, à data desta nota,
+inviáveis com os dados publicados pelo INEP, pois o Censo Escolar
+não tem renda domiciliar nem raça do aluno individualizada nas
+tabelas agregadas oficialmente divulgadas. Os números desta seção
+referem-se à média 2018--2023, excluindo 2020 e 2021 para evitar o
+ruído COVID, no painel inter-ano da PNADC sob a nova metodologia
+descrita na Seção~\ref{ssec:definicoes}. A
+Figura~\ref{fig:heterog_combined} consolida as desagregações por
+sexo, raça, quintil de renda e defasagem idade-série, em quatro
+painéis. Discutimos a seguir os achados centrais. Tabelas
+desagregadas detalhadas estão no Apêndice~\ref{app:uf}, e figuras
+adicionais nas Figuras~\ref{fig:het_sexo}--\ref{fig:het_def}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F8_heterog_combined.pdf}
+\caption{Taxas de fluxo escolar por dimensão socioeconômica, Brasil,
+média 2018--2023 (ex-COVID).}
+\label{fig:heterog_combined}
+\figurenote{Universo: painel inter-ano da PNADC, com referência em
+$t$ e $t+1$ tomadas entre $Q_2$ e $Q_3$ usando o máximo do nível
+educacional. Cada painel reporta as quatro taxas (promoção,
+repetência, evasão, migração para EJA) por dimensão.}
+\end{figure}
+
+A defasagem idade-série é o preditor mais forte de fluxo escolar
+desfavorável no painel. A Tabela~\ref{tab:distorcao} reporta as
+taxas condicionais ao aluno iniciar o painel com defasagem de pelo
+menos dois anos em relação à idade-padrão, comparadas às taxas dos
+alunos em dia. As diferenças são substanciais. No EF iniciais, os
+alunos defasados têm promoção de 73,0\%, contra 79,5\% dos alunos em
+dia, e evasão de 3,3\%, contra 0,1\%. No EF finais, a promoção cai
+de 77,6\% para 63,2\%, e a evasão sobe de 0,4\% para 7,3\%. No EM,
+a diferença é dramática. A promoção cai de 51,2\% para 34,0\%, e a
+evasão sobe de 19,6\% para 37,1\%, ou seja, quase o dobro. A taxa
+de migração para EJA também cresce muito entre os defasados,
+chegando a 4,9\% no EM, contra 0,3\% para alunos em dia. Esse
+achado replica diretamente o padrão documentado por
+\citet{Fernandes2011_atratividade} usando dados mensais da PME, em
+que o abandono escolar concentra-se desproporcionalmente entre
+alunos defasados, e estende-o ao período contemporâneo com cobertura
+nacional.
+
+\input{../DataWork/3_Indicators/output/T6_distorcao_conditional.tex}
+
+Mulheres apresentam consistentemente melhor desempenho em todos os
+indicadores e em todas as macroetapas, em linha com a literatura.
+A diferença é especialmente visível no EM, em que a promoção
+feminina é de cerca de cinquenta e dois por cento contra cinquenta
+por cento masculina, com repetência menor entre as mulheres e
+evasão similar entre os sexos. O Painel A da
+Figura~\ref{fig:heterog_combined} e a Figura~\ref{fig:het_sexo}
+detalham esse padrão. Os fatores que levam à evasão no EM
+brasileiro afetam ambos os sexos similarmente, mas a vantagem
+feminina na progressão de série persiste.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F8a_heterog_sexo.pdf}
+\caption{Taxas de fluxo escolar por sexo e macroetapa, média
+2018--2023 (ex-COVID).}
+\label{fig:het_sexo}
+\end{figure}
+
+O gradiente racial é consistente com a literatura recente de
+estratificação educacional brasileira. Alunos pretos e pardos
+apresentam promoção menor e evasão maior do que alunos brancos em
+todas as macroetapas, com a diferença mais pronunciada no EM. A
+Figura~\ref{fig:het_raca} reporta as quatro taxas por categoria
+racial.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F8b_heterog_raca.pdf}
+\caption{Taxas de fluxo escolar por raça/cor e macroetapa, média
+2018--2023 (ex-COVID).}
+\label{fig:het_raca}
+\end{figure}
+
+O gradiente de renda é diferente entre EF iniciais e EM. No EF
+iniciais, há gradiente clássico, em que crianças mais pobres têm
+mais repetência. No EM, contudo, os desafios de retenção e
+progressão afligem o sistema como um todo, e o gradiente de renda
+perde intensidade. Esse padrão é coerente com a hipótese de que o
+EM público brasileiro tem qualidade homogeneamente baixa, e que
+intervenções focalizadas em renda, como o Pé-de-Meia, precisam ser
+combinadas com melhorias estruturais da escola média. A
+Figura~\ref{fig:het_renda} detalha por quintil de renda domiciliar
+per capita.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F8c_heterog_renda.pdf}
+\caption{Taxas de fluxo escolar por quintil de renda domiciliar per
+capita e macroetapa, média 2018--2023 (ex-COVID).}
+\label{fig:het_renda}
+\end{figure}
+
+A Figura~\ref{fig:het_def} sintetiza visualmente a comparação entre
+alunos em dia e defasados.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F8d_heterog_defasagem.pdf}
+\caption{Taxas de fluxo escolar por defasagem idade-série e
+macroetapa, média 2018--2023 (ex-COVID).}
+\label{fig:het_def}
+\end{figure}
+
+Os recortes apresentados acima resumem os indicadores por todas as
+dimensões cobertas pela PNADC, e é importante notar que todos esses
+recortes são, à data desta nota, inviáveis com os dados publicados
+pelo INEP. O Censo Escolar mais detalhado, em seus microdados, tem
+identificador socioeconômico mínimo (rede, dependência
+administrativa, localização urbana ou rural), mas não tem renda
+domiciliar nem raça do aluno individualizada. A diferença não é de
+método, mas de disponibilidade pública de informação. Esse é o
+segundo argumento central pela complementaridade entre PNADC e
+Censo Escolar.

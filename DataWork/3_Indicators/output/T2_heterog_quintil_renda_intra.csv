@@ -1,0 +1,31 @@
+quintil_renda,macroetapa,flag_abandono,n_pessoa,grupo
+Q1 (mais pobre),EF iniciais,.0058037462,56560,renda Q1
+Q2,EF iniciais,.0045819087,49128,renda Q2
+Q3,EF iniciais,.0030036087,39997,renda Q3
+Q4,EF iniciais,.0031424761,36415,renda Q4
+Q5 (mais rico),EF iniciais,.0013452098,34264,renda Q5
+Q1 (mais pobre),EF finais,.01582473,49277,renda Q1
+Q2,EF finais,.013575219,40440,renda Q2
+Q3,EF finais,.009285097,34366,renda Q3
+Q4,EF finais,.007665867,31968,renda Q4
+Q5 (mais rico),EF finais,.0031046043,28351,renda Q5
+Q1 (mais pobre),EM,.07449834,28426,renda Q1
+Q2,EM,.068955511,24149,renda Q2
+Q3,EM,.068831705,23243,renda Q3
+Q4,EM,.070805751,24013,renda Q4
+Q5 (mais rico),EM,.054607682,22441,renda Q5
+Q1 (mais pobre),EJA EF,.17353411,1257,renda Q1
+Q2,EJA EF,.19616017,963,renda Q2
+Q3,EJA EF,.22285755,663,renda Q3
+Q4,EJA EF,.18984264,443,renda Q4
+Q5 (mais rico),EJA EF,.17868267,195,renda Q5
+Q1 (mais pobre),EJA EM,.24674852,902,renda Q1
+Q2,EJA EM,.28780901,852,renda Q2
+Q3,EJA EM,.30257973,874,renda Q3
+Q4,EJA EM,.31382751,818,renda Q4
+Q5 (mais rico),EJA EM,.33042842,556,renda Q5
+Q1 (mais pobre),,.038041756,10163,renda Q1
+Q2,,.039875995,9356,renda Q2
+Q3,,.034594286,8072,renda Q3
+Q4,,.040215321,7531,renda Q4
+Q5 (mais rico),,.026528593,7178,renda Q5

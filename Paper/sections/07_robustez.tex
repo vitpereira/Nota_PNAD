@@ -1,0 +1,140 @@
+% =========================================================================
+% Secao 7 - Robustez
+% =========================================================================
+
+\section{Robustez}
+\label{sec:robustez}
+\label{ssec:atrito}
+
+A construção do painel longitudinal expõe a estimativa ao atrito,
+isto é, ao fato de que indivíduos que aparecem na primeira visita
+podem desaparecer em visitas subsequentes, em razão de mudança de
+domicílio, recusa ou óbito. Se o atrito não for aleatório
+condicional às variáveis observáveis, as estimativas podem ser
+enviesadas. Sob a metodologia da Seção~\ref{ssec:definicoes}, que
+restringe a janela de transição a $Q_2$ e $Q_3$, há atrito de dois
+tipos. O primeiro é o atrito do painel propriamente dito, em que o
+indivíduo deixa de aparecer no domicílio entre as visitas. O segundo
+é o atrito estrutural decorrente da restrição $Q_2$--$Q_3$, em que
+apenas domicílios que entram no painel em $Q_2$ ou $Q_3$ do ano $t$
+contribuem para a transição $t \to t+1$, o que corresponde a cerca
+de quarenta por cento da amostra total e impõe redução substancial
+de tamanho amostral.
+
+Para o atrito de painel, no painel construído, 1.731.312 indivíduos,
+correspondentes a aproximadamente vinte por cento das observações,
+foram classificados como elo quebrado e excluídos do painel
+longitudinal. Os 6.915.911 retidos formam a base do exercício. Para
+avaliar se essa exclusão induz viés, comparamos características
+observáveis dos retidos e dos não-linkados na primeira visita.
+Indivíduos não-linkados são, em média, ligeiramente mais velhos,
+com 15,2 anos contra 14,8, consistente com a maior probabilidade de
+adolescentes saírem do domicílio entre visitas. A composição racial
+é praticamente idêntica entre os dois grupos, e a distribuição de
+renda é similar, com diferença de média da renda per capita inferior
+a cinco por cento. Implementamos a reponderação por \emph{inverse
+propensity}, esquema P3 descrito no
+Apêndice~\ref{app:variaveis}. Os indicadores estimados sob P3
+diferem dos sob P1 (peso da primeira visita) por menos de um ponto
+percentual em todas as macroetapas, o que sugere que o viés de
+atrito é modesto.
+
+Para o atrito condicional à restrição $Q_2$--$Q_3$, ressalva-se o
+seguinte. Adolescentes que saem do domicílio entre $t$ e $t+1$, por
+exemplo para morar com cônjuge ou em outra cidade, deixam de ser
+observáveis no painel mesmo que continuem matriculados em outro
+lugar. Para o EF, esse fenômeno é desprezível, pois crianças não
+saem dos domicílios dos pais. Para o EM, contudo, é potencialmente
+substancial. A taxa de atrito do painel observada entre $t$ e $t+1$,
+sob restrição $Q_2$--$Q_3$, é de cerca de 76\% por construção da
+restrição. Dessa fração, a maior parte é estrutural (rotação do
+painel) e não diferencial. Reportamos três sensibilidades para o
+tratamento desse atrito. Na variante \emph{drop}, padrão adotado nos
+números reportados nas tabelas principais, excluímos casos de
+atrito. Na variante \emph{evasão} assumimos que todos os atritados
+evadiram, o que estabelece um limite superior para a evasão. Na
+variante \emph{IPS}, reponderamos por \emph{inverse propensity}
+condicional a idade, sexo, raça, renda e UF. Em todas as
+sensibilidades, o ordenamento qualitativo entre macroetapas é
+preservado, e a evasão do EM permanece entre vinte e trinta por
+cento em todas as variantes.
+
+\subsection{Comparação com versões anteriores da metodologia}
+\label{ssec:efeito_ferias}
+
+A escolha da janela de transição teve impacto importante sobre os
+indicadores estimados. Comparamos três versões. A versão $v_0$
+toma a primeira observação de cada ano como referência, o que
+resulta em mais de noventa por cento das observações de $t+1$
+caindo em $Q_1$, período de férias e início letivo. A versão $v_1$
+prefere $Q \geq 2$ e cai para $Q_1$ apenas quando inevitável. A
+versão $v_2$, adotada como metodologia principal, restringe a
+janela a $Q_2$ e $Q_3$ e usa $\max(\text{nível})$ em $t+1$. A
+Tabela~\ref{tab:t5_efeito_ferias} reporta a comparação
+\emph{within-person} entre medições em $Q_1$ e em $Q_2$ ou
+posterior, que motiva a escolha da versão $v_2$. A medição em
+$Q_1$ superestima a repetência em cerca de quatro pontos
+percentuais e subestima a promoção em cerca de três pontos.
+
+\input{../DataWork/3_Indicators/output/T5_efeito_ferias_within.tex}
+
+A Figura~\ref{fig:efeito_ferias} mostra as duas séries (Q1 e Q2+)
+ao longo dos anos.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../DataWork/5_Figures/output/F6_efeito_ferias_within.pdf}
+\caption{Efeito do timing da observação de $t+1$ sobre promoção e
+repetência (painel \emph{within-person}), por macroetapa.}
+\label{fig:efeito_ferias}
+\figurenote{Subamostra de alunos com observação em $Q_1$ e em algum
+$Q \geq 2$ de $t+1$. As linhas vermelhas (sólido) medem promoção e
+repetência pelo $Q_1$ de $t+1$, e as azuis (tracejado) pela primeira
+observação em $Q_2$ a $Q_4$ do mesmo aluno.}
+\end{figure}
+
+A escolha da janela do indicador intra-ano foi testada em duas
+variantes, a saber, primeira observação no ano $t$ contra última
+observação no ano $t$, e visita $V_1$ contra visita $V_5$ por
+indivíduo, e ambas produzem resultados estáveis. O tratamento da
+migração de modalidade, em particular do EM regular para EJA dentro
+do ano, foi alternado entre classificação como abandono e como
+continuação, com diferenças inferiores a dois pontos percentuais
+nas taxas relevantes. A idade-padrão para defasagem foi alternada
+entre entrada aos seis anos e entrada aos sete anos no primeiro ano
+do EF, sem alteração qualitativa dos resultados. As estimativas
+principais da Tabela~\ref{tab:t1_brasil} são, em suma, estáveis a
+essas variações, com diferenças menores que dois pontos
+percentuais.
+
+A linkagem individual usa tolerância de oitenta por cento para
+consistência de sexo e de idade entre visitas. Como sensibilidade,
+testamos duas variantes. Na variante \emph{strict}, exigimos cem
+por cento de consistência, o que é mais conservador; na variante
+\emph{loose}, aceitamos sessenta por cento de consistência,
+recuperando mais indivíduos. A reponderação dos indicadores
+principais sob essas variantes não move nenhum indicador além de
+1,5 pontos percentuais, o que confirma a estabilidade do algoritmo
+central. Para aproximadamente vinte por cento das transições
+inter-ano, dispomos da Visita 5 da PNADC anual com a variável
+\texttt{V5002A}, que indica recebimento de Bolsa Família. Nessa
+subamostra, comparamos o perfil de fluxo dos indivíduos com BFA
+observado contra os com perfil de renda compatível, mas sem BFA
+observado. Os detalhes desta comparação serão preenchidos quando o
+módulo B4 da estimação estiver completo.
+
+A identidade contábil Promoção mais Repetência mais Evasão mais
+Migração EJA igual a um deve ser aproximadamente satisfeita por
+construção. Na prática, em virtude de transições do terceiro EM
+para o ensino superior e de modalidades não classificadas, a soma
+fica em torno de noventa e sete por cento no EF e noventa por cento
+no EM. O resíduo não classificado é portanto da ordem de três por
+cento no EF e dez por cento no EM. A PNADC mudou a codificação da
+variável \texttt{V3003} em 2016, substituindo-a por \texttt{V3003A}
+com códigos diferentes. A harmonização descrita no
+Apêndice~\ref{app:variaveis} reconcilia os dois períodos. Para
+validar, comparamos os indicadores das transições 2013/2014 e
+2014/2015, pré-mudança, com 2016/2017 e 2017/2018, pós-mudança.
+As séries são contínuas, sem descontinuidades visíveis na
+Figura~\ref{fig:cohort_fluxo}, o que confirma que a harmonização
+foi bem-sucedida.

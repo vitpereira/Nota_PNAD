@@ -1,0 +1,70 @@
+# ==============================================================================
+# .gitignore para Nota_PNAD
+# ==============================================================================
+
+# Microdados (publicos via FTP IBGE/INEP, nao versionar)
+DataWork/1_DownloadPNADC/input/
+DataWork/1_DownloadPNADC/output/
+DataWork/1_DownloadPNADC/tmp/
+DataWork/2_PanelBuild/input/
+DataWork/2_PanelBuild/tmp/
+DataWork/4_INEP_Comparison/input/
+DataWork/4_INEP_Comparison/tmp/
+
+# Arquivos pesados (regeraveis)
+DataWork/2_PanelBuild/output/*.dta
+DataWork/3_Indicators/output/*.parquet
+DataWork/3_Indicators/output/*.dta
+*.dta
+*.parquet
+
+# R Package fica em repo separado (github.com/vitpereira/fluxoescolar)
+RPackage/
+
+# Caches e logs do Claude Code
+.claude/
+.playwright-mcp/
+mcp-logs.txt
+wa-logs.txt
+quality_reports/session_logs/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.synctex.gz
+*.run.xml
+*-blx.bib
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Rdata
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Quarto
+/.quarto/
