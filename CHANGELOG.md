@@ -1218,3 +1218,47 @@ Pedido do autor: figura exclusiva comparando evasão PNADC vs INEP.
   é o indicador com melhor concordância entre as duas fontes.
 - Texto enfatiza relevância para o Pé-de-Meia (foco EM público).
 - Paper: 65 pgs, 1211 KB, 0 undefined refs.
+
+---
+
+## 2026-06-26 — Rodada 23: F13 abandono PNADC × INEP
+
+Pedido do autor. Parser INEP de Taxa de Rendimento (abandono) implementado
+em A4_parse_inep_abandono.py com 3 estratégias (modern/tab-prefix/
+positional) para lidar com formatos heterogêneos 2012-2024.
+
+### Achados visuais (F13)
+
+- **EM**: PNADC sistematicamente HIGHER que INEP por 4-5 p.p. em todo
+  o período (PNADC ~12-14%, INEP ~5-9%). Diferença conceitual: PNADC
+  capta qualquer interrupção dentro do ano civil; INEP só conta
+  matrícula que não foi encerrada administrativamente.
+- **EF finais**: séries próximas, ambas declinantes (~4% → ~1-2%).
+- **EF iniciais**: ambas baixas, colam a partir de 2018.
+
+### Contraste com evasão (F12)
+
+| Indicador | PNADC × INEP no EM |
+|---|---|
+| Evasão entre-anos (F12) | Quase IDÊNTICAS (~5-6% em 2023) |
+| Abandono intra-ano (F13) | PNADC ~2x INEP sistematicamente |
+
+A explicação substantiva é simétrica entre os dois indicadores:
+- Para evasão, ambas as fontes perdem alunos (PNADC perde quem
+  mudou domicílio; INEP perde quem mudou rede/modalidade/UF),
+  tendendo a igualar.
+- Para abandono, a PNADC capta TODA interrupção observada, o INEP
+  só conta encerramento administrativo. Diferença conceitual.
+
+### Novos arquivos
+
+- `DataWork/4_INEP_Comparison/code/A4_parse_inep_abandono.py`
+- `DataWork/4_INEP_Comparison/output/inep_abandono_long.csv`
+- `DataWork/5_Figures/code/F13_abandono_pnadc_vs_inep.R`
+- `DataWork/5_Figures/output/F13_abandono_pnadc_vs_inep.{pdf,png}`
+
+### Mudanças no paper
+
+- §6: parágrafo discutindo o contraste evasão × abandono +
+  Figura F13 inserida após F12.
+- Paper: 66 pgs, 1257 KB, 0 undefined refs.
