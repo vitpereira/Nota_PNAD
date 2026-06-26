@@ -1299,3 +1299,69 @@ e reflete mudança operacional na coleta da PNADC.
 
 A hipótese da Rodada 21 (CAPI→CATI em 2020-2021 + retomada gradual com
 possível persistência de protocolo) permanece a explicação mais plausível.
+
+---
+
+## 2026-06-26 — Rodada 25: BUG ABANDONO — V3014 não aplicada
+
+Pedido do autor: "Os dados de abandono estão corretos?"
+
+### Bug identificado em C15_abandono_fullyear.py e C22b_abandono_rev.py
+
+Cálculo `flag_abandono = (V3002 == 2 em Q4)` SEM aplicar correção V3014.
+Alunos do 3o EM regular (nivel=12) ou 4o EM técnico (nivel=13) que
+concluem o curso ao longo do ano e declaram V3002=2 em Q4 (porque
+graduaram) estavam sendo contados como abandono.
+
+### Impacto da correção
+
+| Macroetapa | Pré-correção | Pós-correção | INEP |
+|---|---|---|---|
+| EF iniciais | (sem mudança) | (sem mudança) | OK |
+| EF finais | (sem mudança) | (sem mudança) | OK |
+| **EM 2019** | **12.8%** | **5.8%** | **4.8%** |
+| **EM 2022** | **9.1%** | **3.8%** | **5.7%** |
+| **EM 2023** | **7.7%** | **2.5%** | **3.4%** |
+
+A correção elimina ~7 p.p. de falso abandono no EM (cerca de 8%
+dos alunos da subamostra são concluintes terminais). PNADC corrigido
+agora alinha com INEP.
+
+### Novos arquivos
+
+- `C30_abandono_v5_corrected.py` (cálculo corrigido)
+- `C30b_regen_tex.py` (regenera tabela LaTeX)
+- `T_abandono_v5_corrected.csv` (output limpo)
+- `T_abandono_v5_diagnostico.csv` (raw vs corrigido lado a lado)
+
+### Backups dos arquivos com bug
+
+- `T_abandono_fullyear_BUGGY_BACKUP.csv`
+- `T_abandono_norot1_BUGGY_BACKUP.csv`
+
+### Substituições
+
+- T_abandono_fullyear.csv ← corrigido
+- T_abandono_norot1.csv   ← corrigido
+- T_abandono_fullyear.tex ← regerado
+- T1_brasil_inter_por_serie_ano.tex ← regerado (col abandono atualizada)
+
+### Mudanças no paper
+
+- §4: texto sobre abandono 2019 atualizado (12.8% → 5.8% EM)
+- §6: parágrafo sobre Figura F13 reescrito — agora PNADC e INEP
+  CONCORDAM no EM (antes "PNADC ~2x INEP"); narrativa simétrica à
+  evasão. Destaca o papel crítico da correção V3014.
+- F13_abandono_pnadc_vs_inep regenerada com dados corrigidos.
+
+### Implicação para a Rodada 23
+
+A figura F13 anterior mostrava PNADC > INEP no EM. Conclusão estava
+ERRADA. A divergência era artefato do bug, não diferença conceitual
+entre as fontes. O texto que eu havia escrito ("PNADC capta toda
+interrupção, INEP só encerramento administrativo") era explicação
+para um fato que não existe. Removido.
+
+### Paper
+
+66 páginas, 1259 KB, 0 undefined refs.
