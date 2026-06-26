@@ -1545,3 +1545,37 @@ Pedido do autor:
 
 Todos coeficientes positivos. Efeito maior para grupo de extrema
 pobreza, especialmente em EM regular para 15-17 (+3.3 p.p.).
+
+---
+
+## 2026-06-26 — Rodada 31: Event study TWFE PdM
+
+Pedido do autor: gráfico de eventos.
+
+### Setup
+- Baseline omitido: 2023Q3 (último trimestre antes do anúncio Dez/2023)
+- Modelo: y = α_uf + γ_q + δ_g*1[grupo] + Σ_k β_k * 1[grupo]*1[q=k] + ε
+- FE: UF + yr_q. Pesos: V1028. SE clusterizado em hh_id.
+- N = 554,039 obs
+
+### Resultados
+
+**F17a (Matrícula EM regular):**
+- Pre-trends ruidosos com spike 2023Q2 (+2.8** para low)
+- Post-baseline mostra ascensão para ambos os grupos
+- Pico em 2025Q1: low +5.06***, extreme +3.74**
+
+**F17b (Engajamento - freq escola OR EM completo):**
+- Pre-trends quase flat para low; ligeiramente negativos para extreme
+- Post-baseline consistentemente positivo
+- Effect ~+1 a +2 p.p. para low, ~+0.5 a +1.5 p.p. para extreme
+
+### Caveats
+- Pre-trends não são zero (especialmente 2023Q2 para low)
+- Sample rotacional limita identificação por indivíduo
+- Identificação por DiD entre grupos de renda assume tendências paralelas
+
+### Novos arquivos
+- C36_event_study.R, C36_event_em.csv, C36_event_engage.csv
+- F17_event_study.R
+- F17a_event_em.{pdf,png}, F17b_event_engage.{pdf,png}
