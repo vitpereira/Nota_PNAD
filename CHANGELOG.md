@@ -730,3 +730,56 @@ em vez da v5 calibrada.
 
 **56 páginas, 1131 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-26 — Rodada 14: Paradoxo COVID e anomalia pós-pandemia
+
+O autor identificou anomalia importante: repetência PNADC permanece
+ALTA em 2022 e 2023 (~27-28% no EM), bem acima do pré-pandêmico (15%).
+
+### Análise empírica
+
+Comparação direta INEP vs PNADC nos anos COVID disponíveis:
+
+| Ano | EM INEP prom/rep | EM PNADC v5 prom/rep |
+|---|---|---|
+| 2019 | 82.7% / 8.3% | 75.8% / 15.0% |
+| **2020** | **89.0% / 3.9%** ↑/↓ | **63.5% / 29.9%** ↓/↑ |
+| 2021 | 85.3% / 4.2% | 73.4% / 17.9% (recuperação parcial) |
+| 2022 | (não publicado) | 65.9% / **27.6%** (recaída!) |
+| 2023 | (não publicado) | 64.7% / **28.3%** |
+
+INEP em 2020 reflete aprovação automática (promoção sobe). PNADC mostra
+o oposto. Em 2021, PNADC quase recupera (17.9%). Em 2022/2023,
+repetência sobe NOVAMENTE para ~28%, sem dado INEP para comparar.
+
+Análise por nível (EM) confirma padrão sistemático:
+- 1ºEM (mesma série em t+1): 17.7% em 2019 → 30.2% em 2022
+- 2ºEM: 14.4% → 27.8%
+- 3ºEM: 82.8% → 94.2%
+
+### Três hipóteses listadas no paper
+
+1. **Confusão familiar persistente** pós-COVID
+2. **Reprovação sistêmica acumulada** após período de aprovação automática
+3. **Aprendizado real perdido** gerando reprovação genuína
+
+Evidência atual não distingue. INEP 2022+ resolveria a ambiguidade.
+
+### Mudanças no paper
+
+- §7.1 reescrita: foco no pós-pandêmico (não só durante)
+- Tabela paradoxo COVID adicionada
+- §4 referência ao paradoxo com recomendação de cautela para 2020-2023
+- Análises de heterogeneidade já restritas a 2018-2023 ex-COVID (em §5)
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C25_paradoxo_covid.py`
+- `DataWork/3_Indicators/output/T_paradoxo_covid.tex`
+
+### Paper
+
+**59 páginas, 1142 KB, 0 undefined refs/cits.**
+
