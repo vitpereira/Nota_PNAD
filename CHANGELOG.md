@@ -1419,3 +1419,40 @@ escolha de escopo (focar fluxo regular), não bug. Versão futura
 poderia estender.
 
 Paper: 66 páginas, 1261 KB, 0 undefined refs.
+
+---
+
+## 2026-06-26 — Rodada 27: F14 matrícula EM por grupo BFA/CadUnico/fora
+
+Pedido do autor: série trimestral 2022-2024 de matrícula em EM regular
+entre 15-17 anos, separada em 3 grupos com linhas verticais nas datas
+do Pé-de-Meia.
+
+### Datas marcadas
+- Lei 14.818 (16/01/2024) — Pé-de-Meia criado
+- Primeira parcela BFA (~mar/2024) — linha vertical 1
+- Portaria 792 (15/08/2024) — expansão CadÚnico — linha vertical 2
+
+### Definição dos grupos
+- **Bolsa Família**: qualquer membro do HH com V5002A=1 em V5 (Anual)
+- **CadÚnico (sem BFA)**: proxy = HH com V5002A=2 e renda_dom_pc ≤ ½ SM
+- **Fora do CadÚnico**: HH com V5002A=2 e renda_dom_pc > ½ SM
+
+Salário mínimo por ano: R$1212 (2022), R$1320 (2023), R$1412 (2024).
+
+### Achados visuais
+- Gap socioeconômico estável de ~15pp entre BFA e fora-CadÚnico
+- Sazonalidade dominante (Q1-Q2 alto, Q4 baixo)
+- Melhora modesta de ~2-3pp em todos os grupos entre 2023 e 2024
+- Sem efeito diferencial dramático visível para grupo BFA pós-PdM
+
+### Limitações
+- BFA flag vem de V5 (anual), não capturado em todos os trimestres
+- N do grupo BFA pequeno em alguns trimestres (~500-2700)
+- Proxy de CadUnico via renda; verdadeira inscrição CadUnico não está na PNADC
+
+### Novos arquivos
+- C31_em_attendance_by_bfa.py
+- C31_em_attendance_by_bfa.csv
+- F14_em_attendance_by_bfa.R
+- F14_em_attendance_by_bfa.{pdf,png}
