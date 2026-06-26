@@ -5,10 +5,12 @@
 # Last update: 2026-06-26
 #
 # Description:
-#   DOIS event studies separados, cada um com seu T0:
-#     (A) Renda < 1/4 SM (BFA-priorizado): T0 = 2023Q4 (anuncio dez/2023)
-#     (B) 1/4 SM <= renda <= 1/2 SM (CadUnico expansao): T0 = 2024Q3
-#         (Portaria 792 ago/2024)
+#   DOIS event studies separados. Convencao da literatura:
+#   omitir o trimestre IMEDIATAMENTE ANTERIOR ao choque (k=-1).
+#     (A) Renda < 1/4 SM: choque = 2023Q4 (anuncio dez/2023)
+#         Trimestre omitido: 2023Q3 (k=-1)
+#     (B) 1/4 SM <= renda <= 1/2 SM: choque = 2024Q3 (Portaria 792 ago/2024)
+#         Trimestre omitido: 2024Q2 (k=-1)
 #   Cada modelo compara o grupo respectivo contra controle = renda > 1/2 SM,
 #   excluindo o outro grupo da amostra.
 #
@@ -79,7 +81,7 @@ cat("\n=== Estudo A: extreme vs control (T0 = 2023Q4) ===\n")
 dA <- d %>% filter(grupo %in% c("control", "extreme"))
 cat(sprintf("  N obs: %s\n", format(nrow(dA), big.mark = ".")))
 
-coA_em <- run_event(dA, "treat_extreme", "2023Q4", "em_engage",
+coA_em <- run_event(dA, "treat_extreme", "2023Q3", "em_engage",
                      "Renda < 1/4 SM")
 write_csv(coA_em, OUT_A_EM)
 cat(sprintf("  Saved %s\n", OUT_A_EM))
@@ -90,7 +92,7 @@ cat("\n=== Estudo B: low vs control (T0 = 2024Q3) ===\n")
 dB <- d %>% filter(grupo %in% c("control", "low"))
 cat(sprintf("  N obs: %s\n", format(nrow(dB), big.mark = ".")))
 
-coB_em <- run_event(dB, "treat_low", "2024Q3", "em_engage",
+coB_em <- run_event(dB, "treat_low", "2024Q2", "em_engage",
                      "1/4 a 1/2 SM")
 write_csv(coB_em, OUT_B_EM)
 cat(sprintf("  Saved %s\n", OUT_B_EM))

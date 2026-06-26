@@ -1646,3 +1646,22 @@ mais tardio (menos trimestres pós-T0 = menos tempo para resposta).
 - C33: adicionada coluna em_or_eja_or_done
 - C36: 2 modelos separados com T0 distinto
 - F17_event_study.R: 2 plots standalone (F17a, F17b)
+
+---
+
+## 2026-06-26 — Rodada 34: Convenção da literatura — omitir k=-1
+
+Decisão metodológica após discussão com autor: usar convenção padrão
+da literatura (Autor 2003; Borusyak, Jaravel & Spiess 2024; Sun &
+Abraham 2021): omitir o trimestre IMEDIATAMENTE ANTERIOR ao choque
+como referência (k=-1), e mostrar o coeficiente em k=0 (trimestre do
+choque) explicitamente.
+
+### Mudanças
+- F17a: choque = 2023Q4 (anúncio), omitido = 2023Q3 (k=-1)
+- F17b: choque = 2024Q3 (expansão), omitido = 2024Q2 (k=-1)
+
+### Vantagem
+Permite ler o coeficiente em k=0 como antecipação/efeito imediato
+do choque. Trimestres pós ficam claramente k=1, k=2, ... vs baseline
+pré-tratamento mais próxima.
