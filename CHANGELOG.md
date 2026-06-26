@@ -1189,3 +1189,32 @@ Explicações compatíveis (mantidas como hipóteses, não afirmadas):
     sobrepostas, não atribuída unicamente a CATI
 - Footnote sobre reponderação 2025 (Censo 2022) — posterior à janela
 - Paper: 64 pgs, 1167 KB, 0 undefined refs
+
+---
+
+## 2026-06-26 — Rodada 22: F12 evasão PNADC × INEP (figura exclusiva)
+
+Pedido do autor: figura exclusiva comparando evasão PNADC vs INEP.
+
+### Achados visuais
+
+- **EM**: as duas séries SE SOBREPÕEM em boa parte do período, ambas
+  declinantes, ambas convergem para ~5-6% até 2023. Concordância
+  excepcional. ESTA é a macroetapa-foco do Programa Pé-de-Meia.
+- **EF iniciais**: PNADC sistematicamente ~metade do INEP (~0.5%
+  vs 1.5%). Gap atribuível à captura de retorno.
+- **EF finais**: idem (~1.5% vs ~3.5%).
+
+### Novos arquivos
+
+- `DataWork/5_Figures/code/F12_evasao_pnadc_vs_inep.R`
+- `DataWork/5_Figures/output/F12_evasao_pnadc_vs_inep.pdf`
+- `DataWork/5_Figures/output/F12_evasao_pnadc_vs_inep.png`
+
+### Mudanças no paper
+
+- §6: inserido parágrafo introdutório + Figura F12 logo após F5,
+  antes da Tabela T4, destacando que evasão (especialmente no EM)
+  é o indicador com melhor concordância entre as duas fontes.
+- Texto enfatiza relevância para o Pé-de-Meia (foco EM público).
+- Paper: 65 pgs, 1211 KB, 0 undefined refs.
