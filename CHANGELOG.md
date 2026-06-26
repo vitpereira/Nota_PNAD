@@ -1003,3 +1003,63 @@ persistente** no auto-relato da série, possivelmente combinada com
 pós-COVID, sem alteração do dicionário formal. Verificação dessa
 hipótese exigiria acesso aos manuais do entrevistador ano a ano,
 exercício fora do escopo desta nota.
+
+---
+
+## 2026-06-26 — Rodada 19: Confusão familiar também descartada (§7.1)
+
+Refinamento lógico em §7.1 após observação aguda do autor: a hipótese
+de "confusão familiar persistente" também é incompatível com a
+estabilidade da idade média por série.
+
+### O argumento
+
+O insumo que gera a repetência longitudinal e a idade média transversal
+por série é o MESMO valor declarado de V3006. Se famílias estivessem
+sistematicamente declarando que o aluno permanece em S em t+1 por
+confusão (gerando ~13 p.p. de repetência fictícia), esses alunos
+seriam contados no bucket de S em t+1 com sua idade real (um ano
+acima da coorte típica), empurrando a idade média de S para cima.
+Como a idade média NÃO sobe, qualquer explicação envolvendo
+declaração de série sistematicamente errada está descartada.
+
+### Hipóteses descartadas
+
+1. ~~Reprovação real~~ (idade média na série não subiu)
+2. ~~Confusão familiar na declaração de série~~ (mesmo argumento mecânico)
+3. ~~Mudança formal no questionário~~ (Rodada 18, dicionários estáveis)
+
+### Hipótese remanescente: artefato na CONSTRUÇÃO DO PAINEL
+
+Três mecanismos candidatos compatíveis com:
+- Repetência longitudinal alta (painel)
+- Idade média na série estável (cross-section)
+
+a) **Linkage corrompido pós-COVID** — indivíduos diferentes do mesmo
+   domicílio sendo encaixados como mesmo aluno entre t e t+1. Regra
+   de matching admite 80% de consistência sexo+idade; rearranjos
+   familiares pós-COVID podem ter ampliado ruído dentro da tolerância.
+
+b) **Atrito diferencial por progressão** — alunos que avançam para
+   superior, mudam de cidade, ou abandonam domicílio parental são
+   desproporcionalmente removidos do painel. O sobrevivente
+   sobrerrepresenta quem ficou na mesma série, inflando repetência
+   no painel sem afetar cross-section.
+
+c) **Mudança da composição amostral das rotações pós-2020** — esquema
+   rotativo da PNADC afetado pela suspensão temporária de coleta
+   presencial em 2020; recomposição pode ter introduzido viés
+   sistemático na sub-amostra longitudinal 2021-2024 vs cross-section.
+
+### Implicação para futuro trabalho
+
+Distinguir as três hipóteses exige acesso ao código de linkage do
+IBGE e à composição detalhada das rotações pós-COVID — fora do escopo
+desta nota, mas registrado como agenda para validação adicional.
+
+### Mudanças no paper
+
+- §7.1: parágrafo final reescrito — descarta confusão familiar
+  pelo mesmo argumento mecânico (estabilidade da idade média) e
+  desloca hipótese remanescente para artefato de construção do painel.
+- Paper agora 62 páginas (era 61), 1156 KB, 0 undefined refs.

@@ -192,18 +192,60 @@ artificialmente o aumento observado de repetência em 2022 e
 
 A combinação dos dois achados, isto é, estabilidade da
 estrutura do questionário entre 2017 e 2024 e estabilidade
-da idade média por série pré e pós pandemia, deixa como
-explicação mais provável a confusão familiar persistente na
-declaração da série, possivelmente combinada com alteração
-nas instruções operacionais de coleta do entrevistador IBGE
-pós-COVID, sem alteração do dicionário formal. As outras
-duas hipóteses, ou seja, reprovação sistêmica acumulada e
-reprovação real por aprendizado perdido, são fragilizadas
-porque ambas implicariam aumento da idade média por série,
-o que não se observa nos dados. Verificar a hipótese de
-mudança nas instruções de coleta exigiria acesso aos
-manuais do entrevistador da PNADC ano a ano, exercício que
-está fora do escopo desta nota.
+da idade média por série pré e pós pandemia, descarta
+simultaneamente as duas explicações substantivas mais
+óbvias. A primeira, reprovação real por aprendizado
+perdido, é descartada pelo argumento mecânico de que
+repetentes envelhecem na série e deveriam empurrar a idade
+média para cima, o que não se observa. A segunda, confusão
+familiar persistente na declaração da série, é descartada
+por argumento análogo. O insumo que gera a estatística
+longitudinal de repetência é o mesmo que gera a estatística
+transversal de idade média por série, isto é, o valor
+declarado de \texttt{V3006} pela família. Se famílias
+estivessem sistematicamente declarando que o aluno
+permanece na mesma série em $t+1$ por confusão sobre a
+promoção automática ou por inércia de auto-relato, esses
+alunos seriam contados no bucket da série $S$ em $t+1$ com
+sua idade real, isto é, cerca de um ano superior à da
+coorte típica daquela série. O resultado mecânico seria
+elevação da idade média na série, na mesma magnitude
+prevista pela hipótese de reprovação real. A estabilidade
+observada da idade média rejeita, portanto, qualquer
+explicação que envolva famílias declarando série
+sistematicamente diferente da real.
+
+A hipótese remanescente compatível com os dois fatos é, em
+suma, um artefato gerado na construção do painel
+longitudinal e não na declaração de cada observação
+isoladamente. Três mecanismos específicos são candidatos.
+O primeiro é a corrupção do \emph{linkage} entre visitas,
+isto é, indivíduos diferentes do mesmo domicílio sendo
+encaixados como se fossem o mesmo aluno entre $t$ e $t+1$.
+A regra de \emph{matching} adotada admite 80\% de
+consistência entre sexo e idade, e mudanças na composição
+domiciliar pós-COVID, como retornos temporários, hóspedes
+e rearranjos familiares, podem ter ampliado o ruído de
+identificação dentro dessa tolerância. O segundo é o atrito
+diferencial por progressão. Se alunos que avançam para o
+ensino superior, mudam de cidade ou abandonam o domicílio
+parental são desproporcionalmente removidos do painel pelo
+mecanismo de atrito, o painel \emph{sobrevivente} sobre-
+representa quem permaneceu na mesma série, gerando
+inflação aparente de repetência. Esse efeito é compatível
+com idade média estável na série, porque a seção
+transversal continua observando todos os alunos
+matriculados, inclusive os que progrediram em outros
+domicílios. O terceiro é a mudança da composição amostral
+das rotações pós-2020. O esquema rotativo da PNADC foi
+afetado pela suspensão temporária de coleta presencial em
+2020, e a recomposição posterior das rotações pode ter
+introduzido viés sistemático na sub-amostra dos painéis
+longitudinais 2021-2024 em relação à seção transversal
+correspondente. Distinguir essas três hipóteses exigiria
+acesso ao código de linkage do IBGE e à composição
+detalhada das rotações pós-COVID, exercício fora do escopo
+desta nota.
 
 Por essas razões, os números PNADC para 2020, 2021, 2022 e
 2023 são reportados nas tabelas e figuras com marca de
