@@ -1,0 +1,80 @@
+﻿Histórico de atualizações:
+
+24/03/2026 - Atualização dos microdados - Atualização de microdados da PNAD Contínua Trimestral: Correção na variável V3006A.
+
+15/08/2025 - Incorporação à nova estrutura de ponderação de acordo com a projeção populacional do CENSO 2022 (Nota técnica 02/2025).
+
+10/04/2023 - Atualização dos microdados -  Atualização de microdados e de tabelas, no SIDRA, da PNAD Contínua Trimestral e da PNAD Contínua Atenção Primária à Saúde.
+
+31/10/2022 - Atualização do arquivo de input da PNAD Contínua Trimestral para exclusão do cabeçalho que estava duplicado.
+
+16/09/2022 - Atualização de microdados públicos por conta da correção das variáveis V1020 e V1022 para alguns registros.
+
+24/02/2022 - Atualização dos microdados devido a inclusão das variáveis VD2006 e da alteração da descrição da variável posest_sxi nos dicionários.
+
+30/11/2021 - Atualização dos microdados para incorporar a nova estrutura de ponderação da pesquisa (Nota técnica 04/2021).
+
+17/06/2021 - Atualização dos dicionários para correção ortográfica nas categorias das variáveis V3009A, V3020B, V3022C, V3033, V3033A e V3033B e correção das categorias das variáveis V3034B e V3034C.
+
+10/06/2021 - Atualização dos microdados devido à um problema identificado na criação da variável V4046 presente nos microdados.
+
+08/02/2021 - Atualização do arquivo de microdados referente ao terceiro trimestre de 2020.
+
+01/12/2020 - Atualização dos arquivos de dicionário já divulgados e do microdado do 3º tri/20.
+
+19/09/2019 - Atualização do arquivo de seleção de variáveis com a correção da descrição das variáveis derivadas VD5001, VD5002 e VD5005.
+
+29/07/2019 - Atualização dos microdados devido a revisão metodológica realizada na base de dados de rendimentos do trabalho da PNAD Contínua (Nota Técnica de 29/07/19).
+
+16/05/2019 - Atualização dos microdados para substituição das variáveis derivadas VD3001 e VD3002 pelas variáveis VD3004, VD3005 e VD3006.
+
+08/05/2019 - Atualização dos microdados para incorporar a nova estrutura de ponderação de acordo com a projeção populacional de 2018.
+
+31/01/2019 - Atualização da categoria da variável derivada VD3005.
+
+08/01/2019 - Atualização dos microdados devido a identificação do erro presente na variável derivada VD4015.
+
+16/08/2018 - Atualização dos microdados devido a correção da variável VD4004 e inclusão da variável VD4004A.
+
+17/05/2018 - Atualização dos microdados devido a inclusão das variáveis V4020, V4021, V4022, V3006A, V3013A e V3013B.
+
+23/02/2018 - Atualização dos microdados devido a inclusão das variáveis VD2002, VD2004 e VD3002.
+
+22/01/2018 - Atualização dos microdados devido a identificação da falta de tratamento em um conjunto de variáveis do módulo de educação que deveriam ser aplicados para crianças de cinco anos ou menos.
+
+10/01/2018 - Atualização dos microdados devido a identificação de um problema na codificação das variáveis de faixa de rendimento do trabalho, tanto habitual quanto efetivo, e inclusão da variável V1022 (Situação do domicílio).
+
+22/11/2017 - Substituição dos arquivos de microdados do 4º trimestre de 2015, 1º trimestre de 2016 e 2º trimestre de 2016. Foi identificado um problema na programação que impactou nas variáveis de peso destes trimestres durante o processo de geração dos microdados.
+
+17/11/2017 - 1. Atualizações nas variáveis V3001, V3009A, V3010, V3011a, V3012, V3013, V3014 e VD3001 nos trimestres: 4º/2015, 1º/2016, 2º/2016, 3º/2016, 4º/2016, 1º/2017 (Nota Técnica 02/2017 de 17/11/17).
+2. Atualizações nas variáveis V40403 e V40763 nos trimestres: 1º/2017 e 2º/2017.
+3. Com o intuito de reduzirmos a quantidade de arquivos a serem baixados e de proporcionar ao usuário uma melhor visão das variáveis disponíveis em cada trimestre da PNAD Contínua, optamos por disponibilizar um único dicionário para os microdados trimestrais da pesquisa. Sendo assim, incluímos no dicionário uma observação com os trimestres aos quais se aplicam cada variável e alteramos os microdados para terem as mesmas variáveis em todos, ainda que algumas em branco em determinados períodos por não se aplicar.
+4. O arquivo de seleção de variáveis foi atualizado bem como os arquivos de microdados em virtude da inclusão da derivada para pessoas desalentadas na semana de referência (VD4005).
+
+10/10/2017 - Atualização dos microdados devido a identificação de um problema no processo de imputação e na criação da variável de UPA. 
+
+Nos períodos, 4º trimestre de 2014, 1º trimestre de 2015, 2º trimestre de 2015, 4º trimestre de 2015 ao 1º trimestre de 2017 ocorreram erros na numeração de 9, 11, 8 e 3 UPAs respectivamente. A numeração destas UPAs foi trocada no mesmo painel. Nos períodos, 2º trimestre de 2016 e 3º trimestre de 2016 houve preenchimento nas variáveis V4010 e V4013 quando deveriam estar sem preenchimento de valores, para 1 e 5 registros de pessoas respectivamente. No 4° trimestre de 2016 houve erro de 1 registro que apresentou preenchimento nas variáveis V3002A e V3003A, quando deveriam estar sem preenchimento de valores. As atualizações não interferem os indicadores da pesquisa. Nota Técnica 01/2017 de 11/10/17
+
+16/03/2017 - Substituição dos dicionários, programas de leitura e microdados devido à falta da variável V40763 durante a geração dos microdados.
+
+23/02/2017 - Atualização dos dicionários, programas de leitura e microdados devido à inclusão das variáveis: V4076, V40761, V40762 e V40763.
+
+22/11/2016 - Atualização do dicionário, programa de leitura, seleção de variáveis e toda série de microdados devido à divulgação dos novos Indicadores sobre a Força de Trabalho. Nota Técnica 01/2016 de 12/09/16.
+
+Microdados_1Tri_2012 a 3Tri_2015: Inclusão das variáveis: V2010, V4014, V4024, V4025, V4039, V4040, V40401, V40402, V40403, V4041, V4043, V40431, V4044, V4045, V4047, V4048, V4056, V4062, V4063, V4064, VD4003, VD4004, VD4013, VD4014, VD4031, VD4032, VD4033, VD4034, VD4035, VD4036 e VD4037.
+
+Microdados_4Tri_2015 a 1Tri_2016 e Microdados_2Tri_2016 a 3Tri_2016: Inclusão das variáveis: V2010, V4014, V4019, V4024, V4025, V4039, V4039c, V4040, V40401, V40402, V40403, V4041, V4043, V40431, V4044, V4045, V4046, V4047, V4048, V4056, V4056c, V4062, V4062c, V4063a, V4064a, VD4003, VD4004, VD4013, VD4014, VD4031, VD4035, VD4036 e VD4037.
+
+17/08/2016 - Inclusão do dicionário e programa de leitura para o 2º Trimestre de 2016 devido à adição das variáveis V403331, V405031, V405831, V4075A e V4075A1.
+
+28/06/2016 - Atualização do arquivo de Grupamentos ocupacionais e de atividade devido à união dos seguintes grupamentos: Administração pública, defesa e seguridade social, educação, saúde humana e serviços sociais.
+
+24/05/2016 - Alteração dos nomes dos arquivos do dicionário e input para indicar o período a que se referem.
+
+25/04/2016 - Atualização da variável v2007 no dicionário.
+
+20/04/2016 - Atualização dos microdados do 4º trimestre de 2015 em função de problemas detectados no processo de expansão da amostra.
+
+14/04/2016 - Atualização do dicionário, programa de leitura e microdados devido à inclusão das variáveis de contribuição para previdência (v4032, v4049, v4057, vd4012) e da variável do número da visita no domicílio (v1016) .
+
+15/03/2016 - Inclusão do dicionário e programa de leitura do 4º Trimestre de 2015, devido à reformulação do questionário.

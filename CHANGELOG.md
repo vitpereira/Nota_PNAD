@@ -939,3 +939,67 @@ sem acesso a versões mais recentes (não publicadas).
 
 **61 páginas, 1152 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-26 — Rodada 18: Dicionários PNADC Anual por ano (2019-2025)
+
+Recuperei os dicionários oficiais da PNADC Anual Visita 1 para cada
+ano de 2019 a 2025 no diretório FTP IBGE
+`Anual/Microdados/Visita/Visita_1/Documentacao/`. Comparei diretamente
+as categorias das variáveis V3003A, V3006 e V3014.
+
+### Achados
+
+| Variável | 2019 | 2022 | 2023 | 2024 | 2025 | Estável? |
+|----------|------|------|------|------|------|----------|
+| V3003A (curso) | 11 cat | 11 cat | 11 cat | **10 cat** | **10 cat** | Mudança 2024 |
+| V3006 (série) | 14 cat | 14 cat | 14 cat | 14 cat | 14 cat | Sim |
+| V3014 (concluiu) | 2 cat | 2 cat | 2 cat | 2 cat | 2 cat | Sim |
+
+**Mudança em V3003A:** código `03` (*Alfabetização de jovens e adultos*)
+foi REMOVIDO em 2024 e 2025. As outras 10 categorias mantêm os mesmos
+códigos numéricos (02, 04, 05, 06, 07, 08, 09, 10, 11).
+
+### Por que esta mudança NÃO explica a anomalia de 2022-2023
+
+1. **Descasamento temporal:** anomalia de repetência manifesta-se em
+   2022 e 2023, anos em que o dicionário ainda incluía código 03.
+2. **Categoria marginal:** *Alfabetização de jovens e adultos* não é
+   EF nem EM regular/EJA — modalidades em que a anomalia ocorre.
+   Nossa amostra de análise não inclui essa modalidade.
+
+### Mudanças no paper
+
+- §7.1 substituído o parágrafo da limitação ("dicionário disponível
+  apenas em outubro 2022") por descrição completa da investigação
+  por ano (2019-2025) com tabela mental V3003A/V3006/V3014.
+
+### Outros achados secundários (FTP IBGE 2026-06-26)
+
+- PNADC 2025 (todos os trimestres) e 2026 Q1 já disponíveis no FTP
+- Documento `atualizacoes_divulgacao_trimestral_20260424.txt`
+  registra: "24/03/2026 - Correção na variável V3006A" (V3006A é
+  etapa do EF, não usada como variável central deste paper)
+
+### Novos arquivos baixados
+
+- `tmp_dicts/dic_2019.xls`
+- `tmp_dicts/dic_2022.xls`
+- `tmp_dicts/dic_2023.xls`
+- `tmp_dicts/dic_2024.xls`
+- `tmp_dicts/dic_2025.xls`
+- `tmp_dicts/atualizacoes.txt`
+
+### Conclusão substantiva consolidada
+
+A anomalia de repetência em 2022-2023 NÃO é explicada por:
+1. ~~Alteração na estrutura ou codificação do questionário~~ (verificado)
+2. ~~Aumento real de reprovação~~ (idade média por série estável)
+
+Explicação remanescente mais provável: **confusão familiar
+persistente** no auto-relato da série, possivelmente combinada com
+**alteração nas instruções operacionais do entrevistador IBGE**
+pós-COVID, sem alteração do dicionário formal. Verificação dessa
+hipótese exigiria acesso aos manuais do entrevistador ano a ano,
+exercício fora do escopo desta nota.
