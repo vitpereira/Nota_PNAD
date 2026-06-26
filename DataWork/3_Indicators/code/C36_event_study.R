@@ -46,7 +46,7 @@ d <- d %>%
                                               "2025Q1","2025Q2","2025Q3","2025Q4")),
            UF         = factor(UF))
 
-BASE_Q <- "2023Q3"  # baseline omitido
+BASE_Q <- "2023Q4"  # baseline omitido (anuncio dez/2023)
 
 # { Outcome 1: EM regular ----
 cat("\nEvent study EM regular...\n")
@@ -70,10 +70,10 @@ co_em <- co_em %>%
            trim = as.integer(str_sub(yr_q, 6, 6)),
            x = ano + (trim - 0.5) / 4)
 
-# Add baseline row (zero)
-base_x <- 2023 + (3 - 0.5) / 4
+# Add baseline row (zero) at 2023Q4
+base_x <- 2023 + (4 - 0.5) / 4
 base_rows <- tibble(grupo = c("1/4 a 1/2 SM", "Renda < 1/4 SM"),
-                     yr_q = BASE_Q, ano = 2023, trim = 3, x = base_x,
+                     yr_q = BASE_Q, ano = 2023, trim = 4, x = base_x,
                      estimate = 0, std.error = NA, statistic = NA,
                      p.value = NA, conf.low = 0, conf.high = 0,
                      term = NA)

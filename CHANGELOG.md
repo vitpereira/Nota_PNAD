@@ -1579,3 +1579,23 @@ Pedido do autor: gráfico de eventos.
 - C36_event_study.R, C36_event_em.csv, C36_event_engage.csv
 - F17_event_study.R
 - F17a_event_em.{pdf,png}, F17b_event_engage.{pdf,png}
+
+---
+
+## 2026-06-26 — Rodada 32: T0 do event study movido para 2023Q4
+
+Correção do autor: baseline T0 deve ser 2023Q4 (anúncio/aprovação
+Congresso de Dez/2023), não 2023Q3.
+
+### Justificativa
+2023Q4 = trimestre do anúncio. Coloca o ponto de tratamento na
+fronteira entre pré (anúncio do programa em meados do trim) e pós
+(primeira parcela em mar/2024 = 2024Q1).
+
+### Mudanças
+- C36_event_study.R: BASE_Q <- "2023Q4"
+- F17_event_study.R: x_baseline <- 2023.875
+- Re-renderizado F17a e F17b com novo baseline
+
+Pre-trends agora 2022Q1-2023Q3 (7 trimestres), post 2024Q1-2025Q4
+(8 trimestres). Pre-trends visualmente mais limpos.

@@ -29,7 +29,7 @@ make_event_plot <- function(input_path, ylab, ymin = NA, ymax = NA) {
     x_pdm_anuncio <- 2023.875
     x_pdm_implem  <- 2024.25
     x_pdm_expand  <- 2024.625
-    x_baseline    <- 2023.625
+    x_baseline    <- 2023.875  # baseline 2023Q4
 
     p <- ggplot(d, aes(x = x, y = estimate, color = grupo, fill = grupo,
                           group = grupo)) +
@@ -50,13 +50,9 @@ make_event_plot <- function(input_path, ylab, ymin = NA, ymax = NA) {
         geom_point(size = 1.6) +
         # Labels nas linhas
         annotate("text", x = x_baseline, y = Inf,
-                  label = "Baseline\n(2023Q3)",
+                  label = "Baseline = T0\n(2023Q4)\nAnúncio\n(dez/2023)",
                   size = 2.5, family = "serif", color = "gray25",
                   hjust = 1.05, vjust = 1.6) +
-        annotate("text", x = x_pdm_anuncio, y = Inf,
-                  label = "Aprovação\nCongresso\n(dez/2023)",
-                  size = 2.5, family = "serif", color = "gray25",
-                  hjust = -0.05, vjust = 1.6) +
         annotate("text", x = x_pdm_implem, y = Inf,
                   label = "Primeira\nparcela\n(mar/2024)",
                   size = 2.5, family = "serif", color = "gray25",
@@ -83,8 +79,8 @@ make_event_plot <- function(input_path, ylab, ymin = NA, ymax = NA) {
         ), name = NULL) +
         labs(x = NULL, y = ylab,
               caption = paste0(
-                  "Coeficientes de event-study TWFE com baseline em 2023Q3. ",
-                  "Cinza claro: IC 95% com SE clusterizados em domicílio. ",
+                  "Coeficientes de event-study TWFE com baseline T0 em 2023Q4 (anúncio Dez/2023). ",
+                  "Banda colorida: IC 95% com SE clusterizados em domicílio. ",
                   "Grupo controle: jovens 15-19 com renda dom. per capita > 1/2 SM. ",
                   "Pesos: V1028. FE de UF e trimestre."
               )) +
