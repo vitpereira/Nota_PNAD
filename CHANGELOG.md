@@ -1456,3 +1456,32 @@ Salário mínimo por ano: R$1212 (2022), R$1320 (2023), R$1412 (2024).
 - C31_em_attendance_by_bfa.csv
 - F14_em_attendance_by_bfa.R
 - F14_em_attendance_by_bfa.{pdf,png}
+
+---
+
+## 2026-06-26 — Rodada 28: 3 faixas etárias + extensão 2025
+
+Pedido do autor: 3 figuras separadas por faixa etária (15-17, 18-20,
+21-24) + estender série até trimestre mais recente disponível.
+
+### Downloads e parse 2025
+- Baixados 4 zips PNADC trimestral 2025 (Q1-Q4)
+- Atualizado A2 para incluir 2025 no parse loop
+- Parqueteados 4 trimestres (~6.5MB cada)
+
+### Figuras (3 separadas)
+- F14a: 15-17 anos. Padrão tradicional: Fora > CadUnico > BFA. Sazonalidade clara.
+- F14b: 18-20 anos. Ordem INVERTE: BFA/CadUnico > Fora. Captura defasagem
+  educacional dos pobres. Sazonalidade diferente (picos Q3-Q4).
+- F14c: 21-24 anos. EM raríssimo (1-4%). Mesma inversão.
+
+### Limitação 2025
+V5 (Anual) 2025 ainda não publicada pelo IBGE. Em 2025 não classificamos
+BFA — linha "Bolsa Familia" tem gap. CadUnico e Fora continuam até 2025Q4
+via proxy de renda.
+
+### Novos arquivos
+- F14a_em_15_17.{pdf,png}
+- F14b_em_18_20.{pdf,png}
+- F14c_em_21_24.{pdf,png}
+- pnadc_{01,02,03,04}2025.parquet

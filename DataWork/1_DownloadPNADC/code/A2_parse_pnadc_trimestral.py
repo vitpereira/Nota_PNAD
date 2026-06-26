@@ -228,7 +228,7 @@ def main():
     # } ----
 
     # { 2. Loop sobre trimestres ----
-    YEARS = list(range(2012, 2025))
+    YEARS = list(range(2012, 2026))
     summary = []
     for year in YEARS:
         for q in [1, 2, 3, 4]:

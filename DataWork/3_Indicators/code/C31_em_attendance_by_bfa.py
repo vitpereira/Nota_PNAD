@@ -29,7 +29,7 @@ V5_DIR = Path("C:/Users/vitpe/Dropbox/MEC_Pe_de_Meia/Novo_plano/tmp/v3/pnad_raw/
 OUT_DIR = ROOT / "DataWork/3_Indicators/output"
 
 # Salario minimo R$/mes
-SM = {2022: 1212, 2023: 1320, 2024: 1412}
+SM = {2022: 1212, 2023: 1320, 2024: 1412, 2025: 1518}
 
 # { 1. Load V5 e construir HH-level BFA flag por ano ----
 print("Loading V5...", flush=True)
@@ -66,10 +66,10 @@ hh_flag["bfa_status"] = np.where(hh_flag["ever_bfa"] == 1, "BFA",
 print("HH bfa_status counts:", hh_flag["bfa_status"].value_counts().to_dict(), flush=True)
 # } ----
 
-# { 2. Load PNADC trimestral 2022-2024 ----
-print("\nLoading PNADC trimestral 2022-2024...", flush=True)
+# { 2. Load PNADC trimestral 2022-2025 ----
+print("\nLoading PNADC trimestral 2022-2025...", flush=True)
 frames = []
-for y in [2022, 2023, 2024]:
+for y in [2022, 2023, 2024, 2025]:
     for q in [1, 2, 3, 4]:
         p = PD_TRI / f"pnadc_0{q}{y}.parquet"
         if not p.exists():
@@ -80,8 +80,8 @@ for y in [2022, 2023, 2024]:
                                           "V403312", "V1028"])
         for c in ["V2009", "V3002", "V3003A", "V1028", "V403312", "V2001"]:
             d[c] = pd.to_numeric(d[c], errors="coerce")
-        # Filter age 15-17 (EM target age)
-        d = d[d["V2009"].between(15, 17)]
+        # Filter age 15-24 (will be split into 3 faixas below)
+        d = d[d["V2009"].between(15, 24)]
         frames.append(d)
 df = pd.concat(frames, ignore_index=True)
 print(f"  EM-age obs 2022-2024: {len(df):,}", flush=True)
@@ -101,7 +101,7 @@ df["hh_yr_q"] = df["hh"] + "_" + df["Ano"].astype(str) + "Q" + df["Trimestre"].a
 # { 3b. Re-load to compute renda_dom_pc properly ----
 print("\nComputing renda_dom_pc per HH-trim...", flush=True)
 renda_frames = []
-for y in [2022, 2023, 2024]:
+for y in [2022, 2023, 2024, 2025]:
     for q in [1, 2, 3, 4]:
         p = PD_TRI / f"pnadc_0{q}{y}.parquet"
         if not p.exists(): continue
@@ -148,21 +148,31 @@ df["grupo"] = df.apply(classify, axis=1)
 print(df["grupo"].value_counts(), flush=True)
 # } ----
 
-# { 5. Compute weighted enrollment rate in regular EM by group x trim ----
+# { 5. Faixa etaria ----
+def faixa(a):
+    if 15 <= a <= 17: return "15-17"
+    if 18 <= a <= 20: return "18-20"
+    if 21 <= a <= 24: return "21-24"
+    return None
+df["faixa"] = df["V2009"].apply(faixa)
+df = df[df["faixa"].notna()].copy()
+# } ----
+
+# { 6. Compute weighted enrollment rate in regular EM by group x trim x faixa ----
 df["em_regular"] = ((df["V3002"] == 1) & (df["V3003A"] == 6)).astype(int)
 
 # Weight: V1028
 df["wt"] = df["V1028"].fillna(0)
 
 rows = []
-for (a, q, g), sub in df.groupby(["Ano", "Trimestre", "grupo"]):
+for (a, q, g, f), sub in df.groupby(["Ano", "Trimestre", "grupo", "faixa"]):
     if sub["wt"].sum() == 0: continue
     rate = np.average(sub["em_regular"], weights=sub["wt"])
-    rows.append({"Ano": int(a), "Trim": int(q), "grupo": g,
+    rows.append({"Ano": int(a), "Trim": int(q), "grupo": g, "faixa": f,
                   "em_rate": rate, "n": len(sub),
                   "ano_trim": f"{int(a)}Q{int(q)}"})
 
-agg = pd.DataFrame(rows).sort_values(["Ano", "Trim", "grupo"])
+agg = pd.DataFrame(rows).sort_values(["faixa", "Ano", "Trim", "grupo"])
 agg.to_csv(OUT_DIR / "C31_em_attendance_by_bfa.csv", index=False)
 print(f"\nSaved {OUT_DIR / 'C31_em_attendance_by_bfa.csv'}", flush=True)
 print(agg.to_string(index=False), flush=True)
