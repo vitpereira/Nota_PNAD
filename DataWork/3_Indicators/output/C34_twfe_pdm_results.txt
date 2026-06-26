@@ -1,0 +1,151 @@
+============================================
+ TWFE: PdM x Matricula em EM Regular (15-19)
+============================================
+
+Variavel dependente: 100 * 1[V3002=1 AND V3003A=6]
+Universo: jovens 15-19 anos, 2022Q1-2025Q4
+Pesos: V1028 (peso PNADC)
+Clustered SE: hh_id
+
+
+
+=== OUTCOME 1: Matricula em EM regular (V3002=1 AND V3003A=6) ===
+
+                                            m1                 m2
+                                   Pos Anuncio         Pos Implem
+                                                                 
+treat_low                     -0.0095 (0.5019)   -0.0589 (0.4755)
+treat_extreme                -1.302** (0.5070) -1.390*** (0.4836)
+treat_low x post_anuncio     1.731*** (0.6412)                   
+treat_extreme x post_anuncio 2.274*** (0.6212)                   
+treat_low x post_implem                         2.047*** (0.6455)
+treat_extreme x post_implem                     2.746*** (0.6256)
+treat_low x post_expand                                          
+treat_extreme x post_expand                                      
+idade                                                            
+sexo_f                                                           
+preta_parda                                                      
+Fixed-Effects:               ----------------- ------------------
+UF                                         Yes                Yes
+yr_q                                       Yes                Yes
+____________________________ _________________ __________________
+S.E.: Clustered                      by: hh_id          by: hh_id
+Observations                           554,039            554,039
+R2                                     0.00229            0.00234
+Within R2                              0.00017            0.00022
+
+                                            m3                 m4
+                                    Pos Expand        Implem+Ctrl
+                                                                 
+treat_low                      0.2588 (0.4285) -2.310*** (0.4267)
+treat_extreme                 -0.6920 (0.4408) -5.314*** (0.4456)
+treat_low x post_anuncio                                         
+treat_extreme x post_anuncio                                     
+treat_low x post_implem                         1.817*** (0.5756)
+treat_extreme x post_implem                     2.720*** (0.5705)
+treat_low x post_expand      1.895*** (0.6480)                   
+treat_extreme x post_expand  1.757*** (0.6272)                   
+idade                                          -13.92*** (0.0938)
+sexo_f                                          2.649*** (0.2819)
+preta_parda                                    -2.068*** (0.3093)
+Fixed-Effects:               ----------------- ------------------
+UF                                         Yes                Yes
+yr_q                                       Yes                Yes
+____________________________ _________________ __________________
+S.E.: Clustered                      by: hh_id          by: hh_id
+Observations                           554,039            554,039
+R2                                     0.00226            0.15547
+Within R2                              0.00014            0.15368
+
+                                             m5                m6
+                                          15-17             18-19
+                                                                 
+treat_low                    -8.680*** (0.5322) 5.406*** (0.5844)
+treat_extreme                -15.06*** (0.5470) 8.491*** (0.6108)
+treat_low x post_anuncio                                         
+treat_extreme x post_anuncio                                     
+treat_low x post_implem        1.819** (0.7158)    1.007 (0.7773)
+treat_extreme x post_implem   3.258*** (0.6998)    1.002 (0.7736)
+treat_low x post_expand                                          
+treat_extreme x post_expand                                      
+idade                                                            
+sexo_f                                                           
+preta_parda                                                      
+Fixed-Effects:               ------------------ -----------------
+UF                                          Yes               Yes
+yr_q                                        Yes               Yes
+____________________________ __________________ _________________
+S.E.: Clustered                       by: hh_id         by: hh_id
+Observations                            336,866           217,173
+R2                                      0.03616           0.02815
+Within R2                               0.01449           0.00759
+---
+Signif. codes: 0 '***' 0.01 '**' 0.05 '*' 0.1 ' ' 1
+
+
+=== OUTCOME 2: Engajamento (V3002=1 OR VD3004>=5 EM completo) ===
+
+                                             m7                 m8
+                                    Pos Anuncio         Pos Implem
+                                                                  
+treat_low                    -4.568*** (0.2816) -4.548*** (0.2720)
+treat_extreme                -6.159*** (0.2988) -6.077*** (0.2860)
+treat_low x post_anuncio      0.9302** (0.3696)                   
+treat_extreme x post_anuncio  1.292*** (0.3721)                   
+treat_low x post_implem                          1.007*** (0.3728)
+treat_extreme x post_implem                      1.289*** (0.3719)
+idade                                                             
+sexo_f                                                            
+preta_parda                                                       
+Fixed-Effects:               ------------------ ------------------
+UF                                          Yes                Yes
+yr_q                                        Yes                Yes
+____________________________ __________________ __________________
+S.E.: Clustered                       by: hh_id          by: hh_id
+Observations                            554,039            554,039
+R2                                      0.01183            0.01183
+Within R2                               0.00607            0.00607
+
+                                             m9                m10
+                                    Implem+Ctrl              15-17
+                                                                  
+treat_low                    -4.994*** (0.2691) -2.603*** (0.2378)
+treat_extreme                -6.987*** (0.2849) -4.120*** (0.2771)
+treat_low x post_anuncio                                          
+treat_extreme x post_anuncio                                      
+treat_low x post_implem       0.9010** (0.3650)  0.7398** (0.3560)
+treat_extreme x post_implem   1.242*** (0.3645) 0.9658*** (0.3639)
+idade                        -4.139*** (0.0620)                   
+sexo_f                        2.937*** (0.1727)                   
+preta_parda                  -2.909*** (0.1954)                   
+Fixed-Effects:               ------------------ ------------------
+UF                                          Yes                Yes
+yr_q                                        Yes                Yes
+____________________________ __________________ __________________
+S.E.: Clustered                       by: hh_id          by: hh_id
+Observations                            554,039            336,866
+R2                                      0.05566            0.00860
+Within R2                               0.05016            0.00439
+
+                                            m11
+                                          18-19
+                                               
+treat_low                    -8.995*** (0.5357)
+treat_extreme                -12.12*** (0.5455)
+treat_low x post_anuncio                       
+treat_extreme x post_anuncio                   
+treat_low x post_implem          1.144 (0.7106)
+treat_extreme x post_implem    1.672** (0.7105)
+idade                                          
+sexo_f                                         
+preta_parda                                    
+Fixed-Effects:               ------------------
+UF                                          Yes
+yr_q                                        Yes
+____________________________ __________________
+S.E.: Clustered                       by: hh_id
+Observations                            217,173
+R2                                      0.02657
+Within R2                               0.01628
+---
+Signif. codes: 0 '***' 0.01 '**' 0.05 '*' 0.1 ' ' 1

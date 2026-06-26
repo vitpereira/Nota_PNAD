@@ -1510,3 +1510,38 @@ faixa etária 15-19 anos.
 - C32_em_attendance_by_renda.py
 - C32_em_attendance_by_renda.csv
 - F15_em_attendance_by_renda_15_19.{pdf,png}
+
+---
+
+## 2026-06-26 — Rodada 30: F15 com 3 linhas verticais + F16 engajamento + TWFE PdM
+
+Pedido do autor:
+1. Adicionar linha de aprovação PdM no Congresso (dez/2023) em F15
+2. F16: outcome = (frequenta escola OR já formou EM)
+3. TWFE de attendance com controle=fora CadÚnico, tratados=<1/2 SM e <1/4 SM
+
+### Datas marcadas
+- Aprovação Congresso (PL 5230/2023): Câmara 13/12/23, Senado 19/12/23
+- Primeira parcela BFA: mar/2024
+- Expansão CadÚnico (Portaria 792): 15/08/2024
+
+### Novos arquivos
+- C33_micro_for_twfe.py (microdata 15-19, 554k rows)
+- C34_twfe_pdm.R (TWFE com fixest)
+- C35_engagement_by_renda.py (agregação para F16)
+- C34_twfe_pdm_results.txt, T_twfe_pdm.tex
+- F16_engagement_15_19.{pdf,png}
+
+### Resultados TWFE (em p.p., 2024Q1 cutoff)
+
+| Outcome | Treat 1/4-1/2 SM | Treat <1/4 SM |
+|---|---|---|
+| EM regular | +1.81*** | +2.74*** |
+| EM regular (15-17) | +1.82** | +3.26*** |
+| EM regular (18-19) | +1.01 ns | +1.00 ns |
+| Engajamento | +1.01*** | +1.29*** |
+| Engajamento (15-17) | +0.74** | +0.97*** |
+| Engajamento (18-19) | +1.14 ns | +1.67** |
+
+Todos coeficientes positivos. Efeito maior para grupo de extrema
+pobreza, especialmente em EM regular para 15-17 (+3.3 p.p.).

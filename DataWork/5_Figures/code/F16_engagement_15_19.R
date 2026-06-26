@@ -1,23 +1,22 @@
 # -------------------------------------------------------------------------
-# F15_em_attendance_by_renda_15_19.R
+# F16_engagement_15_19.R
 # -------------------------------------------------------------------------
 # Author: Vitor
 # Last update: 2026-06-26
 #
 # Description:
-#   Figura trimestral 2022Q1-2025Q4 de matricula em EM regular entre
-#   jovens 15-19 anos, 3 grupos por renda dom. per capita:
-#     - Renda < 1/4 SM (extrema pobreza)
-#     - 1/4 a 1/2 SM (CadUnico-elegivel)
-#     - Renda > 1/2 SM (fora CadUnico)
-#   Linhas verticais nas datas-chave do Pe-de-Meia.
+#   Figura trimestral 2022Q1-2025Q4 do indicador de ENGAJAMENTO ESCOLAR:
+#     y = 1 se (frequenta escola V3002=1) OU (ja concluiu EM VD3004>=5)
+#   Universo: jovens 15-19 anos. 3 grupos por renda dom. per capita.
+#   Linhas verticais: aprovacao Congresso (dez/2023), primeira parcela
+#   BFA (mar/2024), expansao CadUnico (ago/2024).
 #
 # Inputs:
-INPUT <- "../../3_Indicators/output/C32_em_attendance_by_renda.csv"
+INPUT <- "../../3_Indicators/output/C35_engagement_by_renda.csv"
 #
 # Outputs:
-OUTPUT_PDF <- "../output/F15_em_attendance_by_renda_15_19.pdf"
-OUTPUT_PNG <- "../output/F15_em_attendance_by_renda_15_19.png"
+OUTPUT_PDF <- "../output/F16_engagement_15_19.pdf"
+OUTPUT_PNG <- "../output/F16_engagement_15_19.png"
 # -------------------------------------------------------------------------
 
 if (!require("pacman")) install.packages("pacman")
@@ -33,15 +32,11 @@ df <- read_csv(INPUT, show_col_types = FALSE) %>%
         ))
     )
 
-# Datas-chave PdM
-# Anuncio/aprovacao Congresso (dez/2023): PL 5230/2023 aprovado Camara 13/12 e Senado 19/12
-x_pdm_anuncio <- 2023.875  # ~meio Q4 2023
-# Implementacao primeira parcela BFA (mar/2024)
-x_pdm_implem <- 2024.25
-# Expansao CadUnico Portaria 792 (15/08/2024)
-x_pdm_expand <- 2024.625
+x_pdm_anuncio <- 2023.875
+x_pdm_implem  <- 2024.25
+x_pdm_expand  <- 2024.625
 
-p <- ggplot(df, aes(x = x, y = em_rate * 100,
+p <- ggplot(df, aes(x = x, y = engagement * 100,
                        color = grupo, linetype = grupo, shape = grupo)) +
     geom_vline(xintercept = x_pdm_anuncio, linetype = "dotted",
                 color = "gray30", linewidth = 0.5) +
@@ -49,15 +44,15 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
                 color = "gray30", linewidth = 0.5) +
     geom_vline(xintercept = x_pdm_expand, linetype = "dotted",
                 color = "gray30", linewidth = 0.5) +
-    annotate("text", x = x_pdm_anuncio, y = 60,
+    annotate("text", x = x_pdm_anuncio, y = 100,
               label = "Aprovação\nCongresso\n(dez/2023)",
               size = 2.6, family = "serif", color = "gray25",
               hjust = 1.05, vjust = 1) +
-    annotate("text", x = x_pdm_implem, y = 60,
+    annotate("text", x = x_pdm_implem, y = 100,
               label = "Primeira\nparcela BFA\n(mar/2024)",
               size = 2.6, family = "serif", color = "gray25",
               hjust = -0.05, vjust = 1) +
-    annotate("text", x = x_pdm_expand, y = 60,
+    annotate("text", x = x_pdm_expand, y = 100,
               label = "Expansão\nCadÚnico\n(ago/2024)",
               size = 2.6, family = "serif", color = "gray25",
               hjust = -0.05, vjust = 1) +
@@ -71,7 +66,7 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
                     "2025Q1","Q2","Q3","Q4")
     ) +
     scale_y_continuous(labels = function(x) paste0(x, "%"),
-                        limits = c(40, 60), breaks = seq(40, 60, 2)) +
+                        breaks = seq(50, 100, 5)) +
     scale_color_manual(values = c(
         "Renda < 1/4 SM" = "#922B21",
         "1/4 a 1/2 SM"   = "#7D6608",
@@ -89,9 +84,8 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
     ), name = NULL) +
     labs(x = NULL, y = NULL,
           caption = paste0(
-              "Universo: jovens 15-19 anos. Numerador: matriculados em EM regular (V3002=1, V3003A=6). ",
-              "Renda = renda domiciliar per capita (V403312 somada por domicílio dividida por V2001), ",
-              "classificada por fração do salário mínimo do ano (R$1.212 em 2022, R$1.320 em 2023, R$1.412 em 2024, R$1.518 em 2025)."
+              "Universo: jovens 15-19 anos. Numerador: frequenta escola (V3002=1) OU já concluiu EM (VD3004 ≥ 5). ",
+              "Renda = renda domiciliar per capita classificada por fração do salário mínimo do ano."
           )) +
     theme_minimal(base_family = "serif", base_size = 10) +
     theme(legend.position = "bottom",
@@ -101,4 +95,4 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
 
 ggsave(OUTPUT_PDF, p, width = 12, height = 5, device = cairo_pdf)
 ggsave(OUTPUT_PNG, p, width = 12, height = 5, dpi = 200)
-cat("Saved F15\n")
+cat("Saved F16\n")
