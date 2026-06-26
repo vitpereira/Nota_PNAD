@@ -1365,3 +1365,57 @@ para um fato que não existe. Removido.
 ### Paper
 
 66 páginas, 1259 KB, 0 undefined refs.
+
+---
+
+## 2026-06-26 — Rodada 26: EJA não explica queda de promoção pós-COVID
+
+Pedido do autor: "Como você trata da conclusão da EJA? Pode migração
+para EJA explicar a queda da aprovação pós-COVID?"
+
+### Tratamento da EJA no pipeline
+
+- EJA EF (curso=300) e EJA EM (curso=310) NÃO têm `nivel` atribuído
+- `flag_migracao_eja = (in_eja_t1=1 AND in_reg_t1=0)`
+- `flag_repetencia = (in_reg_t1=1 AND nivel_t1=nivel_t)` — exige
+  in_reg_t1=1, portanto MUTUAMENTE EXCLUSIVA com EJA
+- Conclusão de EJA por alunos originalmente em EJA NÃO é tracked
+  na tabela principal T1 (escopo: fluxo regular)
+
+### Teste empírico (hipótese descartada)
+
+| Ano | Migração EJA (EM) | Cross-section: % EJA EM (15-17 anos) |
+|-----|-------------------|--------------------------------------|
+| 2012 | 0.6% | n/a |
+| 2017 | 0.3% | 0.49% |
+| 2019 | 0.2% | 0.41% |
+| 2022 | 0.1% | 0.24% |
+| 2023 | 0.0% | 0.17% |
+| 2024 | n/a  | 0.18% |
+
+EJA está em TENDÊNCIA DE QUEDA tanto na migração longitudinal quanto
+na cross-section. Não há refúgio para EJA pós-COVID. Inversamente,
+share de Regular EM (V3003A=6) entre 15-17 anos sobe de 69% (2019)
+para 76% (2024).
+
+### Argumento estrutural
+
+flag_repetencia e flag_migracao_eja são mutuamente exclusivas. Se
+kids migrassem para EJA, eles cairiam em migracao_eja, NÃO em
+repetência. O fato de repetência ter inflado (15% → 28%) e migracao_eja
+ter encolhido (0.2% → 0.0%) descarta a hipótese conceitualmente.
+
+### Mudanças no paper
+
+- §7.1: adicionado parágrafo descartando EJA como explicação para
+  queda de promoção pós-COVID, com argumentos empírico e estrutural.
+
+### Limitação registrada (não muda conclusão)
+
+EJA é escopo de DESTINO no nosso pipeline, não origem. Alunos em EJA
+em t não entram nos universos de promoção/repetência/evasão. Conclusão
+de EJA por alunos originalmente em EJA não é tracked. Isso é uma
+escolha de escopo (focar fluxo regular), não bug. Versão futura
+poderia estender.
+
+Paper: 66 páginas, 1261 KB, 0 undefined refs.
