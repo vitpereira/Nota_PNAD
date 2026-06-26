@@ -837,3 +837,54 @@ aos manuais do entrevistador ano a ano.
 
 **60 páginas, 1145 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-26 — Rodada 16: idade por série DESCARTA reprovação real
+
+O autor sugeriu um teste empírico crucial: se a repetência aumentou de
+fato, a idade média por série deveria ter aumentado também.
+
+### Resultado decisivo
+
+Idade média ponderada por série no EM regular (Q2 de cada ano):
+
+| Ano | 1ºEM | 2ºEM | 3ºEM |
+|---|---|---|---|
+| 2017 | 16.0 | 17.0 | 18.2 |
+| 2018 | 16.0 | 16.9 | 18.2 |
+| 2019 | 16.0 | 16.9 | 18.2 |
+| 2020 | 16.0 | 16.8 | 18.3 |
+| 2021 | 16.1 | 17.0 | **19.1** ← único spike |
+| **2022** | **15.9** | **16.8** | **18.4** |
+| **2023** | **15.8** | **16.8** | **18.2** |
+| 2024 | 15.7 | 16.7 | 17.8 |
+
+**Idade média virtualmente IDÊNTICA entre 2019 e 2022/2023**. Se a
+repetência tivesse realmente dobrado (15% → 28%), a idade no 3ºEM
+deveria estar acima de 18.5. Está em 18.4 e 18.2.
+
+### Implicação
+
+A hipótese de "repetência real" (reprovação sistêmica acumulada e/ou
+aprendizado perdido se traduzindo em reprovação) fica FRAGILIZADA.
+Resta principalmente: **artefato de medição** por confusão familiar
+persistente na declaração da série, possivelmente combinada com
+alteração nas instruções operacionais de coleta IBGE pós-COVID.
+
+### Mudanças no paper
+
+- §7.1: nova subseção com teste empírico de idade por série
+- Tabela T_idade_serie adicionada
+- Hipóteses substantivas reformuladas: as 2 hipóteses de "rep real" são
+  descartadas, prevalece artefato de medição
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C26_idade_serie.py`
+- `DataWork/3_Indicators/output/T_idade_serie.tex` / `.csv`
+
+### Paper
+
+**61 páginas, 1149 KB, 0 undefined refs/cits.**
+

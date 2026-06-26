@@ -110,11 +110,42 @@ publicou ainda as transições para 2022/2023 e 2023/2024, não
 e resolver a ambiguidade entre interpretação genuína e
 artefato de medição.
 
-Antes de listar as hipóteses substantivas para a anomalia,
-verificamos sistematicamente se houve alguma alteração na
-estrutura ou codificação do questionário da PNADC sobre
-educação a partir de 2022 que pudesse explicar artificialmente
-o aumento da repetência reportada. A consulta ao dicionário
+Um teste empírico decisivo descarta a hipótese de que o
+aumento da repetência reportada em 2022 e 2023 reflita
+repetência real. Se um aluno repete uma série, ele continua
+naquela série em $t+1$ mas tem um ano a mais de idade. Em
+agregado, isso implica que, em uma série fixa, a idade média
+dos alunos sobe ao longo do tempo, à medida que a coorte
+acumula repetentes mais velhos. A Tabela~\ref{tab:idade_serie}
+mostra a idade média ponderada por série e ano no segundo
+trimestre, de 2017 a 2024. A leitura é inequívoca. No
+terceiro ano do ensino médio, a idade média foi de 18,2 anos
+em 2018 e 2019, oscilou ligeiramente durante 2020 e 2021, com
+um pico de 19,1 anos em 2021 que sugere algum efeito real
+desse ano específico, e voltou a 18,4 anos em 2022, 18,2
+anos em 2023 e 17,8 anos em 2024. Mesma estabilidade no
+primeiro e segundo anos do EM e nas séries finais e iniciais
+do EF. Se a repetência tivesse efetivamente dobrado entre
+2019 e 2022, como a estimativa direta da Tabela~\ref{tab:t1_brasil}
+indica, a idade média no terceiro ano do EM em 2022 deveria
+ser claramente superior a 18,5 anos. Está em 18,4. O dado
+contraria frontalmente a hipótese de aumento real da
+repetência e indica que o aumento observado é, em alguma
+medida, artefato de medição.
+
+\input{../DataWork/3_Indicators/output/T_idade_serie.tex}
+
+Esse achado tem uma implicação prática direta. As hipóteses
+de \emph{reprovação sistêmica acumulada} e de \emph{aprendizado
+perdido se traduzindo em reprovação real}, listadas a seguir
+como hipóteses substantivas, ficam fragilizadas pela evidência
+da estabilidade etária. Resta principalmente a hipótese de
+artefato de medição, ou seja, a confusão familiar persistente
+na declaração da série corrente. Verificamos sistematicamente
+se houve alguma alteração na estrutura ou codificação do
+questionário da PNADC sobre educação a partir de 2022 que
+pudesse explicar artificialmente o aumento da repetência
+reportada. A consulta ao dicionário
 oficial das variáveis da PNADC, em sua versão de outubro de
 2022, e a comparação direta das distribuições de cada
 variável-chave entre 2017 e 2024 confirmam que as quatro
@@ -133,32 +164,20 @@ classificação de série. A possibilidade de artefato gerado por
 mudança na estrutura do questionário pode portanto ser
 descartada como explicação para a anomalia pós-pandêmica.
 
-Restam três hipóteses substantivas. A primeira é que a
-confusão familiar gerada por 2020 e 2021 persistiu nos anos
-seguintes, com famílias continuando a reportar séries não
-atualizadas em virtude do calendário letivo ainda em
-transição em diversas redes. A segunda é que os sistemas
-educacionais, após o período de aprovação automática,
-voltaram a aplicar a reprovação com rigor acumulado,
-possivelmente movendo formalmente alunos para níveis abaixo
-daqueles em que tinham sido provisoriamente classificados
-durante a pandemia, e que esse movimento está sendo capturado
-pela PNADC como repetência. A terceira é que o aprendizado
-efetivamente perdido durante a pandemia está agora se
-traduzindo em maior reprovação real nas escolas, com
-sistemas avaliando o desempenho dos alunos com critérios
-mais rigorosos do que durante o auge da pandemia. A
-evidência atual não permite distinguir entre essas
-hipóteses, e provavelmente todas operam em algum grau. Uma
-quarta hipótese, residual mas não descartável, é que o IBGE
-tenha alterado as instruções operacionais de coleta nos
-anos pós-COVID, em particular após o retorno gradual das
-entrevistas presenciais em 2022, sem alteração do
-dicionário formal, mas com efeito sobre a forma como o
-entrevistador formula a pergunta sobre série corrente.
-Verificar essa possibilidade exigiria acesso aos manuais
-do entrevistador da PNADC ano a ano, exercício que está
-fora do escopo desta nota.
+A combinação dos dois achados, isto é, estabilidade da
+estrutura do questionário entre 2017 e 2024 e estabilidade
+da idade média por série pré e pós pandemia, deixa como
+explicação mais provável a confusão familiar persistente na
+declaração da série, possivelmente combinada com alteração
+nas instruções operacionais de coleta do entrevistador IBGE
+pós-COVID, sem alteração do dicionário formal. As outras
+duas hipóteses, ou seja, reprovação sistêmica acumulada e
+reprovação real por aprendizado perdido, são fragilizadas
+porque ambas implicariam aumento da idade média por série,
+o que não se observa nos dados. Verificar a hipótese de
+mudança nas instruções de coleta exigiria acesso aos
+manuais do entrevistador da PNADC ano a ano, exercício que
+está fora do escopo desta nota.
 
 Por essas razões, os números PNADC para 2020, 2021, 2022 e
 2023 são reportados nas tabelas e figuras com marca de
