@@ -86,15 +86,32 @@ df["meio_sm"] = df["sm"] / 2.0
 df["linha_extrema"] = LINHA_EXTREMA
 # } ----
 
-# { 4. Define groups (mutually exclusive) ----
-df = df.dropna(subset=["renda_pc"]).copy()
-df["treat_extreme"] = (df["renda_pc"] < LINHA_EXTREMA).astype(int)
-df["treat_low"]     = ((df["renda_pc"] >= LINHA_EXTREMA) &
-                        (df["renda_pc"] <= df["meio_sm"])).astype(int)
-df["control"]       = (df["renda_pc"] > df["meio_sm"]).astype(int)
-df["grupo"] = np.where(df["treat_extreme"] == 1, "extreme",
-              np.where(df["treat_low"] == 1, "low",
-                       "control"))
+# { 4. Classificacao ESTAVEL por HH baseada na PRIMEIRA observacao ----
+# Para cada hh_id, identifica o primeiro (Ano, Trimestre) em que aparece
+# e fixa o grupo de tratamento com base na renda_pc desse primeiro momento.
+# Isso evita reclassificacao endogena entre trimestres.
+print("\nClassificacao estavel: primeira renda observada por HH...", flush=True)
+df_sorted = df.dropna(subset=["renda_pc"]).copy()
+df_sorted["q_idx_tmp"] = (df_sorted["Ano"] - 2022) * 4 + df_sorted["Trimestre"]
+first_obs = (df_sorted.sort_values(["hh_id", "q_idx_tmp"])
+             .drop_duplicates(subset=["hh_id"], keep="first"))
+# Para a primeira obs do HH, classifica
+first_obs["grupo_estavel"] = np.where(
+    first_obs["renda_pc"] < LINHA_EXTREMA, "extreme",
+    np.where(first_obs["renda_pc"] <= first_obs["meio_sm"], "low",
+             "control"))
+first_obs["q_first"] = first_obs["q_idx_tmp"]
+hh_classif = first_obs[["hh_id", "grupo_estavel", "q_first"]]
+print(f"  HHs classificados: {len(hh_classif):,}", flush=True)
+print(hh_classif["grupo_estavel"].value_counts(), flush=True)
+
+# Merge de volta no painel inteiro
+df = df.merge(hh_classif, on="hh_id", how="left")
+df = df.dropna(subset=["grupo_estavel"]).copy()
+df["grupo"]         = df["grupo_estavel"]
+df["treat_extreme"] = (df["grupo"] == "extreme").astype(int)
+df["treat_low"]     = (df["grupo"] == "low").astype(int)
+df["control"]       = (df["grupo"] == "control").astype(int)
 # } ----
 
 # { 5. Outcome and time vars ----

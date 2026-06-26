@@ -1687,3 +1687,47 @@ da linha de extrema pobreza BFA R$ 218 desde jun/2023).
 ### Arquivos atualizados
 - C32, C33, C35, C36 com novo threshold
 - F15, F16, F17a, F17b re-renderizados com novos labels
+
+---
+
+## 2026-06-26 — Rodada 36: Classificação ESTÁVEL por HH
+
+Autor identificou problema com pre-trends em F17a. Solução
+implementada: fixar o grupo de tratamento de cada domicílio pela
+renda observada em sua **primeira aparição** no painel, em vez de
+reclassificar a cada trimestre (que era endógeno).
+
+### Mecanismo do problema anterior
+Renda dom. per capita flutua trimestre a trimestre. Famílias entram/
+saem do grupo "Renda < R$ 230" conforme oscila V403312 e composição
+domiciliar (V2001). Essa reclassificação contemporânea gera variação
+"de tratamento" mecânica que aparece como pre-trend espúrio.
+
+### Implementação
+Em C33, para cada hh_id:
+1. Ordena observações por (Ano, Trimestre)
+2. Pega a PRIMEIRA observação
+3. Classifica em extreme/low/control com base na renda dessa obs
+4. Mantém essa classificação para TODAS as observações posteriores
+   do mesmo HH
+
+### Tamanhos amostrais (15-19, 2022-2025)
+
+| Grupo | Old (contemp) | New (estável) |
+|---|---|---|
+| control | 233,318 | 231,146 |
+| extreme | 154,690 | 157,128 |
+| low     | 166,031 | 165,765 |
+
+Pequenas diferenças (alguns HHs sem renda_pc na 1a obs caem fora).
+
+### Resultados pós-fix
+- F17a: pre-trends mais flat 2022Q1-2023Q3, ainda com dip em 2022Q4
+- F17b: pre-trends MUITO melhores, oscilando em ±0.5 p.p.
+
+### Caveat remanescente
+F17a ainda tem leve pre-trend em 2022 (efeito CAPI->CATI residual).
+Para identificação mais rigorosa, considerar:
+- Restringir pre-period a 2023 apenas
+- Honest DiD (Rambachan-Roth) para bounds
+- Sintetic control com matching pre-período
