@@ -888,3 +888,54 @@ alteração nas instruções operacionais de coleta IBGE pós-COVID.
 
 **61 páginas, 1149 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-26 — Rodada 17: 2020-2021 excluídos + verificação dicionários
+
+Implementadas as duas recomendações do autor:
+
+### 1. Exclusão de 2020 e 2021 das tabelas/figuras
+
+- T1 (Tabela 1): linhas 2020 e 2021 OMITIDAS (não aparecem nem como dagger)
+- F1 (série temporal): pontos 2020-2021 omitidos, faixa cinza com "COVID
+  excluído"
+- F5 (PNADC vs INEP): série PNADC sem 2020-2021
+- 2022 e 2023 mantidos com marca $\ddagger$ ("interpretar com cautela")
+
+### 2. Verificação completa de dicionários
+
+Baixei do FTP IBGE o documento oficial `Variaveis_PNADC_Trimestral.xls`
+(maio 2025), que mapeia trimestre-a-trimestre disponibilidade de todas
+as variáveis 2012-2026.
+
+**Achados:**
+- Nenhuma variável V30/V31/VD30 foi introduzida, modificada ou removida
+  entre 2019 e 2026
+- Últimas adições foram em 1ºT/2018 (V3006A, V3013A, V3013B)
+- Dicionário oficial mais recente no FTP IBGE: outubro de 2022
+- Categorias de V3002, V3003A, V3006, V3014 estáveis no dicionário 2022
+- Distribuição empírica dos códigos em microdados também estável 2017-2024
+
+**Limitação registrada no paper:** versão mais recente do dicionário
+disponível publicamente é de outubro 2022. Mudanças posteriores no
+significado de categorias específicas não podem ser totalmente descartadas
+sem acesso a versões mais recentes (não publicadas).
+
+### Mudanças no paper
+
+- §4: parágrafo reescrito explicando exclusão de 2020-2021 e marcação $\ddagger$
+  para 2022-2023
+- §7.1: verificação ampliada (3 níveis: doc IBGE 2025, dicionário 2022,
+  distribuições empíricas)
+- Caveat sobre acesso a versões mais recentes do dicionário
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C27_T1_exclude_covid.py`
+- `tmp_dicts/Variaveis_PNADC_Trimestral.xls` (download de referência)
+
+### Paper
+
+**61 páginas, 1152 KB, 0 undefined refs/cits.**
+

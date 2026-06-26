@@ -19,6 +19,8 @@ INPUT <- "../../3_Indicators/output/T1_brasil_inter_v5_main.csv"
 
 df <- read_csv(INPUT, show_col_types = FALSE) %>%
     filter(macroetapa %in% c("EF iniciais", "EF finais", "EM")) %>%
+    # Excluir 2020 e 2021 (paradoxo COVID auto-relato vs administrativo)
+    filter(!ano_t %in% c(2020, 2021)) %>%
     select(ano_t, macroetapa, flag_promocao, flag_repetencia,
             flag_evasao, flag_migracao_eja) %>%
     pivot_longer(c(flag_promocao, flag_repetencia, flag_evasao,
@@ -40,8 +42,10 @@ df <- read_csv(INPUT, show_col_types = FALSE) %>%
 
 p <- ggplot(df, aes(x = ano_t, y = valor, color = macroetapa,
                        group = macroetapa)) +
-    annotate("rect", xmin = 2020, xmax = 2021, ymin = -Inf, ymax = Inf,
-              alpha = 0.15, fill = "grey50") +
+    annotate("rect", xmin = 2019.5, xmax = 2021.5, ymin = -Inf, ymax = Inf,
+              alpha = 0.18, fill = "grey50") +
+    annotate("text", x = 2020.5, y = 0.05, label = "COVID\nexcluído",
+              size = 2.8, family = "serif", color = "gray30") +
     geom_line(linewidth = 0.7) +
     geom_point(size = 1.3) +
     facet_wrap(~ indicador, scales = "free_y", ncol = 2) +

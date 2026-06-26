@@ -23,6 +23,8 @@ pacman::p_load(tidyverse, scales)
 # Carregar PNADC v5
 df_pnadc <- read_csv(INPUT_PNADC, show_col_types = FALSE) %>%
     filter(macroetapa %in% c("EF iniciais", "EF finais", "EM")) %>%
+    # Excluir 2020 e 2021 da serie PNADC (paradoxo COVID)
+    filter(!ano_t %in% c(2020, 2021)) %>%
     pivot_longer(cols = c("flag_promocao", "flag_repetencia", "flag_evasao"),
                   names_to = "indicador_raw", values_to = "valor") %>%
     mutate(

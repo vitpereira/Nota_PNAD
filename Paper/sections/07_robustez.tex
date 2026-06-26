@@ -145,24 +145,42 @@ na declaração da série corrente. Verificamos sistematicamente
 se houve alguma alteração na estrutura ou codificação do
 questionário da PNADC sobre educação a partir de 2022 que
 pudesse explicar artificialmente o aumento da repetência
-reportada. A consulta ao dicionário
-oficial das variáveis da PNADC, em sua versão de outubro de
-2022, e a comparação direta das distribuições de cada
-variável-chave entre 2017 e 2024 confirmam que as quatro
+reportada. A investigação foi conduzida em três níveis. Em primeiro
+lugar, consultamos o documento oficial do IBGE
+\emph{Variáveis PNADC Trimestral} em sua versão de maio de
+2025, que mapeia trimestre a trimestre quais variáveis
+estão disponíveis no microdado. O resultado é inequívoco.
+Nenhuma variável de educação foi introduzida, modificada ou
+removida nos trimestres entre 2019 e 2026. As únicas
+adições recentes ocorreram no primeiro trimestre de 2018,
+com \texttt{V3006A} (etapa do EF), \texttt{V3013A} (etapa do
+EF que frequentou) e \texttt{V3013B} (concluiu os anos
+iniciais deste curso), todas anteriores à pandemia. Em
+segundo lugar, consultamos o dicionário oficial das
+variáveis da PNADC, na versão disponível no FTP do IBGE em
+junho de 2026, datada de outubro de 2022. As quatro
 variáveis centrais para a classificação de série e curso,
 isto é, \texttt{V3002} (frequenta escola), \texttt{V3003A}
 (curso que frequenta), \texttt{V3006} (ano ou série que
 frequenta) e \texttt{V3014} (concluiu o curso anterior),
-mantiveram exatamente os mesmos códigos e categorias em todos
-os trimestres do período. As variáveis \texttt{V3006A} (etapa
-do EF) e \texttt{V3013B} (concluiu os anos iniciais), que
-poderiam ter sido introduzidas em algum trimestre recente, na
-realidade foram adicionadas no primeiro trimestre de 2018,
-muito antes da pandemia, e não houve qualquer alteração no
-\emph{layout} do dicionário entre 2019 e 2024 que afetasse a
-classificação de série. A possibilidade de artefato gerado por
-mudança na estrutura do questionário pode portanto ser
-descartada como explicação para a anomalia pós-pandêmica.
+mantêm exatamente as mesmas categorias declaradas no
+dicionário em todo o período coberto pelo documento. Em
+terceiro lugar, comparamos diretamente, nos microdados, a
+distribuição empírica dos códigos de \texttt{V3003A} e
+\texttt{V3006} entre 2017 e 2024. A distribuição de cada
+código por ano é estável, sem aparecimento de novo código,
+sem desaparecimento, e com proporções relativas
+preservadas. Combinando essas três verificações, a
+possibilidade de artefato gerado por mudança na estrutura
+ou na codificação do questionário pode ser descartada como
+explicação para a anomalia pós-pandêmica. Cabe registrar
+uma ressalva. A versão mais recente do dicionário oficial
+no FTP do IBGE é de outubro de 2022, e mudanças posteriores
+no significado de categorias específicas, embora
+improváveis dada a estabilidade do mapa de disponibilidade
+até 2026, não podem ser totalmente descartadas sem acesso
+a versões mais recentes do dicionário, atualmente não
+disponíveis publicamente.
 
 A combinação dos dois achados, isto é, estabilidade da
 estrutura do questionário entre 2017 e 2024 e estabilidade
