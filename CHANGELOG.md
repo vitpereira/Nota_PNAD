@@ -783,3 +783,57 @@ Evidência atual não distingue. INEP 2022+ resolveria a ambiguidade.
 
 **59 páginas, 1142 KB, 0 undefined refs/cits.**
 
+
+---
+
+## 2026-06-26 — Rodada 15: investigação codificação PNADC pós-pandemia
+
+O autor sugeriu verificar se houve mudança na codificação da PNADC
+após a pandemia (nova variável ou novos códigos) que pudesse
+artificialmente inflar a repetência reportada em 2022-2023.
+
+### Investigação realizada
+
+Verificadas todas as variáveis V30** e V31** no dicionário oficial
+PNADC (versão outubro 2022). Analisadas distribuições em 2019, 2020,
+2021, 2022, 2023, 2024.
+
+**Resultado**: NENHUMA mudança de codificação pós-pandemia.
+
+| Variável | Códigos | Período | Mudou pós-COVID? |
+|---|---|---|---|
+| V3002 | 1,2 | 2012-atual | NÃO |
+| V3003A | 01-11 | 4ºT/2015-atual | NÃO |
+| V3006 | 01-13 | 2012-atual | NÃO |
+| V3006A | 1,2 | 1ºT/2018-atual | NÃO (introduzida em 2018) |
+| V3013A | 1,2 | 1ºT/2018-atual | NÃO (introduzida em 2018) |
+| V3013B | 1,2 | 1ºT/2018-atual | NÃO (introduzida em 2018) |
+| V3014 | 1,2 | 2012-atual | NÃO |
+
+V3006A, V3013A e V3013B foram introduzidas em 2018, ANTES da pandemia.
+Não há variável nova pós-2020.
+
+Distribuição de V3006 entre alunos do EM regular em 2019 vs 2022 vs 2023:
+- 1ºEM: ~8700/7400/7100
+- 2ºEM: ~7100/6300/6200
+- 3ºEM: ~7000/6400/5800
+Composição similar; idades médias por série praticamente iguais.
+
+### Conclusão
+
+A hipótese de "novo item alterou a codificação" foi DESCARTADA. As
+três hipóteses substantivas (confusão familiar, reprovação sistêmica,
+aprendizado perdido) permanecem em pé. Uma quarta hipótese residual
+mencionada no paper: alteração nas instruções operacionais de coleta
+do entrevistador IBGE (sem alteração do dicionário), exigiria acesso
+aos manuais do entrevistador ano a ano.
+
+### Mudanças no paper
+
+- §7.1 parágrafo adicional documentando a verificação e a conclusão
+- Mantida discussão das 3 hipóteses substantivas + 4ª residual
+
+### Paper
+
+**60 páginas, 1145 KB, 0 undefined refs/cits.**
+
