@@ -215,37 +215,61 @@ observada da idade média rejeita, portanto, qualquer
 explicação que envolva famílias declarando série
 sistematicamente diferente da real.
 
-A hipótese remanescente compatível com os dois fatos é, em
-suma, um artefato gerado na construção do painel
-longitudinal e não na declaração de cada observação
-isoladamente. Três mecanismos específicos são candidatos.
-O primeiro é a corrupção do \emph{linkage} entre visitas,
-isto é, indivíduos diferentes do mesmo domicílio sendo
-encaixados como se fossem o mesmo aluno entre $t$ e $t+1$.
-A regra de \emph{matching} adotada admite 80\% de
-consistência entre sexo e idade, e mudanças na composição
-domiciliar pós-COVID, como retornos temporários, hóspedes
-e rearranjos familiares, podem ter ampliado o ruído de
-identificação dentro dessa tolerância. O segundo é o atrito
-diferencial por progressão. Se alunos que avançam para o
-ensino superior, mudam de cidade ou abandonam o domicílio
-parental são desproporcionalmente removidos do painel pelo
-mecanismo de atrito, o painel \emph{sobrevivente} sobre-
-representa quem permaneceu na mesma série, gerando
-inflação aparente de repetência. Esse efeito é compatível
-com idade média estável na série, porque a seção
-transversal continua observando todos os alunos
-matriculados, inclusive os que progrediram em outros
-domicílios. O terceiro é a mudança da composição amostral
-das rotações pós-2020. O esquema rotativo da PNADC foi
-afetado pela suspensão temporária de coleta presencial em
-2020, e a recomposição posterior das rotações pode ter
-introduzido viés sistemático na sub-amostra dos painéis
-longitudinais 2021-2024 em relação à seção transversal
-correspondente. Distinguir essas três hipóteses exigiria
-acesso ao código de linkage do IBGE e à composição
-detalhada das rotações pós-COVID, exercício fora do escopo
-desta nota.
+Um teste empírico adicional aponta diretamente para a
+explicação. Para cada indivíduo observado em mais de uma
+visita dentro de um mesmo ano civil, medimos a proporção
+que declara combinação de etapa-série \emph{diferente}
+entre visitas consecutivas. Pré-2020, essa proporção
+varia entre vinte e trinta por cento, capturando
+naturalmente a transição do ano letivo dentro do calendário
+civil: famílias entrevistadas em $Q_1$ tipicamente declaram
+a série do ano letivo anterior, e famílias entrevistadas em
+$Q_2$ ou posterior declaram a série do ano letivo corrente,
+gerando inconsistência mecânica entre visitas. A
+Tabela~\ref{tab:inconsistencia_intra} mostra que, a partir
+do segundo trimestre de 2020, essa proporção despenca para
+seis a nove por cento e permanece nesse patamar até 2023,
+com recuperação parcial em 2024.
+
+\input{../DataWork/3_Indicators/output/T_inconsistencia_intra_ano.tex}
+
+A queda abrupta coincide com a substituição da coleta
+presencial CAPI (\emph{Computer-Assisted Personal
+Interviewing}) pela coleta telefônica CATI
+(\emph{Computer-Assisted Telephone Interviewing}) adotada
+pelo IBGE em meados de março de 2020 como resposta à
+pandemia. Sob CATI, a entrevista é mais rápida, a
+verificação visual de documentos escolares é impossível, e
+a probabilidade de o respondente confirmar a declaração da
+visita anterior, sem reavaliação ativa, é
+substancialmente maior. Esse mecanismo é coerente com
+todos os fatos observados. A repetência longitudinal
+inflaciona-se porque o valor de \texttt{V3006} declarado
+em $t+1$ tende a herdar o de $t$. A idade média transversal
+na série permanece estável porque o número absoluto de
+alunos sob carregamento de resposta é pequeno em relação
+ao total declarado em cada série a cada ano. A evasão
+permanece consistente entre PNADC e INEP porque
+\texttt{V3002}, sendo binária e mais robusta a entrevista
+abreviada, sofre carregamento menor. A recuperação parcial
+em 2024 acompanha a reintrodução gradual de coleta
+presencial na PNADC.
+
+Essa hipótese é única no sentido de explicar simultaneamente
+três fatos discordantes: estabilidade do questionário formal,
+estabilidade da idade média na série, e inflação da
+repetência longitudinal. Hipóteses alternativas que
+permanecem em consideração, ainda que menos parcimoniosas,
+incluem a corrupção do \emph{linkage} entre visitas e o
+atrito diferencial por progressão. O \emph{linkage}, testado
+diretamente por consistência de sexo entre $t$ e $t+1$,
+mantém-se acima de noventa e nove por cento em todos os anos
+do período pós-pandêmico, dentro do mesmo patamar
+pré-pandêmico, o que sugere que a probabilidade de
+indivíduos serem trocados na ligação entre visitas é baixa.
+A confirmação cabal da hipótese de carregamento sob CATI
+exigiria acesso aos protocolos internos de coleta do IBGE
+ano a ano, exercício fora do escopo desta nota.
 
 Por essas razões, os números PNADC para 2020, 2021, 2022 e
 2023 são reportados nas tabelas e figuras com marca de

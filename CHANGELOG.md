@@ -1063,3 +1063,82 @@ desta nota, mas registrado como agenda para validação adicional.
   pelo mesmo argumento mecânico (estabilidade da idade média) e
   desloca hipótese remanescente para artefato de construção do painel.
 - Paper agora 62 páginas (era 61), 1156 KB, 0 undefined refs.
+
+---
+
+## 2026-06-26 — Rodada 20: HIPÓTESE FINAL — CAPI→CATI em março/2020
+
+Investigação direta do linkage (sugestão do autor). Resultado:
+**linkage está limpo**; o problema é outro — mudança operacional
+do IBGE em março de 2020 (substituição de coleta presencial por
+telefônica) que persistiu até 2023 e reverteu parcialmente em 2024.
+
+### Testes de linkage (passados)
+
+- Consistência de sexo entre t e t+1: 99.7-99.9% em TODOS os anos
+  (incluindo 2022-2024). Não há quebra.
+- Delta idade entre t e t+1: média ~0.5, mediana 0 ou 1
+  (consistente com amostragem anual + idade inteira; uniforme em
+  todos os anos).
+
+### Smoking gun: inconsistência intra-ano de V3006
+
+% de pessoas com (etapa,série) inconsistente entre visitas
+consecutivas do MESMO ano civil:
+
+| Ano | V1→V2 | V2→V3 | V3→V4 | V4→V5 |
+|-----|-------|-------|-------|-------|
+| 2019 | 20.1 | 21.2 | 21.5 | 22.6 |
+| **2020** | **6.1** | **5.8** | **6.0** | **5.9** |
+| 2021 | 8.3 | 10.1 | 11.3 | 11.1 |
+| 2022 | 7.2 | 8.0 | 8.8 | 8.7 |
+| 2023 | 5.2 | 7.2 | 8.2 | 9.7 |
+| 2024 | 11.6 | 13.6 | 15.1 | 17.2 |
+
+Pré-2020: 20-30% (famílias capturam virada do ano letivo entre
+trimestres do mesmo ano civil).
+Pós-2020: 5-12% (despenca abruptamente).
+2024: recuperação parcial.
+
+### Coincidência de datas
+
+A introdução de CATI (Computer-Assisted Telephone Interviewing) pela
+PNADC ocorreu em meados de março de 2020 como resposta à pandemia.
+Sob CATI:
+- Entrevista mais rápida
+- Verificação visual de documentos impossível
+- Maior probabilidade de o respondente confirmar a declaração da
+  visita anterior sem reavaliação ativa
+
+### Por que CATI explica TUDO
+
+| Fato | Explicação CATI |
+|------|-----------------|
+| Repetência longitudinal infla 2022-2023 | V3006(t+1) tende a herdar V3006(t) sob CATI |
+| Idade média transversal na série estável | Carregamento afeta poucos indivíduos no total da série |
+| Evasão PNADC concorda com INEP | V3002 (binária) é robusta a entrevista abreviada |
+| Linkage permanece limpo | CATI não afeta identificação do indivíduo, só sua resposta |
+| Recuperação parcial em 2024 | Reintrodução gradual de presencial |
+
+### Novos arquivos
+
+- `DataWork/3_Indicators/code/C28_diagnostic_intra_year.py` — calcula
+  inconsistência within-person within-year-civil
+- `DataWork/3_Indicators/code/C29_table_intra_year.py` — gera tabela LaTeX
+- `DataWork/3_Indicators/output/C28_within_year_consistency.csv`
+- `DataWork/3_Indicators/output/C28_visit_pair_changes.csv`
+- `DataWork/3_Indicators/output/T_inconsistencia_intra_ano.tex`
+
+### Mudanças no paper
+
+- §7.1 reescrito: substitui hipótese de "artefato de linkage" pela
+  hipótese de "CAPI→CATI carregamento de resposta", muito mais
+  parcimoniosa e suportada pela evidência empírica direta.
+- Nova tabela `tab:inconsistencia_intra` inserida em §7.1.
+- Paper agora 64 páginas (era 62), 1165 KB, 0 undefined refs.
+
+### Implicação para indicador alternativo
+
+Possível remediação: usar V3006 da PRIMEIRA visita do ano (V1) em
+vez de max(nivel) sobre Q2-Q3, já que V1 é a única não potencialmente
+contaminada por carry-over. A ser explorada em Rodada futura.
