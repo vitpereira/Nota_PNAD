@@ -233,43 +233,66 @@ com recuperação parcial em 2024.
 
 \input{../DataWork/3_Indicators/output/T_inconsistencia_intra_ano.tex}
 
-A queda abrupta coincide com a substituição da coleta
-presencial CAPI (\emph{Computer-Assisted Personal
-Interviewing}) pela coleta telefônica CATI
-(\emph{Computer-Assisted Telephone Interviewing}) adotada
-pelo IBGE em meados de março de 2020 como resposta à
-pandemia. Sob CATI, a entrevista é mais rápida, a
-verificação visual de documentos escolares é impossível, e
-a probabilidade de o respondente confirmar a declaração da
-visita anterior, sem reavaliação ativa, é
-substancialmente maior. Esse mecanismo é coerente com
-todos os fatos observados. A repetência longitudinal
-inflaciona-se porque o valor de \texttt{V3006} declarado
-em $t+1$ tende a herdar o de $t$. A idade média transversal
-na série permanece estável porque o número absoluto de
-alunos sob carregamento de resposta é pequeno em relação
-ao total declarado em cada série a cada ano. A evasão
-permanece consistente entre PNADC e INEP porque
-\texttt{V3002}, sendo binária e mais robusta a entrevista
-abreviada, sofre carregamento menor. A recuperação parcial
-em 2024 acompanha a reintrodução gradual de coleta
-presencial na PNADC.
+A queda abrupta coincide com mudanças metodológicas
+documentadas da PNADC em resposta à pandemia. A partir do
+segundo trimestre de 2020, e até o final do segundo
+trimestre de 2021, o IBGE substituiu a coleta presencial
+CAPI (\emph{Computer-Assisted Personal Interviewing}) pela
+coleta exclusivamente telefônica CATI (\emph{Computer-
+Assisted Telephone Interviewing}). A retomada da coleta
+presencial a partir do terceiro trimestre de 2021 foi
+gradual, e o IBGE não divulga publicamente o percentual de
+entrevistas em cada modo por trimestre nesse período de
+transição. Em paralelo, em 2021 a PNADC passou por
+reponderação amostral e por alteração do método de
+calibração dos fatores de expansão, documentadas
+respectivamente nas Notas Técnicas 03/2021 e 04/2021 do
+IBGE.\footnote{Em 2025, houve nova reponderação calibrada
+pelos totais populacionais do Censo Demográfico 2022, que
+afeta divulgações recentes mas é posterior à janela de
+análise desta nota.} A combinação dessas mudanças tem dois
+efeitos plausíveis sobre \texttt{V3006}. O primeiro,
+durante o período CATI exclusivo, é a maior probabilidade
+de o respondente confirmar passivamente a declaração da
+visita anterior, sem reavaliação ativa, em virtude da
+brevidade típica das entrevistas telefônicas. O segundo,
+no período subsequente, é a persistência de práticas de
+confirmação rápida na coleta presencial, herdadas do
+período CATI, possivelmente associadas ao uso intensivo
+de \emph{tablet} com a resposta da visita anterior
+visível ao entrevistador. Estudo do Banco Central
+identificou redução substancial da taxa de aproveitamento
+da amostra, concentrada nas primeiras visitas, a partir
+do segundo trimestre de 2020.
 
-Essa hipótese é única no sentido de explicar simultaneamente
-três fatos discordantes: estabilidade do questionário formal,
-estabilidade da idade média na série, e inflação da
-repetência longitudinal. Hipóteses alternativas que
-permanecem em consideração, ainda que menos parcimoniosas,
-incluem a corrupção do \emph{linkage} entre visitas e o
-atrito diferencial por progressão. O \emph{linkage}, testado
-diretamente por consistência de sexo entre $t$ e $t+1$,
-mantém-se acima de noventa e nove por cento em todos os anos
-do período pós-pandêmico, dentro do mesmo patamar
-pré-pandêmico, o que sugere que a probabilidade de
-indivíduos serem trocados na ligação entre visitas é baixa.
-A confirmação cabal da hipótese de carregamento sob CATI
-exigiria acesso aos protocolos internos de coleta do IBGE
-ano a ano, exercício fora do escopo desta nota.
+Esse conjunto de mudanças metodológicas é coerente com os
+fatos observados. A repetência longitudinal inflaciona-se
+porque o valor de \texttt{V3006} declarado em $t+1$ tende
+a herdar o de $t$ na visita seguinte do mesmo painel. A
+idade média transversal na série permanece estável porque
+o número absoluto de alunos sob carregamento de resposta
+é pequeno em relação ao total declarado em cada série a
+cada ano. A evasão permanece consistente entre PNADC e INEP
+porque \texttt{V3002} é uma pergunta binária sobre frequência
+escolar atual e é mais robusta a entrevistas abreviadas que
+a \texttt{V3006}, que demanda identificação precisa da
+série corrente. A recuperação parcial em 2024 acompanha a
+consolidação do retorno operacional ao presencial.
+
+Essa hipótese é a única que explica simultaneamente os três
+fatos discordantes a saber, estabilidade do questionário
+formal, estabilidade da idade média transversal por série, e
+inflação da repetência longitudinal. Cabe registrar que a
+confirmação cabal exigiria acesso aos protocolos internos
+de coleta do IBGE ano a ano, exercício fora do escopo desta
+nota. Hipóteses alternativas, como corrupção do
+\emph{linkage} entre visitas ou atrito diferencial por
+progressão, podem ser descartadas pelos testes diretos
+disponíveis. A consistência de sexo entre $t$ e $t+1$
+mantém-se acima de noventa e nove por cento em todos os
+anos do período pós-pandêmico, dentro do mesmo patamar
+pré-pandêmico, o que torna improvável a hipótese de troca
+de indivíduos na ligação.
 
 Por essas razões, os números PNADC para 2020, 2021, 2022 e
 2023 são reportados nas tabelas e figuras com marca de

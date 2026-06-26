@@ -1142,3 +1142,50 @@ Sob CATI:
 Possível remediação: usar V3006 da PRIMEIRA visita do ano (V1) em
 vez de max(nivel) sobre Q2-Q3, já que V1 é a única não potencialmente
 contaminada por carry-over. A ser explorada em Rodada futura.
+
+---
+
+## 2026-06-26 — Rodada 21: Correção histórica CATI (autor desafiou prazo)
+
+Autor questionou: PNADC hoje é mesmo CATI? Verificação web em
+documentos oficiais IBGE mostrou que minha afirmação anterior
+foi imprecisa.
+
+### Verificado em fontes IBGE
+
+- **CATI EXCLUSIVO: 2T/2020 até final 2T/2021 apenas** (não persistiu
+  até 2023 como eu afirmei na Rodada 20).
+- Retomada GRADUAL ao presencial a partir de 3T/2021.
+- Hoje (2026): 2.000 entrevistadores e 500+ agências, majoritariamente
+  presencial.
+- Em paralelo em 2021: reponderação amostral (NT 03/2021) e alteração
+  do método de calibração (NT 04/2021).
+- Reponderação 2025 calibrou pesos pelos totais do Censo 2022.
+- Estudo do BC: queda de aproveitamento concentrada nas primeiras
+  visitas a partir de 2T/2020.
+
+### Por que a inconsistência intra-ano fica baixa em 2022-2024?
+
+Empiricamente: minha tabela mostra inconsistência ~5-13% em 2020-2023
+e parcial recuperação a 25% em 2024. Se CATI exclusivo só foi até
+2T/2021, por que persiste?
+
+Explicações compatíveis (mantidas como hipóteses, não afirmadas):
+1. Retomada presencial muito mais lenta que sugere a narrativa oficial
+   — IBGE não divulga percentual CATI/CAPI por trimestre na transição
+2. Persistência de práticas de confirmação rápida na coleta presencial
+   pós-CATI (herdadas do período telefônico), com uso intensivo do
+   tablet visualizando resposta da visita anterior
+3. Mudança no protocolo presencial em si
+4. Reponderação 2021 introduziu sub-amostra com comportamento diferente
+
+### Mudanças no paper
+
+- §7.1 reescrita com PRECISÃO HISTÓRICA:
+  - CATI: 2T/2020 a 2T/2021 (período exclusivo)
+  - Retomada gradual sem cronograma público
+  - Reponderação NT 03/2021 + recalibração NT 04/2021 também citadas
+  - Hipótese formulada como conjunto de mudanças metodológicas
+    sobrepostas, não atribuída unicamente a CATI
+- Footnote sobre reponderação 2025 (Censo 2022) — posterior à janela
+- Paper: 64 pgs, 1167 KB, 0 undefined refs
