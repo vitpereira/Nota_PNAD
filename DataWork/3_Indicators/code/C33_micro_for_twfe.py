@@ -102,6 +102,11 @@ df["em_any"]     = (df["V3002"] == 1).astype(int)
 df["escola_ou_em_completo"] = (
     (df["V3002"] == 1) | (df["VD3004"] >= 5)
 ).astype(int)
+# Outcome principal PdM: matriculado em EM regular OU EJA EM OU ja concluiu EM
+df["em_or_eja_or_done"] = (
+    ((df["V3002"] == 1) & (df["V3003A"].isin([6, 7]))) |
+    (df["VD3004"] >= 5)
+).astype(int)
 
 # Quarter index (continuous): 1 = 2022Q1, 16 = 2025Q4
 df["q_idx"] = (df["Ano"] - 2022) * 4 + df["Trimestre"]
@@ -131,7 +136,7 @@ keep_cols = ["hh_id", "UF", "Ano", "Trimestre", "q_idx", "yr_q",
               "grupo", "treat_extreme", "treat_low", "control",
               "post_anuncio", "post_implem", "post_expand",
               "em_regular", "em_any", "escola_ou_em_completo",
-              "VD3004", "V1028"]
+              "em_or_eja_or_done", "VD3004", "V1028"]
 micro = df[keep_cols].copy()
 micro = micro.rename(columns={"V1028": "wt"})
 micro["wt"] = pd.to_numeric(micro["wt"], errors="coerce").fillna(0)

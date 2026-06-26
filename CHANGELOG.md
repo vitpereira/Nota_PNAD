@@ -1599,3 +1599,50 @@ fronteira entre pré (anúncio do programa em meados do trim) e pós
 
 Pre-trends agora 2022Q1-2023Q3 (7 trimestres), post 2024Q1-2025Q4
 (8 trimestres). Pre-trends visualmente mais limpos.
+
+---
+
+## 2026-06-26 — Rodada 33: Event study separado por grupo + outcome com EJA
+
+Correções do autor:
+1. T0 deve diferir por grupo: extreme = 2023Q4 (anúncio), low = 2024Q3 (expansão)
+2. Outcome: matrícula em EM regular OU EJA EM OU já concluiu EM
+
+### Datas-chave do PdM por grupo
+- **Renda < 1/4 SM (BFA-priorizado)**: T0 = 2023Q4 (anúncio Dez/2023)
+  Famílias BFA receberam primeira parcela em mar/2024 (Q1)
+- **1/4-1/2 SM (CadÚnico não-BFA)**: T0 = 2024Q3 (expansão ago/2024)
+  Famílias incluídas via Portaria 792, primeira parcela em ago/2024
+
+### Modelo (cada grupo separadamente vs control = >1/2 SM)
+y = α_uf + γ_q + δ*1[treat] + Σ_{k≠T0} β_k * 1[treat]*1[q=k] + ε
+
+### Outcome
+y = 1 se (V3002=1 AND V3003A ∈ {6,7}) OR (VD3004 ≥ 5)
+    matriculado em EM regular OU EJA EM OU já concluiu EM
+
+### Resultados F17a (extreme, T0=2023Q4, N=428k)
+- Pre-period (2022Q1-2023Q3): coefs oscilando -3 a +1 p.p.
+- Pós-T0:
+  - 2024Q1: +2.71** (imediato após anúncio)
+  - 2024Q2-Q3: +1.5 a +1.8
+  - 2025Q1: +4.21*** (PICO)
+  - 2025Q4: +2.80**
+
+### Resultados F17b (low, T0=2024Q3, N=359k)
+- Pre-period (2022Q1-2024Q2): coefs oscilando -3.5 a +1
+- Pós-T0:
+  - 2024Q4: -0.2 (efeito pequeno inicial)
+  - 2025Q1: +2.05** 
+  - 2025Q2-Q3: +0.4 a +0.7
+  - 2025Q4: +1.32 (sustentado modesto)
+
+### Interpretação
+Grupo de extrema pobreza mostra efeito claro e crescente pós-anúncio.
+Grupo CadÚnico mostra efeito mais modesto, possivelmente por tratamento
+mais tardio (menos trimestres pós-T0 = menos tempo para resposta).
+
+### Mudanças
+- C33: adicionada coluna em_or_eja_or_done
+- C36: 2 modelos separados com T0 distinto
+- F17_event_study.R: 2 plots standalone (F17a, F17b)

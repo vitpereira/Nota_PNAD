@@ -5,61 +5,46 @@
 # Last update: 2026-06-26
 #
 # Description:
-#   Plot event study TWFE: coeficientes por trimestre, baseline 2023Q3.
-#   Dois paineis: (a) Matricula em EM regular; (b) Engajamento.
-#   Para cada painel, duas linhas (low e extreme) com bandas de IC 95%.
+#   Dois plots event study TWFE separados:
+#     F17a: Renda < 1/4 SM vs control, T0 = 2023Q4 (anuncio PdM)
+#     F17b: 1/4 a 1/2 SM   vs control, T0 = 2024Q3 (expansao CadUnico)
+#   Outcome: matricula em EM regular OU EJA EM OU ja concluiu EM (V3002=1 &
+#            V3003A in (6,7) OR VD3004>=5).
 #
 # Inputs:
-INPUT_EM <- "../../3_Indicators/output/C36_event_em.csv"
-INPUT_EN <- "../../3_Indicators/output/C36_event_engage.csv"
+INPUT_A <- "../../3_Indicators/output/C36_event_extreme_em.csv"
+INPUT_B <- "../../3_Indicators/output/C36_event_low_em.csv"
 #
 # Outputs:
-OUT_PDF_EM <- "../output/F17a_event_em.pdf"; OUT_PNG_EM <- "../output/F17a_event_em.png"
-OUT_PDF_EN <- "../output/F17b_event_engage.pdf"; OUT_PNG_EN <- "../output/F17b_event_engage.png"
+OUT_PDF_A <- "../output/F17a_event_extreme.pdf"
+OUT_PNG_A <- "../output/F17a_event_extreme.png"
+OUT_PDF_B <- "../output/F17b_event_low.pdf"
+OUT_PNG_B <- "../output/F17b_event_low.png"
 # -------------------------------------------------------------------------
 
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, scales)
 
-make_event_plot <- function(input_path, ylab, ymin = NA, ymax = NA) {
-    d <- read_csv(input_path, show_col_types = FALSE) %>%
-        mutate(grupo = factor(grupo, levels = c("1/4 a 1/2 SM",
-                                                  "Renda < 1/4 SM")))
+make_event_plot <- function(input_path, base_yrq, label, color,
+                              ymin = NA, ymax = NA, sub_caption = "") {
+    d <- read_csv(input_path, show_col_types = FALSE)
+    base_ano <- as.integer(str_sub(base_yrq, 1, 4))
+    base_trim <- as.integer(str_sub(base_yrq, 6, 6))
+    x_baseline <- base_ano + (base_trim - 0.5) / 4
 
-    x_pdm_anuncio <- 2023.875
-    x_pdm_implem  <- 2024.25
-    x_pdm_expand  <- 2024.625
-    x_baseline    <- 2023.875  # baseline 2023Q4
-
-    p <- ggplot(d, aes(x = x, y = estimate, color = grupo, fill = grupo,
-                          group = grupo)) +
-        # Banda de IC 95%
+    p <- ggplot(d, aes(x = x, y = estimate)) +
+        # IC 95%
         geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
-                     alpha = 0.18, color = NA) +
+                     fill = color, alpha = 0.18) +
         geom_hline(yintercept = 0, color = "gray40", linewidth = 0.4) +
-        # Linhas verticais
-        geom_vline(xintercept = x_baseline, color = "gray40",
-                    linetype = "solid", linewidth = 0.4) +
-        geom_vline(xintercept = x_pdm_anuncio, linetype = "dotted",
-                    color = "gray30", linewidth = 0.5) +
-        geom_vline(xintercept = x_pdm_implem, linetype = "dotted",
-                    color = "gray30", linewidth = 0.5) +
-        geom_vline(xintercept = x_pdm_expand, linetype = "dotted",
-                    color = "gray30", linewidth = 0.5) +
-        geom_line(linewidth = 0.6) +
-        geom_point(size = 1.6) +
-        # Labels nas linhas
+        # Linha do baseline T0
+        geom_vline(xintercept = x_baseline, color = "gray20",
+                    linetype = "dashed", linewidth = 0.5) +
+        geom_line(linewidth = 0.7, color = color) +
+        geom_point(size = 1.8, color = color, shape = 16) +
         annotate("text", x = x_baseline, y = Inf,
-                  label = "Baseline = T0\n(2023Q4)\nAnúncio\n(dez/2023)",
-                  size = 2.5, family = "serif", color = "gray25",
-                  hjust = 1.05, vjust = 1.6) +
-        annotate("text", x = x_pdm_implem, y = Inf,
-                  label = "Primeira\nparcela\n(mar/2024)",
-                  size = 2.5, family = "serif", color = "gray25",
-                  hjust = -0.05, vjust = 1.6) +
-        annotate("text", x = x_pdm_expand, y = Inf,
-                  label = "Expansão\nCadÚnico\n(ago/2024)",
-                  size = 2.5, family = "serif", color = "gray25",
+                  label = sprintf("T0 = %s", base_yrq),
+                  size = 2.7, family = "serif", color = "gray25",
                   hjust = -0.05, vjust = 1.6) +
         scale_x_continuous(
             breaks = seq(2022.125, 2025.875, 0.25),
@@ -69,24 +54,18 @@ make_event_plot <- function(input_path, ylab, ymin = NA, ymax = NA) {
                         "2025Q1","Q2","Q3","Q4")
         ) +
         scale_y_continuous(labels = function(x) paste0(x, " p.p.")) +
-        scale_color_manual(values = c(
-            "1/4 a 1/2 SM"   = "#7D6608",
-            "Renda < 1/4 SM" = "#922B21"
-        ), name = NULL) +
-        scale_fill_manual(values = c(
-            "1/4 a 1/2 SM"   = "#7D6608",
-            "Renda < 1/4 SM" = "#922B21"
-        ), name = NULL) +
-        labs(x = NULL, y = ylab,
+        labs(x = NULL,
+              y = sprintf("Δ tratado (%s) − controle (>1/2 SM), p.p.", label),
+              title = NULL,
               caption = paste0(
-                  "Coeficientes de event-study TWFE com baseline T0 em 2023Q4 (anúncio Dez/2023). ",
-                  "Banda colorida: IC 95% com SE clusterizados em domicílio. ",
-                  "Grupo controle: jovens 15-19 com renda dom. per capita > 1/2 SM. ",
-                  "Pesos: V1028. FE de UF e trimestre."
+                  sub_caption,
+                  " Banda colorida: IC 95% com SE clusterizados em domicílio. ",
+                  "Outcome: matriculado em EM regular OU EJA EM OU já concluiu EM. ",
+                  "Universo: jovens 15-19 anos. ",
+                  "Modelo TWFE com FE de UF e trimestre. Pesos: V1028."
               )) +
         theme_minimal(base_family = "serif", base_size = 10) +
-        theme(legend.position = "bottom",
-              panel.grid.minor = element_blank(),
+        theme(panel.grid.minor = element_blank(),
               axis.text.x = element_text(angle = 45, hjust = 1),
               plot.caption = element_text(hjust = 0, size = 8, color = "gray25"))
 
@@ -96,15 +75,26 @@ make_event_plot <- function(input_path, ylab, ymin = NA, ymax = NA) {
     p
 }
 
-p_em <- make_event_plot(INPUT_EM,
-    ylab = "Δ matrícula EM regular (p.p. vs. baseline)",
-    ymin = -6, ymax = 9)
-p_en <- make_event_plot(INPUT_EN,
-    ylab = "Δ engajamento escolar (p.p. vs. baseline)",
-    ymin = -3, ymax = 5)
+# F17a: extreme (< 1/4 SM), T0 = 2023Q4
+p_A <- make_event_plot(
+    INPUT_A, "2023Q4", "Renda < 1/4 SM", "#922B21",
+    ymin = -4, ymax = 5,
+    sub_caption = paste0(
+        "Renda dom. per capita < 1/4 SM (extrema pobreza / prioridade BFA). ",
+        "T0 = 2023Q4: aprovação do PdM no Congresso (dez/2023)."
+    ))
 
-ggsave(OUT_PDF_EM, p_em, width = 12, height = 5, device = cairo_pdf)
-ggsave(OUT_PNG_EM, p_em, width = 12, height = 5, dpi = 200)
-ggsave(OUT_PDF_EN, p_en, width = 12, height = 5, device = cairo_pdf)
-ggsave(OUT_PNG_EN, p_en, width = 12, height = 5, dpi = 200)
-cat("Saved F17a (EM regular) and F17b (engajamento)\n")
+# F17b: low (1/4-1/2 SM), T0 = 2024Q3
+p_B <- make_event_plot(
+    INPUT_B, "2024Q3", "1/4 a 1/2 SM", "#7D6608",
+    ymin = -4, ymax = 5,
+    sub_caption = paste0(
+        "Renda dom. per capita entre 1/4 e 1/2 SM (CadÚnico-elegível não-BFA). ",
+        "T0 = 2024Q3: expansão CadÚnico via Portaria 792 (ago/2024)."
+    ))
+
+ggsave(OUT_PDF_A, p_A, width = 11, height = 5, device = cairo_pdf)
+ggsave(OUT_PNG_A, p_A, width = 11, height = 5, dpi = 200)
+ggsave(OUT_PDF_B, p_B, width = 11, height = 5, device = cairo_pdf)
+ggsave(OUT_PNG_B, p_B, width = 11, height = 5, dpi = 200)
+cat("Saved F17a (extreme, T0=2023Q4) and F17b (low, T0=2024Q3)\n")
