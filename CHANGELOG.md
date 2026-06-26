@@ -1485,3 +1485,28 @@ via proxy de renda.
 - F14b_em_18_20.{pdf,png}
 - F14c_em_21_24.{pdf,png}
 - pnadc_{01,02,03,04}2025.parquet
+
+---
+
+## 2026-06-26 — Rodada 29: F15 - 15-19 anos por renda dom. per capita
+
+Pedido do autor: trocar indicador BFA por renda dom. per capita < 1/4 SM,
+faixa etária 15-19 anos.
+
+### Grupos (renda dom. per capita / salário mínimo do ano)
+- Renda < 1/4 SM (extrema pobreza)
+- 1/4 a 1/2 SM (CadÚnico-elegível padrão)
+- Renda > 1/2 SM (fora CadÚnico)
+
+### Achados
+- Lines convergem (todos ~46-55%) — universo 15-19 inclui defasados em EM
+  e jovens já fora do EM, achatando as diferenças
+- 2022-2023: "Renda < 1/4 SM" trailing 2-3pp atrás
+- 2024-2025: convergência — "Renda < 1/4 SM" alinha com grupo intermediário,
+  e ambos superam "Renda > 1/2 SM"
+- Sugestivo (não causal): possível efeito PdM para grupo mais pobre
+
+### Novos arquivos
+- C32_em_attendance_by_renda.py
+- C32_em_attendance_by_renda.csv
+- F15_em_attendance_by_renda_15_19.{pdf,png}
