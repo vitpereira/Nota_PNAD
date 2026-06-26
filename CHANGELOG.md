@@ -1262,3 +1262,40 @@ A explicação substantiva é simétrica entre os dois indicadores:
 - §6: parágrafo discutindo o contraste evasão × abandono +
   Figura F13 inserida após F12.
 - Paper: 66 pgs, 1257 KB, 0 undefined refs.
+
+---
+
+## 2026-06-26 — Rodada 24: Auditoria de código (sem bug encontrado)
+
+Pedido do autor: checar se há erro no código do datazoom ou no parser
+da PNADC que possa explicar o paradoxo da repetência pós-COVID.
+
+### Áreas auditadas
+
+1. **A2_parse_pnadc_trimestral.py** — usa layout único (Oct 2022) para
+   todos os 52 trimestres. POTENCIAL bug se IBGE inseriu novas variáveis
+   depois.
+   - VERIFICADO: lendo bytes brutos dos .txt em 2019Q3, 2022Q3, 2023Q3,
+     2024Q3, as distribuições de V3003A, V3006, V3014 nas posições
+     117-118, 134 são IDÊNTICAS. Sem mudança de layout.
+
+2. **B1_harmonize_pnadc.do** — distinção pré-2016 (V3003) vs 2016+ (V3003A).
+   - VERIFICADO: lógica de etapa_consolid correta. Sem viés por ano.
+
+3. **B2_link_individuals.do** — linkage com 80% tolerância sexo/idade.
+   - VERIFICADO: consistência de sexo 99.7-99.9% em todos os anos
+     (inclusive pós-COVID). Sem corrupção de linkage.
+
+4. **C19/C20** — cálculo de nivel, janela Q2-Q3, max(nivel), V3014 correction.
+   - VERIFICADO: lógica simétrica entre anos. Correction só move de
+     evasão para promoção (não afeta repetência).
+
+### Conclusão
+
+NÃO encontrei bug de código que explique a anomalia. O padrão empírico
+descoberto na Rodada 20 (queda da inconsistência intra-ano de V3006 de
+~30% para ~6% em 2020, recuperação parcial só em 2024) é REAL nos dados
+e reflete mudança operacional na coleta da PNADC.
+
+A hipótese da Rodada 21 (CAPI→CATI em 2020-2021 + retomada gradual com
+possível persistência de protocolo) permanece a explicação mais plausível.
