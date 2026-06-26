@@ -82,7 +82,7 @@ dA <- d %>% filter(grupo %in% c("control", "extreme"))
 cat(sprintf("  N obs: %s\n", format(nrow(dA), big.mark = ".")))
 
 coA_em <- run_event(dA, "treat_extreme", "2023Q3", "em_engage",
-                     "Renda < 1/4 SM")
+                     "Renda < R$ 230")
 write_csv(coA_em, OUT_A_EM)
 cat(sprintf("  Saved %s\n", OUT_A_EM))
 # } ----
@@ -93,7 +93,7 @@ dB <- d %>% filter(grupo %in% c("control", "low"))
 cat(sprintf("  N obs: %s\n", format(nrow(dB), big.mark = ".")))
 
 coB_em <- run_event(dB, "treat_low", "2024Q2", "em_engage",
-                     "1/4 a 1/2 SM")
+                     "R$ 230 a 1/2 SM")
 write_csv(coB_em, OUT_B_EM)
 cat(sprintf("  Saved %s\n", OUT_B_EM))
 # } ----

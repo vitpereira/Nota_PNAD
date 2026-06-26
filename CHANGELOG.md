@@ -1665,3 +1665,25 @@ choque) explicitamente.
 Permite ler o coeficiente em k=0 como antecipação/efeito imediato
 do choque. Trimestres pós ficam claramente k=1, k=2, ... vs baseline
 pré-tratamento mais próxima.
+
+---
+
+## 2026-06-26 — Rodada 35: Threshold extrema pobreza fixo R$ 230
+
+Substituição de 1/4 SM (variável por ano) por R$ 230 fixo (próximo
+da linha de extrema pobreza BFA R$ 218 desde jun/2023).
+
+### Grupos novos
+- Renda < R$ 230 (extrema pobreza)
+- R$ 230 ≤ renda ≤ 1/2 SM (CadÚnico-elegível)
+- Renda > 1/2 SM (controle)
+
+### Tamanhos de amostra (15-19, 2022-2025)
+- Antes (1/4 SM): control 233k, extreme 195k, low 125k
+- Depois (R$ 230): control 233k, extreme 155k, low 166k
+  → R$ 230 mais restritivo que 1/4 SM (R$ 303-379 nominal),
+    redistribui ~40k para grupo intermediário
+
+### Arquivos atualizados
+- C32, C33, C35, C36 com novo threshold
+- F15, F16, F17a, F17b re-renderizados com novos labels

@@ -29,6 +29,8 @@ OUT_DIR = ROOT / "DataWork/3_Indicators/output"
 
 # Salario minimo R$/mes
 SM = {2022: 1212, 2023: 1320, 2024: 1412, 2025: 1518}
+# Linha de extrema pobreza fixa (proxy CadUnico extrema pobreza ~R$ 218 jun/2023+)
+LINHA_EXTREMA = 230
 
 # { 1. Load PNADC trimestral 2022-2025 ----
 print("Loading PNADC trimestral 2022-2025...", flush=True)
@@ -81,18 +83,18 @@ df = df.merge(hh_renda_all[["hh_yr_q", "renda_pc"]], on="hh_yr_q", how="left")
 
 # Salario minimo do ano
 df["sm"] = df["Ano"].map(SM)
-df["quarto_sm"] = df["sm"] / 4.0
-df["meio_sm"]   = df["sm"] / 2.0
+df["meio_sm"] = df["sm"] / 2.0
+df["linha_extrema"] = LINHA_EXTREMA
 # } ----
 
 # { 4. Classify by renda ----
 def classify(row):
     if pd.isna(row["renda_pc"]):
         return None  # exclude
-    if row["renda_pc"] < row["quarto_sm"]:
-        return "Renda < 1/4 SM"
+    if row["renda_pc"] < LINHA_EXTREMA:
+        return "Renda < R$ 230"
     if row["renda_pc"] <= row["meio_sm"]:
-        return "1/4 a 1/2 SM"
+        return "R$ 230 a 1/2 SM"
     return "Renda > 1/2 SM"
 
 print("\nClassifying groups...", flush=True)

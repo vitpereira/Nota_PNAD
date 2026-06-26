@@ -27,8 +27,8 @@ df <- read_csv(INPUT, show_col_types = FALSE) %>%
     mutate(
         x = Ano + (Trim - 0.5) / 4,
         grupo = factor(grupo, levels = c(
-            "Renda < 1/4 SM",
-            "1/4 a 1/2 SM",
+            "Renda < R$ 230",
+            "R$ 230 a 1/2 SM",
             "Renda > 1/2 SM"
         ))
     )
@@ -73,18 +73,18 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
     scale_y_continuous(labels = function(x) paste0(x, "%"),
                         limits = c(40, 60), breaks = seq(40, 60, 2)) +
     scale_color_manual(values = c(
-        "Renda < 1/4 SM" = "#922B21",
-        "1/4 a 1/2 SM"   = "#7D6608",
+        "Renda < R$ 230" = "#922B21",
+        "R$ 230 a 1/2 SM"   = "#7D6608",
         "Renda > 1/2 SM" = "#1A5276"
     ), name = NULL) +
     scale_linetype_manual(values = c(
-        "Renda < 1/4 SM" = "solid",
-        "1/4 a 1/2 SM"   = "dashed",
+        "Renda < R$ 230" = "solid",
+        "R$ 230 a 1/2 SM"   = "dashed",
         "Renda > 1/2 SM" = "dotdash"
     ), name = NULL) +
     scale_shape_manual(values = c(
-        "Renda < 1/4 SM" = 16,
-        "1/4 a 1/2 SM"   = 17,
+        "Renda < R$ 230" = 16,
+        "R$ 230 a 1/2 SM"   = 17,
         "Renda > 1/2 SM" = 15
     ), name = NULL) +
     labs(x = NULL, y = NULL,

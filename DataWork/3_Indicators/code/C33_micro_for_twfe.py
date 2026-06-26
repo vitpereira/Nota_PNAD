@@ -27,6 +27,8 @@ PD_TRI = ROOT / "DataWork/1_DownloadPNADC/tmp/pnad_parsed"
 OUT_DIR = ROOT / "DataWork/3_Indicators/output"
 
 SM = {2022: 1212, 2023: 1320, 2024: 1412, 2025: 1518}
+# Linha de extrema pobreza fixa (proxy BFA extrema pobreza R$ 218 desde jun/2023)
+LINHA_EXTREMA = 230
 
 # { 1. Load PNADC trimestral 2022-2025 ----
 print("Loading PNADC trimestral 2022-2025...", flush=True)
@@ -80,14 +82,14 @@ df["hh_id"] = (df["UF"].astype(str) + "_" + df["UPA"].astype(str)
                 + "_" + df["V1008"].astype(str) + "_" + df["V1014"].astype(str))
 
 df["sm"] = df["Ano"].map(SM)
-df["quarto_sm"] = df["sm"] / 4.0
-df["meio_sm"]   = df["sm"] / 2.0
+df["meio_sm"] = df["sm"] / 2.0
+df["linha_extrema"] = LINHA_EXTREMA
 # } ----
 
 # { 4. Define groups (mutually exclusive) ----
 df = df.dropna(subset=["renda_pc"]).copy()
-df["treat_extreme"] = (df["renda_pc"] < df["quarto_sm"]).astype(int)
-df["treat_low"]     = ((df["renda_pc"] >= df["quarto_sm"]) &
+df["treat_extreme"] = (df["renda_pc"] < LINHA_EXTREMA).astype(int)
+df["treat_low"]     = ((df["renda_pc"] >= LINHA_EXTREMA) &
                         (df["renda_pc"] <= df["meio_sm"])).astype(int)
 df["control"]       = (df["renda_pc"] > df["meio_sm"]).astype(int)
 df["grupo"] = np.where(df["treat_extreme"] == 1, "extreme",
@@ -132,7 +134,7 @@ df["idade"] = df["V2009"]
 # { 7. Save microdados ----
 keep_cols = ["hh_id", "UF", "Ano", "Trimestre", "q_idx", "yr_q",
               "V2003", "V2009", "idade", "sexo_f", "preta_parda",
-              "renda_pc", "quarto_sm", "meio_sm",
+              "renda_pc", "linha_extrema", "meio_sm",
               "grupo", "treat_extreme", "treat_low", "control",
               "post_anuncio", "post_implem", "post_expand",
               "em_regular", "em_any", "escola_ou_em_completo",

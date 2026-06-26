@@ -88,21 +88,21 @@ make_event_plot <- function(input_path, base_yrq, shock_yrq,
 # F17a: extreme (< 1/4 SM), choque = 2023Q4, omitido = 2023Q3
 p_A <- make_event_plot(
     INPUT_A, base_yrq = "2023Q3", shock_yrq = "2023Q4",
-    label = "Renda < 1/4 SM", color = "#922B21",
+    label = "Renda < R$ 230", color = "#922B21",
     shock_descr = "Anúncio PdM (dez/2023)",
     ymin = -4, ymax = 7,
     sub_caption = paste0(
-        "Renda dom. per capita < 1/4 SM (extrema pobreza / prioridade BFA)."
+        "Renda dom. per capita < R$ 230 (linha de extrema pobreza / prioridade BFA)."
     ))
 
 # F17b: low (1/4-1/2 SM), choque = 2024Q3, omitido = 2024Q2
 p_B <- make_event_plot(
     INPUT_B, base_yrq = "2024Q2", shock_yrq = "2024Q3",
-    label = "1/4 a 1/2 SM", color = "#7D6608",
+    label = "R$ 230 a 1/2 SM", color = "#7D6608",
     shock_descr = "Expansão CadÚnico (ago/2024)",
     ymin = -4, ymax = 7,
     sub_caption = paste0(
-        "Renda dom. per capita entre 1/4 e 1/2 SM (CadÚnico-elegível não-BFA)."
+        "Renda dom. per capita entre R$ 230 e 1/2 SM (CadÚnico-elegível não-BFA)."
     ))
 
 ggsave(OUT_PDF_A, p_A, width = 11, height = 5, device = cairo_pdf)

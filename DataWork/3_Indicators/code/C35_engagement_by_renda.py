@@ -34,8 +34,8 @@ for (a, q, g), sub in micro.groupby(["Ano", "Trimestre", "grupo"]):
                   "ano_trim": f"{int(a)}Q{int(q)}"})
 
 # Map grupo to readable label
-LABEL = {"extreme": "Renda < 1/4 SM",
-         "low":     "1/4 a 1/2 SM",
+LABEL = {"extreme": "Renda < R$ 230",
+         "low":     "R$ 230 a 1/2 SM",
          "control": "Renda > 1/2 SM"}
 agg = pd.DataFrame(rows)
 agg["grupo"] = agg["grupo"].map(LABEL)
