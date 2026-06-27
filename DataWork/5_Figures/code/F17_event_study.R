@@ -57,8 +57,9 @@ make_event_plot <- function(input_path, base_yrq, shock_yrq,
                   size = 2.5, family = "serif", color = "gray25",
                   hjust = -0.05, vjust = 1.6) +
         scale_x_continuous(
-            breaks = seq(2023.125, 2025.875, 0.25),
-            labels = c("2023Q1","Q2","Q3","Q4",
+            breaks = seq(2022.125, 2025.875, 0.25),
+            labels = c("2022Q1","Q2","Q3","Q4",
+                        "2023Q1","Q2","Q3","Q4",
                         "2024Q1","Q2","Q3","Q4",
                         "2025Q1","Q2","Q3","Q4")
         ) +

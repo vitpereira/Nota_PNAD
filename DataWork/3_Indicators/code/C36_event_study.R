@@ -40,22 +40,23 @@ d <- read_parquet(INPUT)
 cat(sprintf("Rows: %s\n", format(nrow(d), big.mark = ".")))
 
 d <- d %>%
-    # Excluir 2022 inteiro: cada HH so fica 5 trim no painel, sem overlap
-    # entre 2022 e 2024-2025. Plus residuo CAPI->CATI ainda forte em 2022.
-    filter(Ano >= 2023) %>%
     mutate(em_regular = em_regular * 100,
            em_engage  = em_or_eja_or_done * 100,
            engage     = escola_ou_em_completo * 100,
            yr_q       = factor(yr_q,
-                                  levels = c("2023Q1","2023Q2","2023Q3","2023Q4",
+                                  levels = c("2022Q1","2022Q2","2022Q3","2022Q4",
+                                              "2023Q1","2023Q2","2023Q3","2023Q4",
                                               "2024Q1","2024Q2","2024Q3","2024Q4",
                                               "2025Q1","2025Q2","2025Q3","2025Q4")),
            UF         = factor(UF))
 
 run_event <- function(data, treat_var, base_q, outcome_var, label) {
+    # FE de HH absorve heterogeneidade entre domicilios e o main effect
+    # de treat_var (que eh constante dentro de cada HH com classif. estavel).
+    # Identifica efeito apenas da variacao intra-HH ao longo do tempo.
     f <- as.formula(sprintf(
-        "%s ~ %s + i(yr_q, %s, ref = '%s') | UF + yr_q",
-        outcome_var, treat_var, treat_var, base_q
+        "%s ~ i(yr_q, %s, ref = '%s') | hh_id + yr_q",
+        outcome_var, treat_var, base_q
     ))
     m <- feols(f, data = data, weights = ~wt, cluster = ~hh_id)
     co <- tidy(m, conf.int = TRUE, conf.level = 0.95) %>%
