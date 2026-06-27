@@ -24,7 +24,8 @@ PD_TRI = ROOT / "DataWork/1_DownloadPNADC/tmp/pnad_parsed"
 OUT_DIR = ROOT / "DataWork/3_Indicators/output"
 
 LINHA_EXTREMA = 230
-SM = {2023: 1320, 2025: 1518}
+# SM nominal por ano (R$/mes)
+SM = {2021: 1100, 2023: 1320, 2025: 1518}
 
 
 def load_year(year):
@@ -76,7 +77,7 @@ def classify(r, meio_sm):
 
 
 all_rows = []
-for year in [2023, 2025]:
+for year in [2021, 2023, 2025]:
     print(f"Loading {year}...")
     d = load_year(year)
     d = add_renda(d, year)
