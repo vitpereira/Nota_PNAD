@@ -1,0 +1,181 @@
+macroetapa,ano,categoria,valor,abandono,n
+EF finais,2012,sexo,Homem,0.0,4189
+EF finais,2012,sexo,Mulher,0.0,4217
+EF finais,2012,raca,Branca,0.0,3254
+EF finais,2012,raca,Parda,0.0,4611
+EF finais,2012,raca,Preta,0.0,500
+EF finais,2013,sexo,Homem,0.0,4130
+EF finais,2013,sexo,Mulher,0.0,3750
+EF finais,2013,raca,Branca,0.0,2953
+EF finais,2013,raca,Parda,0.0,4463
+EF finais,2013,raca,Preta,0.0,436
+EF finais,2014,sexo,Homem,0.0,4229
+EF finais,2014,sexo,Mulher,0.0,3875
+EF finais,2014,raca,Branca,0.0,2972
+EF finais,2014,raca,Parda,0.0,4682
+EF finais,2014,raca,Preta,0.0,419
+EF finais,2016,sexo,Homem,0.0,5079
+EF finais,2016,sexo,Mulher,0.0,4751
+EF finais,2016,raca,Branca,0.0,3460
+EF finais,2016,raca,Parda,0.0,5709
+EF finais,2016,raca,Preta,0.0,621
+EF finais,2017,sexo,Homem,0.0,5142
+EF finais,2017,sexo,Mulher,0.0,4645
+EF finais,2017,raca,Branca,0.0,3425
+EF finais,2017,raca,Parda,0.0,5687
+EF finais,2017,raca,Preta,0.0,608
+EF finais,2018,sexo,Homem,0.0,4747
+EF finais,2018,sexo,Mulher,0.0,4507
+EF finais,2018,raca,Branca,0.0,3245
+EF finais,2018,raca,Parda,0.0,5257
+EF finais,2018,raca,Preta,0.0,693
+EF finais,2019,sexo,Homem,0.0,4794
+EF finais,2019,sexo,Mulher,0.0,4331
+EF finais,2019,raca,Branca,0.0,3191
+EF finais,2019,raca,Parda,0.0,5183
+EF finais,2019,raca,Preta,0.0,671
+EF finais,2020,sexo,Homem,0.0,3259
+EF finais,2020,sexo,Mulher,0.0,2884
+EF finais,2020,raca,Branca,0.0,2175
+EF finais,2020,raca,Parda,0.0,3490
+EF finais,2020,raca,Preta,0.0,432
+EF finais,2021,sexo,Homem,0.0,2314
+EF finais,2021,sexo,Mulher,0.0,2034
+EF finais,2021,raca,Branca,0.0,1579
+EF finais,2021,raca,Parda,0.0,2441
+EF finais,2021,raca,Preta,0.0,295
+EF finais,2022,sexo,Homem,0.0,4048
+EF finais,2022,sexo,Mulher,0.0,3718
+EF finais,2022,raca,Branca,0.0,2681
+EF finais,2022,raca,Parda,0.0,4391
+EF finais,2022,raca,Preta,0.0,602
+EF finais,2023,sexo,Homem,0.0,3849
+EF finais,2023,sexo,Mulher,0.0,3555
+EF finais,2023,raca,Branca,0.0,2657
+EF finais,2023,raca,Parda,0.0,4094
+EF finais,2023,raca,Preta,0.0,586
+EF finais,2024,sexo,Homem,0.0,3905
+EF finais,2024,sexo,Mulher,0.0,3647
+EF finais,2024,raca,Branca,0.0,2675
+EF finais,2024,raca,Parda,0.0,4223
+EF finais,2024,raca,Preta,0.0,593
+EF iniciais,2012,sexo,Homem,0.0,6099
+EF iniciais,2012,sexo,Mulher,0.0,5186
+EF iniciais,2012,raca,Branca,0.0,4175
+EF iniciais,2012,raca,Parda,0.0,6423
+EF iniciais,2012,raca,Preta,0.0,615
+EF iniciais,2013,sexo,Homem,0.0,5121
+EF iniciais,2013,sexo,Mulher,0.0,4498
+EF iniciais,2013,raca,Branca,0.0,3464
+EF iniciais,2013,raca,Parda,0.0,5684
+EF iniciais,2013,raca,Preta,0.0,442
+EF iniciais,2014,sexo,Homem,0.0,5322
+EF iniciais,2014,sexo,Mulher,0.0,4639
+EF iniciais,2014,raca,Branca,0.0,3626
+EF iniciais,2014,raca,Parda,0.0,5815
+EF iniciais,2014,raca,Preta,0.0,478
+EF iniciais,2016,sexo,Homem,0.0,6040
+EF iniciais,2016,sexo,Mulher,0.0,5340
+EF iniciais,2016,raca,Branca,0.0,3952
+EF iniciais,2016,raca,Parda,0.0,6691
+EF iniciais,2016,raca,Preta,0.0,685
+EF iniciais,2017,sexo,Homem,0.0,5918
+EF iniciais,2017,sexo,Mulher,0.0,5416
+EF iniciais,2017,raca,Branca,0.0,4049
+EF iniciais,2017,raca,Parda,0.0,6535
+EF iniciais,2017,raca,Preta,0.0,659
+EF iniciais,2018,sexo,Homem,0.0,5715
+EF iniciais,2018,sexo,Mulher,0.0,5228
+EF iniciais,2018,raca,Branca,0.0,3900
+EF iniciais,2018,raca,Parda,0.0,6293
+EF iniciais,2018,raca,Preta,0.0,668
+EF iniciais,2019,sexo,Homem,0.0,5470
+EF iniciais,2019,sexo,Mulher,0.0,4985
+EF iniciais,2019,raca,Branca,0.0,3707
+EF iniciais,2019,raca,Parda,0.0,5969
+EF iniciais,2019,raca,Preta,0.0,691
+EF iniciais,2020,sexo,Homem,0.0,3593
+EF iniciais,2020,sexo,Mulher,0.0,3376
+EF iniciais,2020,raca,Branca,0.0,2542
+EF iniciais,2020,raca,Parda,0.0,3961
+EF iniciais,2020,raca,Preta,0.0,427
+EF iniciais,2021,sexo,Homem,0.0,2341
+EF iniciais,2021,sexo,Mulher,0.0,2140
+EF iniciais,2021,raca,Branca,0.0,1574
+EF iniciais,2021,raca,Parda,0.0,2580
+EF iniciais,2021,raca,Preta,0.0,292
+EF iniciais,2022,sexo,Homem,0.0,4400
+EF iniciais,2022,sexo,Mulher,0.0,3958
+EF iniciais,2022,raca,Branca,0.0,3178
+EF iniciais,2022,raca,Parda,0.0,4516
+EF iniciais,2022,raca,Preta,0.0,576
+EF iniciais,2023,sexo,Homem,0.0,4302
+EF iniciais,2023,sexo,Mulher,0.0,4073
+EF iniciais,2023,raca,Branca,0.0,3094
+EF iniciais,2023,raca,Parda,0.0,4616
+EF iniciais,2023,raca,Preta,0.0,570
+EF iniciais,2024,sexo,Homem,0.0,4588
+EF iniciais,2024,sexo,Mulher,0.0,4148
+EF iniciais,2024,raca,Branca,0.0,3230
+EF iniciais,2024,raca,Parda,0.0,4766
+EF iniciais,2024,raca,Preta,0.0,652
+EM,2012,sexo,Homem,0.0,2230
+EM,2012,sexo,Mulher,0.0,2542
+EM,2012,raca,Branca,0.0,2033
+EM,2012,raca,Parda,0.0,2442
+EM,2012,raca,Preta,0.0,270
+EM,2013,sexo,Homem,0.0,2100
+EM,2013,sexo,Mulher,0.0,2371
+EM,2013,raca,Branca,0.0,1835
+EM,2013,raca,Parda,0.0,2395
+EM,2013,raca,Preta,0.0,226
+EM,2014,sexo,Homem,0.0,2341
+EM,2014,sexo,Mulher,0.0,2549
+EM,2014,raca,Branca,0.0,2016
+EM,2014,raca,Parda,0.0,2602
+EM,2014,raca,Preta,0.0,253
+EM,2016,sexo,Homem,0.0,2900
+EM,2016,sexo,Mulher,0.0,2901
+EM,2016,raca,Branca,0.0,2153
+EM,2016,raca,Parda,0.0,3211
+EM,2016,raca,Preta,0.0,413
+EM,2017,sexo,Homem,0.0,2814
+EM,2017,sexo,Mulher,0.0,2849
+EM,2017,raca,Branca,0.0,2102
+EM,2017,raca,Parda,0.0,3152
+EM,2017,raca,Preta,0.0,381
+EM,2018,sexo,Homem,0.0,2596
+EM,2018,sexo,Mulher,0.0,2660
+EM,2018,raca,Branca,0.0,1911
+EM,2018,raca,Parda,0.0,2948
+EM,2018,raca,Preta,0.0,365
+EM,2019,sexo,Homem,0.0,2586
+EM,2019,sexo,Mulher,0.0,2597
+EM,2019,raca,Branca,0.0,1947
+EM,2019,raca,Parda,0.0,2827
+EM,2019,raca,Preta,0.0,376
+EM,2020,sexo,Homem,0.0,2020
+EM,2020,sexo,Mulher,0.0,1988
+EM,2020,raca,Branca,0.0,1557
+EM,2020,raca,Parda,0.0,2111
+EM,2020,raca,Preta,0.0,308
+EM,2021,sexo,Homem,0.0,1400
+EM,2021,sexo,Mulher,0.0,1350
+EM,2021,raca,Branca,0.0,1009
+EM,2021,raca,Parda,0.0,1518
+EM,2021,raca,Preta,0.0,193
+EM,2022,sexo,Homem,0.0,2413
+EM,2022,sexo,Mulher,0.0,2182
+EM,2022,raca,Branca,0.0,1692
+EM,2022,raca,Parda,0.0,2487
+EM,2022,raca,Preta,0.0,368
+EM,2023,sexo,Homem,0.0,2390
+EM,2023,sexo,Mulher,0.0,2316
+EM,2023,raca,Branca,0.0,1701
+EM,2023,raca,Parda,0.0,2547
+EM,2023,raca,Preta,0.0,421
+EM,2024,sexo,Homem,0.0,2224
+EM,2024,sexo,Mulher,0.0,2120
+EM,2024,raca,Branca,0.0,1633
+EM,2024,raca,Parda,0.0,2334
+EM,2024,raca,Preta,0.0,337
