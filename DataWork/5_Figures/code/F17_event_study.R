@@ -57,9 +57,8 @@ make_event_plot <- function(input_path, base_yrq, shock_yrq,
                   size = 2.5, family = "serif", color = "gray25",
                   hjust = -0.05, vjust = 1.6) +
         scale_x_continuous(
-            breaks = seq(2022.125, 2025.875, 0.25),
-            labels = c("2022Q1","Q2","Q3","Q4",
-                        "2023Q1","Q2","Q3","Q4",
+            breaks = seq(2023.125, 2025.875, 0.25),
+            labels = c("2023Q1","Q2","Q3","Q4",
                         "2024Q1","Q2","Q3","Q4",
                         "2025Q1","Q2","Q3","Q4")
         ) +
@@ -105,8 +104,8 @@ p_B <- make_event_plot(
         "Renda dom. per capita entre R$ 230 e 1/2 SM (CadÚnico-elegível não-BFA)."
     ))
 
-ggsave(OUT_PDF_A, p_A, width = 11, height = 5, device = cairo_pdf)
-ggsave(OUT_PNG_A, p_A, width = 11, height = 5, dpi = 200)
-ggsave(OUT_PDF_B, p_B, width = 11, height = 5, device = cairo_pdf)
-ggsave(OUT_PNG_B, p_B, width = 11, height = 5, dpi = 200)
+ggsave(OUT_PDF_A, p_A, width = 9, height = 5, device = cairo_pdf)
+ggsave(OUT_PNG_A, p_A, width = 9, height = 5, dpi = 150)
+ggsave(OUT_PDF_B, p_B, width = 9, height = 5, device = cairo_pdf)
+ggsave(OUT_PNG_B, p_B, width = 9, height = 5, dpi = 150)
 cat("Saved F17a and F17b com convencao da literatura (k=-1 omitido).\n")
