@@ -87,11 +87,13 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
         "R$ 230 a 1/2 SM"   = 17,
         "Renda > 1/2 SM" = 15
     ), name = NULL) +
-    labs(x = NULL, y = NULL,
+    labs(x = NULL,
+          y = "% de jovens 15-19 matriculados em EM regular",
           caption = paste0(
-              "Universo: jovens 15-19 anos. Numerador: matriculados em EM regular (V3002=1, V3003A=6). ",
-              "Renda = renda domiciliar per capita (V403312 somada por domicílio dividida por V2001), ",
-              "classificada por fração do salário mínimo do ano (R$1.212 em 2022, R$1.320 em 2023, R$1.412 em 2024, R$1.518 em 2025)."
+              "Universo: jovens 15-19 anos. Numerador: matriculados em EM regular (V3002=1 e V3003A=6). ",
+              "Denominador: todos os jovens 15-19 do grupo de renda. ",
+              "Renda dom. per capita classificada pela renda na PRIMEIRA observação do domicílio (estável). ",
+              "Faixas: R$ 1.212 (2022), R$ 1.320 (2023), R$ 1.412 (2024), R$ 1.518 (2025) para o salário mínimo."
           )) +
     theme_minimal(base_family = "serif", base_size = 10) +
     theme(legend.position = "bottom",
