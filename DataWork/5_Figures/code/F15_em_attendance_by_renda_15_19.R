@@ -13,7 +13,7 @@
 #   Linhas verticais nas datas-chave do Pe-de-Meia.
 #
 # Inputs:
-INPUT <- "../../3_Indicators/output/C32_em_attendance_by_renda.csv"
+INPUT <- "../../3_Indicators/output/C37_attendance_stable_em.csv"
 #
 # Outputs:
 OUTPUT_PDF <- "../output/F15_em_attendance_by_renda_15_19.pdf"
@@ -99,6 +99,6 @@ p <- ggplot(df, aes(x = x, y = em_rate * 100,
           axis.text.x = element_text(angle = 45, hjust = 1),
           plot.caption = element_text(hjust = 0, size = 8, color = "gray25"))
 
-ggsave(OUTPUT_PDF, p, width = 12, height = 5, device = cairo_pdf)
-ggsave(OUTPUT_PNG, p, width = 12, height = 5, dpi = 200)
+ggsave(OUTPUT_PDF, p, width = 9, height = 5, device = cairo_pdf)
+ggsave(OUTPUT_PNG, p, width = 9, height = 5, dpi = 150)
 cat("Saved F15\n")

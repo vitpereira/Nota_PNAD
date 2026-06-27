@@ -12,7 +12,7 @@
 #   BFA (mar/2024), expansao CadUnico (ago/2024).
 #
 # Inputs:
-INPUT <- "../../3_Indicators/output/C35_engagement_by_renda.csv"
+INPUT <- "../../3_Indicators/output/C37_attendance_stable_engage.csv"
 #
 # Outputs:
 OUTPUT_PDF <- "../output/F16_engagement_15_19.pdf"
@@ -93,6 +93,6 @@ p <- ggplot(df, aes(x = x, y = engagement * 100,
           axis.text.x = element_text(angle = 45, hjust = 1),
           plot.caption = element_text(hjust = 0, size = 8, color = "gray25"))
 
-ggsave(OUTPUT_PDF, p, width = 12, height = 5, device = cairo_pdf)
-ggsave(OUTPUT_PNG, p, width = 12, height = 5, dpi = 200)
+ggsave(OUTPUT_PDF, p, width = 9, height = 5, device = cairo_pdf)
+ggsave(OUTPUT_PNG, p, width = 9, height = 5, dpi = 150)
 cat("Saved F16\n")
