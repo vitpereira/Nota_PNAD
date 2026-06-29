@@ -1,12 +1,9 @@
 # -------------------------------------------------------------------------
-# AP_AB_abandono_profundo.py
+# AP_AB_abandono_profundo.py (v2 - usa AP_C micro com V3014)
 # -------------------------------------------------------------------------
 # Description:
-#   Exploracoes profundas do abandono:
-#   AB1. Abandono por idade na serie (cada serie tem distribuicao etaria)
-#   AB2. Abandono por raca, sexo, dentro de cada macroetapa
-#   AB3. Probabilidade de "retorno" - abandonou em t e voltou em t+1
-#   AB4. Idade media dos abandonados vs idade media dos retidos
+#   Exploracoes profundas do abandono usando AP_C_micro_abandono.parquet
+#   (que ja tem correcao V3014). Adiciona demografia (sexo, raca) ao micro.
 # -------------------------------------------------------------------------
 
 from pathlib import Path
@@ -18,34 +15,30 @@ ROOT = Path(__file__).resolve().parent.parent.parent.parent
 LINK = ROOT / "DataWork/2_PanelBuild/tmp/pnadc_linked.dta"
 OUT = ROOT / "DataWork/3_Indicators/output"
 
-print("Loading linked...")
-df, _ = pyreadstat.read_dta(str(LINK),
-    usecols=["person_id","Ano","Trimestre","idade","sexo","raca",
-              "etapa_consolid","serie","freq_escola","peso_v1028","link_ok"])
-df = df[(df["link_ok"] == 1) & (df["person_id"].astype(str).str.strip() != "")].copy()
-df = df.dropna(subset=["etapa_consolid","serie"])
+# Carregar AP_C micro
+ab = pd.read_parquet(OUT / "AP_C_micro_abandono.parquet")
+print(f"AP_C micro: {len(ab):,}")
 
-# Cobertura Q1-Q4
-trims = df.groupby(["person_id","Ano"])["Trimestre"].nunique()
-full4 = trims[trims == 4].reset_index()[["person_id","Ano"]]
-df_full = df.merge(full4, on=["person_id","Ano"], how="inner")
+# Adicionar sexo e raca do painel
+print("Loading demo do panel...")
+demo, _ = pyreadstat.read_dta(str(LINK),
+    usecols=["person_id","Ano","Trimestre","sexo","raca"])
+demo = demo[demo["Trimestre"]==1].drop(columns="Trimestre")
+demo["sexo"] = pd.to_numeric(demo["sexo"], errors="coerce")
+demo["raca"] = pd.to_numeric(demo["raca"], errors="coerce")
+demo["sexo_lbl"] = demo["sexo"].map({1:"Homem",2:"Mulher"})
+demo["raca_lbl"] = demo["raca"].map({1:"Branca",2:"Preta",4:"Parda"})
 
-q1 = df_full[df_full["Trimestre"]==1].copy()
-q1 = q1[q1["etapa_consolid"].isin([4,5,10,11,12])]
-q1 = q1[q1["freq_escola"]==1]
-q4 = df_full[df_full["Trimestre"]==4][
-    ["person_id","Ano","freq_escola"]].rename(columns={"freq_escola":"freq_q4"})
+ab = ab.merge(demo[["person_id","Ano","sexo_lbl","raca_lbl"]],
+                on=["person_id","Ano"], how="left")
+print(f"after merge demo: {len(ab):,}")
 
-ab = q1.merge(q4, on=["person_id","Ano"], how="left")
-ab["abandono"] = (ab["freq_q4"]==0).astype(int)
+# Macroetapa
 ab["macroetapa"] = ab["etapa_consolid"].map({4:"EF iniciais",5:"EF finais",
-                                                10:"EM",11:"EM",12:"EM"})
-ab["sexo_lbl"] = ab["sexo"].map({1:"Homem",2:"Mulher"})
-ab["raca_lbl"] = ab["raca"].map({1:"Branca",2:"Preta",4:"Parda"})
-ab["wt"] = ab["peso_v1028"].fillna(0)
+                                                  10:"EM",11:"EM",12:"EM"})
 
-# AB1: abandono por idade na serie
-print("AB1: por idade...")
+# AB1: abandono (corrigido) por idade x macroetapa, pooled
+print("\nAB1: por idade...")
 rows = []
 for (macro, idade), sub in ab.groupby(["macroetapa","idade"]):
     if sub["wt"].sum() == 0: continue
@@ -54,8 +47,8 @@ for (macro, idade), sub in ab.groupby(["macroetapa","idade"]):
                   "abandono":rate, "n":len(sub)})
 pd.DataFrame(rows).to_csv(OUT / "AP_AB1_abandono_por_idade.csv", index=False)
 
-# AB2: abandono por raca e sexo
-print("AB2: por raca e sexo...")
+# AB2: por sexo e raca, ano
+print("AB2: por sexo e raca, ano...")
 rows = []
 for (macro, ano), sub in ab.groupby(["macroetapa","Ano"]):
     for sx, sub2 in sub.groupby("sexo_lbl"):
@@ -72,20 +65,14 @@ for (macro, ano), sub in ab.groupby(["macroetapa","Ano"]):
                       "abandono":rate, "n":len(sub2)})
 pd.DataFrame(rows).to_csv(OUT / "AP_AB2_abandono_por_demo.csv", index=False)
 
-# AB4: idade media dos abandonados vs retidos (por macroetapa, ano)
-print("AB4: idade media abandonados vs retidos...")
+# AB4: idade media abandonados vs retidos
+print("AB4: idade media...")
 rows = []
 for (macro, ano), sub in ab.groupby(["macroetapa","Ano"]):
     abandon = sub[sub.abandono == 1]
     retido  = sub[sub.abandono == 0]
-    if abandon["wt"].sum() > 0:
-        idade_ab = np.average(abandon.idade, weights=abandon.wt)
-    else:
-        idade_ab = np.nan
-    if retido["wt"].sum() > 0:
-        idade_rt = np.average(retido.idade, weights=retido.wt)
-    else:
-        idade_rt = np.nan
+    idade_ab = np.average(abandon.idade, weights=abandon.wt) if abandon["wt"].sum() > 0 else np.nan
+    idade_rt = np.average(retido.idade,  weights=retido.wt)  if retido["wt"].sum() > 0 else np.nan
     rows.append({"macroetapa":macro,"ano":int(ano),
                   "idade_media_abandonados":idade_ab,
                   "idade_media_retidos":idade_rt,

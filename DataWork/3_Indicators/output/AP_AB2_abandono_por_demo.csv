@@ -1,181 +1,196 @@
 macroetapa,ano,categoria,valor,abandono,n
-EF finais,2012,sexo,Homem,0.0,4189
-EF finais,2012,sexo,Mulher,0.0,4217
-EF finais,2012,raca,Branca,0.0,3254
-EF finais,2012,raca,Parda,0.0,4611
-EF finais,2012,raca,Preta,0.0,500
-EF finais,2013,sexo,Homem,0.0,4130
-EF finais,2013,sexo,Mulher,0.0,3750
-EF finais,2013,raca,Branca,0.0,2953
-EF finais,2013,raca,Parda,0.0,4463
-EF finais,2013,raca,Preta,0.0,436
-EF finais,2014,sexo,Homem,0.0,4229
-EF finais,2014,sexo,Mulher,0.0,3875
-EF finais,2014,raca,Branca,0.0,2972
-EF finais,2014,raca,Parda,0.0,4682
-EF finais,2014,raca,Preta,0.0,419
-EF finais,2016,sexo,Homem,0.0,5079
-EF finais,2016,sexo,Mulher,0.0,4751
-EF finais,2016,raca,Branca,0.0,3460
-EF finais,2016,raca,Parda,0.0,5709
-EF finais,2016,raca,Preta,0.0,621
-EF finais,2017,sexo,Homem,0.0,5142
-EF finais,2017,sexo,Mulher,0.0,4645
-EF finais,2017,raca,Branca,0.0,3425
-EF finais,2017,raca,Parda,0.0,5687
-EF finais,2017,raca,Preta,0.0,608
-EF finais,2018,sexo,Homem,0.0,4747
-EF finais,2018,sexo,Mulher,0.0,4507
-EF finais,2018,raca,Branca,0.0,3245
-EF finais,2018,raca,Parda,0.0,5257
-EF finais,2018,raca,Preta,0.0,693
-EF finais,2019,sexo,Homem,0.0,4794
-EF finais,2019,sexo,Mulher,0.0,4331
-EF finais,2019,raca,Branca,0.0,3191
-EF finais,2019,raca,Parda,0.0,5183
-EF finais,2019,raca,Preta,0.0,671
-EF finais,2020,sexo,Homem,0.0,3259
-EF finais,2020,sexo,Mulher,0.0,2884
-EF finais,2020,raca,Branca,0.0,2175
-EF finais,2020,raca,Parda,0.0,3490
-EF finais,2020,raca,Preta,0.0,432
-EF finais,2021,sexo,Homem,0.0,2314
-EF finais,2021,sexo,Mulher,0.0,2034
-EF finais,2021,raca,Branca,0.0,1579
-EF finais,2021,raca,Parda,0.0,2441
+EF finais,2012,sexo,Homem,0.04934809509804077,4753
+EF finais,2012,sexo,Mulher,0.030296544804611813,4549
+EF finais,2012,raca,Branca,0.03047222173047871,3545
+EF finais,2012,raca,Parda,0.04512741066385014,5141
+EF finais,2012,raca,Preta,0.05758634805061553,568
+EF finais,2013,sexo,Homem,0.039397002972981564,4618
+EF finais,2013,sexo,Mulher,0.028460613507218752,4059
+EF finais,2013,raca,Branca,0.023786380820916376,3183
+EF finais,2013,raca,Parda,0.04293405127552047,4983
+EF finais,2013,raca,Preta,0.03180963681830975,483
+EF finais,2014,sexo,Homem,0.04399706589403721,4679
+EF finais,2014,sexo,Mulher,0.027327952911781424,4176
+EF finais,2014,raca,Branca,0.027246179403872004,3199
+EF finais,2014,raca,Parda,0.038806320188583626,5141
+EF finais,2014,raca,Preta,0.073146428940786,482
+EF finais,2015,sexo,Homem,0.034515497488339236,4717
+EF finais,2015,sexo,Mulher,0.019207931556420817,4294
+EF finais,2015,raca,Branca,0.01810649949330171,3289
+EF finais,2015,raca,Parda,0.03401840316279369,5199
+EF finais,2015,raca,Preta,0.03167210348505247,480
+EF finais,2016,sexo,Homem,0.031725445001900325,5356
+EF finais,2016,sexo,Mulher,0.017047636566340552,4903
+EF finais,2016,raca,Branca,0.014625685556698903,3568
+EF finais,2016,raca,Parda,0.03056763301152128,5998
+EF finais,2016,raca,Preta,0.03674578721456092,653
+EF finais,2017,sexo,Homem,0.0320785231073087,5412
+EF finais,2017,sexo,Mulher,0.015773152168125967,4768
+EF finais,2017,raca,Branca,0.016483316268567666,3530
+EF finais,2017,raca,Parda,0.028271853333626737,5937
+EF finais,2017,raca,Preta,0.028432344500766666,640
+EF finais,2018,sexo,Homem,0.023478657199302574,4945
+EF finais,2018,sexo,Mulher,0.017436506646684207,4617
+EF finais,2018,raca,Branca,0.015894175519564832,3329
+EF finais,2018,raca,Parda,0.023616554566629887,5448
+EF finais,2018,raca,Preta,0.025170338859283013,724
+EF finais,2019,sexo,Homem,0.027128727939159977,4980
+EF finais,2019,sexo,Mulher,0.01624045090639776,4427
+EF finais,2019,raca,Branca,0.010018891022581357,3252
+EF finais,2019,raca,Parda,0.027888707473435314,5369
+EF finais,2019,raca,Preta,0.0412593253082672,701
+EF finais,2020,sexo,Homem,0.0051238051094321425,3286
+EF finais,2020,sexo,Mulher,0.006464546021363846,2909
+EF finais,2020,raca,Branca,0.0059412515218167485,2190
+EF finais,2020,raca,Parda,0.005894847414639312,3523
+EF finais,2020,raca,Preta,0.0029495689329889314,435
+EF finais,2021,sexo,Homem,0.010762196032544387,2349
+EF finais,2021,sexo,Mulher,0.004730617326106428,2050
+EF finais,2021,raca,Branca,0.005057248068310715,1590
+EF finais,2021,raca,Parda,0.01142480491399443,2481
 EF finais,2021,raca,Preta,0.0,295
-EF finais,2022,sexo,Homem,0.0,4048
-EF finais,2022,sexo,Mulher,0.0,3718
-EF finais,2022,raca,Branca,0.0,2681
-EF finais,2022,raca,Parda,0.0,4391
-EF finais,2022,raca,Preta,0.0,602
-EF finais,2023,sexo,Homem,0.0,3849
-EF finais,2023,sexo,Mulher,0.0,3555
-EF finais,2023,raca,Branca,0.0,2657
-EF finais,2023,raca,Parda,0.0,4094
-EF finais,2023,raca,Preta,0.0,586
-EF finais,2024,sexo,Homem,0.0,3905
-EF finais,2024,sexo,Mulher,0.0,3647
-EF finais,2024,raca,Branca,0.0,2675
-EF finais,2024,raca,Parda,0.0,4223
-EF finais,2024,raca,Preta,0.0,593
-EF iniciais,2012,sexo,Homem,0.0,6099
-EF iniciais,2012,sexo,Mulher,0.0,5186
-EF iniciais,2012,raca,Branca,0.0,4175
-EF iniciais,2012,raca,Parda,0.0,6423
-EF iniciais,2012,raca,Preta,0.0,615
-EF iniciais,2013,sexo,Homem,0.0,5121
-EF iniciais,2013,sexo,Mulher,0.0,4498
-EF iniciais,2013,raca,Branca,0.0,3464
-EF iniciais,2013,raca,Parda,0.0,5684
-EF iniciais,2013,raca,Preta,0.0,442
-EF iniciais,2014,sexo,Homem,0.0,5322
-EF iniciais,2014,sexo,Mulher,0.0,4639
-EF iniciais,2014,raca,Branca,0.0,3626
-EF iniciais,2014,raca,Parda,0.0,5815
-EF iniciais,2014,raca,Preta,0.0,478
-EF iniciais,2016,sexo,Homem,0.0,6040
-EF iniciais,2016,sexo,Mulher,0.0,5340
-EF iniciais,2016,raca,Branca,0.0,3952
-EF iniciais,2016,raca,Parda,0.0,6691
-EF iniciais,2016,raca,Preta,0.0,685
-EF iniciais,2017,sexo,Homem,0.0,5918
-EF iniciais,2017,sexo,Mulher,0.0,5416
-EF iniciais,2017,raca,Branca,0.0,4049
-EF iniciais,2017,raca,Parda,0.0,6535
-EF iniciais,2017,raca,Preta,0.0,659
-EF iniciais,2018,sexo,Homem,0.0,5715
-EF iniciais,2018,sexo,Mulher,0.0,5228
-EF iniciais,2018,raca,Branca,0.0,3900
-EF iniciais,2018,raca,Parda,0.0,6293
-EF iniciais,2018,raca,Preta,0.0,668
-EF iniciais,2019,sexo,Homem,0.0,5470
-EF iniciais,2019,sexo,Mulher,0.0,4985
-EF iniciais,2019,raca,Branca,0.0,3707
-EF iniciais,2019,raca,Parda,0.0,5969
-EF iniciais,2019,raca,Preta,0.0,691
-EF iniciais,2020,sexo,Homem,0.0,3593
-EF iniciais,2020,sexo,Mulher,0.0,3376
-EF iniciais,2020,raca,Branca,0.0,2542
-EF iniciais,2020,raca,Parda,0.0,3961
-EF iniciais,2020,raca,Preta,0.0,427
-EF iniciais,2021,sexo,Homem,0.0,2341
-EF iniciais,2021,sexo,Mulher,0.0,2140
-EF iniciais,2021,raca,Branca,0.0,1574
-EF iniciais,2021,raca,Parda,0.0,2580
-EF iniciais,2021,raca,Preta,0.0,292
-EF iniciais,2022,sexo,Homem,0.0,4400
-EF iniciais,2022,sexo,Mulher,0.0,3958
-EF iniciais,2022,raca,Branca,0.0,3178
-EF iniciais,2022,raca,Parda,0.0,4516
-EF iniciais,2022,raca,Preta,0.0,576
-EF iniciais,2023,sexo,Homem,0.0,4302
-EF iniciais,2023,sexo,Mulher,0.0,4073
-EF iniciais,2023,raca,Branca,0.0,3094
-EF iniciais,2023,raca,Parda,0.0,4616
-EF iniciais,2023,raca,Preta,0.0,570
-EF iniciais,2024,sexo,Homem,0.0,4588
-EF iniciais,2024,sexo,Mulher,0.0,4148
-EF iniciais,2024,raca,Branca,0.0,3230
-EF iniciais,2024,raca,Parda,0.0,4766
-EF iniciais,2024,raca,Preta,0.0,652
-EM,2012,sexo,Homem,0.0,2230
-EM,2012,sexo,Mulher,0.0,2542
-EM,2012,raca,Branca,0.0,2033
-EM,2012,raca,Parda,0.0,2442
-EM,2012,raca,Preta,0.0,270
-EM,2013,sexo,Homem,0.0,2100
-EM,2013,sexo,Mulher,0.0,2371
-EM,2013,raca,Branca,0.0,1835
-EM,2013,raca,Parda,0.0,2395
-EM,2013,raca,Preta,0.0,226
-EM,2014,sexo,Homem,0.0,2341
-EM,2014,sexo,Mulher,0.0,2549
-EM,2014,raca,Branca,0.0,2016
-EM,2014,raca,Parda,0.0,2602
-EM,2014,raca,Preta,0.0,253
-EM,2016,sexo,Homem,0.0,2900
-EM,2016,sexo,Mulher,0.0,2901
-EM,2016,raca,Branca,0.0,2153
-EM,2016,raca,Parda,0.0,3211
-EM,2016,raca,Preta,0.0,413
-EM,2017,sexo,Homem,0.0,2814
-EM,2017,sexo,Mulher,0.0,2849
-EM,2017,raca,Branca,0.0,2102
-EM,2017,raca,Parda,0.0,3152
-EM,2017,raca,Preta,0.0,381
-EM,2018,sexo,Homem,0.0,2596
-EM,2018,sexo,Mulher,0.0,2660
-EM,2018,raca,Branca,0.0,1911
-EM,2018,raca,Parda,0.0,2948
-EM,2018,raca,Preta,0.0,365
-EM,2019,sexo,Homem,0.0,2586
-EM,2019,sexo,Mulher,0.0,2597
-EM,2019,raca,Branca,0.0,1947
-EM,2019,raca,Parda,0.0,2827
-EM,2019,raca,Preta,0.0,376
-EM,2020,sexo,Homem,0.0,2020
-EM,2020,sexo,Mulher,0.0,1988
-EM,2020,raca,Branca,0.0,1557
-EM,2020,raca,Parda,0.0,2111
-EM,2020,raca,Preta,0.0,308
-EM,2021,sexo,Homem,0.0,1400
-EM,2021,sexo,Mulher,0.0,1350
-EM,2021,raca,Branca,0.0,1009
-EM,2021,raca,Parda,0.0,1518
-EM,2021,raca,Preta,0.0,193
-EM,2022,sexo,Homem,0.0,2413
-EM,2022,sexo,Mulher,0.0,2182
-EM,2022,raca,Branca,0.0,1692
-EM,2022,raca,Parda,0.0,2487
-EM,2022,raca,Preta,0.0,368
-EM,2023,sexo,Homem,0.0,2390
-EM,2023,sexo,Mulher,0.0,2316
-EM,2023,raca,Branca,0.0,1701
-EM,2023,raca,Parda,0.0,2547
-EM,2023,raca,Preta,0.0,421
-EM,2024,sexo,Homem,0.0,2224
-EM,2024,sexo,Mulher,0.0,2120
-EM,2024,raca,Branca,0.0,1633
-EM,2024,raca,Parda,0.0,2334
-EM,2024,raca,Preta,0.0,337
+EF finais,2022,sexo,Homem,0.012634957745266993,4111
+EF finais,2022,sexo,Mulher,0.004764857493123709,3749
+EF finais,2022,raca,Branca,0.004888991116317883,2704
+EF finais,2022,raca,Parda,0.011606493510878493,4450
+EF finais,2022,raca,Preta,0.010791370449039887,613
+EF finais,2023,sexo,Homem,0.00805104646533116,3895
+EF finais,2023,sexo,Mulher,0.001820537268950828,3570
+EF finais,2023,raca,Branca,0.003999230585209046,2674
+EF finais,2023,raca,Parda,0.0053070759060098675,4130
+EF finais,2023,raca,Preta,0.008457439104675633,593
+EF finais,2024,sexo,Homem,0.018203662506171614,4001
+EF finais,2024,sexo,Mulher,0.01103061137236756,3703
+EF finais,2024,raca,Branca,0.010398744792926932,2713
+EF finais,2024,raca,Parda,0.014745183137113807,4312
+EF finais,2024,raca,Preta,0.03363199905717054,617
+EF iniciais,2012,sexo,Homem,0.019903819831458974,6754
+EF iniciais,2012,sexo,Mulher,0.014304170707400539,5767
+EF iniciais,2012,raca,Branca,0.013971002599185862,4583
+EF iniciais,2012,raca,Parda,0.01914822514869236,7158
+EF iniciais,2012,raca,Preta,0.024438992701618232,688
+EF iniciais,2013,sexo,Homem,0.01571622606640879,5727
+EF iniciais,2013,sexo,Mulher,0.01133506112102628,4976
+EF iniciais,2013,raca,Branca,0.013145575619587326,3836
+EF iniciais,2013,raca,Parda,0.014040615723408138,6333
+EF iniciais,2013,raca,Preta,0.013270387844224598,501
+EF iniciais,2014,sexo,Homem,0.009887525336049313,5880
+EF iniciais,2014,sexo,Mulher,0.008627898339651517,5010
+EF iniciais,2014,raca,Branca,0.007793279888197649,3922
+EF iniciais,2014,raca,Parda,0.009828279276775119,6393
+EF iniciais,2014,raca,Preta,0.016876748737186868,532
+EF iniciais,2015,sexo,Homem,0.00688026787799377,5848
+EF iniciais,2015,sexo,Mulher,0.004832470524402241,5236
+EF iniciais,2015,raca,Branca,0.003808770245358264,4014
+EF iniciais,2015,raca,Parda,0.0071113601132254,6479
+EF iniciais,2015,raca,Preta,0.010835954480944302,528
+EF iniciais,2016,sexo,Homem,0.005988838871379478,6455
+EF iniciais,2016,sexo,Mulher,0.0034638009841605447,5666
+EF iniciais,2016,raca,Branca,0.0024231750550707996,4159
+EF iniciais,2016,raca,Parda,0.006581879850420354,7176
+EF iniciais,2016,raca,Preta,0.004034428042130415,731
+EF iniciais,2017,sexo,Homem,0.008406268522336861,6275
+EF iniciais,2017,sexo,Mulher,0.0032306928833769717,5689
+EF iniciais,2017,raca,Branca,0.002894222586745434,4215
+EF iniciais,2017,raca,Parda,0.008154228152468813,6952
+EF iniciais,2017,raca,Preta,0.007015852018644562,701
+EF iniciais,2018,sexo,Homem,0.010214327740419537,6043
+EF iniciais,2018,sexo,Mulher,0.00296520952273317,5467
+EF iniciais,2018,raca,Branca,0.005957868328865597,4083
+EF iniciais,2018,raca,Parda,0.007556538761461245,6638
+EF iniciais,2018,raca,Preta,0.005362686112687372,706
+EF iniciais,2019,sexo,Homem,0.0059929914939171715,5765
+EF iniciais,2019,sexo,Mulher,0.004395024598268253,5258
+EF iniciais,2019,raca,Branca,0.0036926872087335444,3867
+EF iniciais,2019,raca,Parda,0.006761971380946544,6351
+EF iniciais,2019,raca,Preta,0.003200206510082904,715
+EF iniciais,2020,sexo,Homem,0.006874963419688309,3693
+EF iniciais,2020,sexo,Mulher,0.0045586549039277205,3455
+EF iniciais,2020,raca,Branca,0.006628263378053275,2594
+EF iniciais,2020,raca,Parda,0.005788630263880988,4072
+EF iniciais,2020,raca,Preta,0.0011311942952498886,442
+EF iniciais,2021,sexo,Homem,0.005284105900633341,2408
+EF iniciais,2021,sexo,Mulher,0.0014242433637420514,2193
+EF iniciais,2021,raca,Branca,0.002136474836362308,1619
+EF iniciais,2021,raca,Parda,0.004110786841254163,2649
+EF iniciais,2021,raca,Preta,0.006383930624335946,296
+EF iniciais,2022,sexo,Homem,0.003504576984926869,4499
+EF iniciais,2022,sexo,Mulher,0.0011739919587741465,4050
+EF iniciais,2022,raca,Branca,0.0008295211546033668,3232
+EF iniciais,2022,raca,Parda,0.0033960379136037536,4637
+EF iniciais,2022,raca,Preta,0.0046278788832678245,589
+EF iniciais,2023,sexo,Homem,0.0025665560981484466,4354
+EF iniciais,2023,sexo,Mulher,0.0004578729637887077,4103
+EF iniciais,2023,raca,Branca,0.0007994297327451644,3122
+EF iniciais,2023,raca,Parda,0.0022274140536449687,4663
+EF iniciais,2023,raca,Preta,0.0013602568066172836,577
+EF iniciais,2024,sexo,Homem,0.005559956749918201,4711
+EF iniciais,2024,sexo,Mulher,0.0017310887259162156,4264
+EF iniciais,2024,raca,Branca,0.002698963829199203,3316
+EF iniciais,2024,raca,Parda,0.004680932800089307,4899
+EF iniciais,2024,raca,Preta,0.0030000272912147786,668
+EM,2012,sexo,Homem,0.09022856980278322,2917
+EM,2012,sexo,Mulher,0.06781960098548905,3244
+EM,2012,raca,Branca,0.07531542739665582,2588
+EM,2012,raca,Parda,0.07932496989248398,3186
+EM,2012,raca,Preta,0.10306291637017391,354
+EM,2013,sexo,Homem,0.08656432095868999,2764
+EM,2013,sexo,Mulher,0.05075133928394701,3002
+EM,2013,raca,Branca,0.05457508805368114,2334
+EM,2013,raca,Parda,0.08134332027385474,3110
+EM,2013,raca,Preta,0.06194716421146483,300
+EM,2014,sexo,Homem,0.07140095599870187,3023
+EM,2014,sexo,Mulher,0.047541068695790736,3147
+EM,2014,raca,Branca,0.048600694759747744,2520
+EM,2014,raca,Parda,0.0635193072860801,3297
+EM,2014,raca,Preta,0.10735938765736948,334
+EM,2015,sexo,Homem,0.0745846451162618,3081
+EM,2015,sexo,Mulher,0.04921449868782819,2974
+EM,2015,raca,Branca,0.04226231214808012,2342
+EM,2015,raca,Parda,0.07549678859150943,3392
+EM,2015,raca,Preta,0.1024960251532335,295
+EM,2016,sexo,Homem,0.06428124045635986,3526
+EM,2016,sexo,Mulher,0.04260440306720751,3450
+EM,2016,raca,Branca,0.04107787063575038,2553
+EM,2016,raca,Parda,0.06314043414143747,3884
+EM,2016,raca,Preta,0.06175543398728762,502
+EM,2017,sexo,Homem,0.08021077588956273,3483
+EM,2017,sexo,Mulher,0.05346170027571638,3444
+EM,2017,raca,Branca,0.04964055876504861,2498
+EM,2017,raca,Parda,0.07602549722640595,3903
+EM,2017,raca,Preta,0.09028019711195735,483
+EM,2018,sexo,Homem,0.0712476745764411,3181
+EM,2018,sexo,Mulher,0.042197314165511514,3123
+EM,2018,raca,Branca,0.03863291358004918,2273
+EM,2018,raca,Parda,0.06550745298618849,3539
+EM,2018,raca,Preta,0.0913293261657408,454
+EM,2019,sexo,Homem,0.06669574803564832,3118
+EM,2019,sexo,Mulher,0.04949203199245881,3064
+EM,2019,raca,Branca,0.03610216343168075,2282
+EM,2019,raca,Parda,0.07429187875831042,3398
+EM,2019,raca,Preta,0.06335881021187181,455
+EM,2020,sexo,Homem,0.021377645512438172,2128
+EM,2020,sexo,Mulher,0.011670524674879602,2066
+EM,2020,raca,Branca,0.01729048223283793,1635
+EM,2020,raca,Parda,0.01384591596782484,2201
+EM,2020,raca,Preta,0.028443335315522428,326
+EM,2021,sexo,Homem,0.026959821813162102,1577
+EM,2021,sexo,Mulher,0.01848183447005043,1507
+EM,2021,raca,Branca,0.007942478374445169,1114
+EM,2021,raca,Parda,0.03602280552138236,1718
+EM,2021,raca,Preta,0.019623705111577794,221
+EM,2022,sexo,Homem,0.043316466964650975,2718
+EM,2022,sexo,Mulher,0.03259707209434336,2442
+EM,2022,raca,Branca,0.0333919847083005,1890
+EM,2022,raca,Parda,0.03969752381492621,2800
+EM,2022,raca,Preta,0.050538188973974864,418
+EM,2023,sexo,Homem,0.02831885108677177,2650
+EM,2023,sexo,Mulher,0.022349254754869957,2514
+EM,2023,raca,Branca,0.014685668889376675,1874
+EM,2023,raca,Parda,0.031161572968777723,2776
+EM,2023,raca,Preta,0.04040779860136018,468
+EM,2024,sexo,Homem,0.059287480624044396,2717
+EM,2024,sexo,Mulher,0.04375501302719849,2537
+EM,2024,raca,Branca,0.03455774024171841,1947
+EM,2024,raca,Parda,0.0627539362460406,2829
+EM,2024,raca,Preta,0.0705871595007674,428
