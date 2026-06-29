@@ -252,19 +252,28 @@
 
 ---
 
-## Status de produção (atualizado conforme construo)
+## Status de produção (atualizado 2026-06-29)
 
 | Seção | Figuras planejadas | Produzidas | Status |
 |---|---|---|---|
-| A | 7 | 0 | pendente |
-| B | 12 | 0 | pendente |
-| C | 6 | 1 (F13) | parcial |
-| D | 10 | 3 (F20, F21, F22) | parcial |
-| E | 11 | 0 | pendente |
-| F | 9 | 0 | pendente |
-| G | 11 | 0 | pendente |
-| H | 8 | 0 | pendente |
-| I | 5 | 2 (F21, F22) | parcial |
-| J | 9 | 0 | pendente |
-| K | — (texto) | — | pendente |
-| **Total** | **~91** | **~5** | **~5%** |
+| A — Caracterização da amostra | 7 | 3 (FA_A1, A2, A3) | parcial |
+| B — Fluxo entre-anos por série | 12 | 8 (B1-B4 linhas + B1b-B4b slope) | bom |
+| BR — Brasil agregado/identidade | 4 | 2 (BR1, BR2) | parcial |
+| C — Abandono por série (V3014 corr) | 6 | 3 (C1, C2 dot + C2 linhas) | bom |
+| AB — Abandono profundo | 8 | 4 (AB1, AB2a, AB2b, AB4) | bom |
+| D — Conclusão por etapa/idade | 10 | 6 (D1-D6) | bom |
+| E — Heterogeneidade renda | 11 | 7 (E1, E2 quintil + E3,E4,E5 fluxos quintil) | bom |
+| F — Demografia (raça, sexo) | 9 | 2 (F1 grid raça×sexo×idade×ano, F2 aos 21) | parcial |
+| G — Geografia (UF, região) | 11 | 3 (G1 setas UF, G2 selecao, G3 região) | parcial |
+| H — Frequência trimestral | 8 | 3 (H1, H2a sexo, H2b raça) | parcial |
+| I — Coortes | 5 | 3 (I1 + F21, F22 do paper) | bom |
+| J — Defasagem idade-série | 9 | 5 (J1 defasagem, J2 idade, J3a sexo, J3b raça, J4 evol) | bom |
+| T — Transições | (extras) | 5 (T1 matriz, T2a, T2b, T3, T4) | bom |
+| X — Interações | (extras) | 4 (X1a, X1b perfis + X4, X4b raça×quintil) | bom |
+| **Tabelas LaTeX** | 4 | 4 (A1, BR, C, E) | bom |
+| **Total figuras** | **~91** | **~58** | **~65%** |
+
+**Bug corrigido (Rodada 25-fix em apêndice):** abandono inicialmente
+mostrava ~0% em todas séries devido a `dropna(etapa_consolid,serie)`
+aplicado cedo demais; reescrito seguindo estrutura do C30 (Rodada 25),
+com correção V3014. Valores agora coerentes: 1o EM 7-9%, 3o EM 3-4%, etc.
